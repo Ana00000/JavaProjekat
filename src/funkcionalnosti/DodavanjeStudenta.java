@@ -41,7 +41,6 @@ public class DodavanjeStudenta extends JDialog {
 	GridBagLayout gbp10b2;
 	GridBagLayout gbp11;
 	GridBagLayout gbp12;
-	GridBagLayout gbp13;
 	
 	GridBagConstraints gc0;
 	GridBagConstraints gc1;
@@ -67,7 +66,6 @@ public class DodavanjeStudenta extends JDialog {
 	GridBagConstraints gc21;
 	GridBagConstraints gc22;
 	GridBagConstraints gc23;
-	GridBagConstraints gc24;
 	
 	GridBagConstraints gcp0;
 	GridBagConstraints gcp00;
@@ -86,7 +84,6 @@ public class DodavanjeStudenta extends JDialog {
 	GridBagConstraints gcp11;
 	GridBagConstraints gcp12;
 	GridBagConstraints gcp13;
-	GridBagConstraints gcp14;
 	
 	JPanel p0;
 	
@@ -104,7 +101,6 @@ public class DodavanjeStudenta extends JDialog {
 	JPanel p11;
 	JPanel p12;
 	JPanel p13;
-	JPanel p14;
 	
 	JPanel pb1;
 	JPanel pb2;
@@ -120,7 +116,6 @@ public class DodavanjeStudenta extends JDialog {
 	JLabel datumUpisa;
 	JLabel trenGodStu;
 	JLabel prosOcena;
-	JLabel spisak;
 	
 	JLabel l;
 	JLabel l0;
@@ -202,7 +197,7 @@ public class DodavanjeStudenta extends JDialog {
 	    p0.add(l0,gcp00);
 		
 		title = new JLabel("Dodavanje studenta");
-		title.setFont(new Font("Arial", Font.PLAIN, 16));
+		title.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc0 = new GridBagConstraints();
 		gc0.anchor = GridBagConstraints.WEST;
 		gc0.gridx = 1;
@@ -225,7 +220,7 @@ public class DodavanjeStudenta extends JDialog {
 		p1.setLayout(gbp1);
 		
 		ime = new JLabel("Ime*");
-		ime.setFont(new Font("Arial", Font.PLAIN, 16));
+		ime.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc1 = new GridBagConstraints();
 		gc1.insets = new Insets(0,0,0,35);
 		gc1.gridx = 0;
@@ -233,7 +228,7 @@ public class DodavanjeStudenta extends JDialog {
 		p1.add(ime, gc1);
 		
 		tf1 = new JTextField(10);
-		tf1.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf1.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc2 = new GridBagConstraints();
 		gc2.fill = GridBagConstraints.HORIZONTAL;
 		gc2.gridx = 1;
@@ -256,7 +251,7 @@ public class DodavanjeStudenta extends JDialog {
 		p2.setLayout(gbp2);
 		
 		prezime = new JLabel("Prezime*");
-		prezime.setFont(new Font("Arial", Font.PLAIN, 16));
+		prezime.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc3 = new GridBagConstraints();
 		gc3.insets = new Insets(0,0,0,35);
 		gc3.gridx = 0;
@@ -264,7 +259,7 @@ public class DodavanjeStudenta extends JDialog {
 		p2.add(prezime, gc3);
 		
 		tf2 = new JTextField(10);
-		tf2.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf2.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc4 = new GridBagConstraints();
 		gc4.fill = GridBagConstraints.HORIZONTAL;
 		gc4.gridx = 1;
@@ -287,7 +282,7 @@ public class DodavanjeStudenta extends JDialog {
 		p3.setLayout(gbp3);
 		
 		datum = new JLabel("Datum rođenja*");
-		datum.setFont(new Font("Arial", Font.PLAIN, 16));
+		datum.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc5 = new GridBagConstraints();
 		gc5.insets = new Insets(0,0,0,35);	
 		gc5.gridx = 0;
@@ -295,7 +290,7 @@ public class DodavanjeStudenta extends JDialog {
 		p3.add(datum,gc5);
 		
 		tf3 = new JTextField(10);
-		tf3.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf3.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc6 = new GridBagConstraints();
 		gc6.fill = GridBagConstraints.HORIZONTAL;
 		gc6.gridx = 1;
@@ -318,7 +313,7 @@ public class DodavanjeStudenta extends JDialog {
 		p4.setLayout(gbp4);
 		
 		adresaStan = new JLabel("Adresa stanovanja*");
-		adresaStan.setFont(new Font("Arial", Font.PLAIN, 16));
+		adresaStan.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc7 = new GridBagConstraints();
 		gc7.insets = new Insets(0,0,0,35);		
 		gc7.gridx = 0;
@@ -326,7 +321,7 @@ public class DodavanjeStudenta extends JDialog {
 		p4.add(adresaStan,gc7);
 		
 		tf4 = new JTextField(10);
-		tf4.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf4.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc8 = new GridBagConstraints();
 		gc8.fill = GridBagConstraints.HORIZONTAL;
 		gc8.gridx = 1;
@@ -349,7 +344,7 @@ public class DodavanjeStudenta extends JDialog {
 		p5.setLayout(gbp5);
 		
 		telefon = new JLabel("Kontakt telefon*");
-		telefon.setFont(new Font("Arial", Font.PLAIN, 16));
+		telefon.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc9 = new GridBagConstraints();
 		gc9.insets = new Insets(0,0,0,35);		
 		gc9.gridx = 0;
@@ -357,7 +352,7 @@ public class DodavanjeStudenta extends JDialog {
 		p5.add(telefon,gc9);
 		
 		tf5 = new JTextField(10);
-		tf5.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf5.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc10 = new GridBagConstraints();
 		gc10.fill = GridBagConstraints.HORIZONTAL;
 		gc10.gridx = 1;
@@ -380,7 +375,7 @@ public class DodavanjeStudenta extends JDialog {
 		p6.setLayout(gbp6);
 		
 		email = new JLabel("E-mail adresa*");
-		email.setFont(new Font("Arial", Font.PLAIN, 16));
+		email.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc11 = new GridBagConstraints();
 		gc11.insets = new Insets(0,0,0,35);		
 		gc11.gridx = 0;
@@ -388,7 +383,7 @@ public class DodavanjeStudenta extends JDialog {
 		p6.add(email,gc11);
 		
 		tf6 = new JTextField(10);
-		tf6.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf6.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc12 = new GridBagConstraints();
 		gc12.fill = GridBagConstraints.HORIZONTAL;
 		gc12.gridx = 1;
@@ -411,7 +406,7 @@ public class DodavanjeStudenta extends JDialog {
 		p7.setLayout(gbp7);
 		
 		indeks = new JLabel("Broj indeksa*");
-		indeks.setFont(new Font("Arial", Font.PLAIN, 16));
+		indeks.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc13 = new GridBagConstraints();
 		gc13.insets = new Insets(0,0,0,35);		
 		gc13.gridx = 0;
@@ -419,7 +414,7 @@ public class DodavanjeStudenta extends JDialog {
 		p7.add(indeks,gc13);
 		
 		tf7 = new JTextField(10);
-		tf7.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf7.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc14 = new GridBagConstraints();
 		gc14.fill = GridBagConstraints.HORIZONTAL;
 		gc14.gridx = 1;
@@ -442,7 +437,7 @@ public class DodavanjeStudenta extends JDialog {
 		p8.setLayout(gbp8);
 		
 		datumUpisa = new JLabel("Datum upisa*");
-		datumUpisa.setFont(new Font("Arial", Font.PLAIN, 16));
+		datumUpisa.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc15 = new GridBagConstraints();
 		gc15.insets = new Insets(0,0,0,35);	
 		gc15.gridx = 0;
@@ -450,7 +445,7 @@ public class DodavanjeStudenta extends JDialog {
 		p8.add(datumUpisa,gc15);
 		
 		tf8 = new JTextField(10);
-		tf8.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf8.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc16 = new GridBagConstraints();
 		gc16.fill = GridBagConstraints.HORIZONTAL;
 		gc16.gridx = 1;
@@ -473,7 +468,7 @@ public class DodavanjeStudenta extends JDialog {
 		p9.setLayout(gbp9);
 		
 		trenGodStu = new JLabel("Trenutna godina studija*");
-		trenGodStu.setFont(new Font("Arial", Font.PLAIN, 16));
+		trenGodStu.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc17 = new GridBagConstraints();
 		gc17.insets = new Insets(0,0,0,35);	
 		gc17.gridx = 0;
@@ -482,7 +477,7 @@ public class DodavanjeStudenta extends JDialog {
 		
 		String [] tren_godina = {"I (prva)","II (druga)","III (treća)","IV (četvrta)"};
 		cb1 = new JComboBox(tren_godina);
-		cb1.setFont(new Font("Arial", Font.PLAIN, 16));
+		cb1.setFont(new Font("Arial", Font.PLAIN, 17));
 		cb1.setBackground(Color.WHITE);
 		cb1.setForeground(Color.BLACK);
 		gc18 = new GridBagConstraints();
@@ -523,11 +518,11 @@ public class DodavanjeStudenta extends JDialog {
 		
 		b = new ButtonGroup();
 		rb1 = new JRadioButton("Budžet",true);
-		rb1.setFont(new Font("Arial", Font.PLAIN, 16));
+		rb1.setFont(new Font("Arial", Font.PLAIN, 17));
 		rb1.setBackground(Color.WHITE);
 		
 		rb2 = new JRadioButton("Samofinansiranje",false);
-		rb2.setFont(new Font("Arial", Font.PLAIN, 16));
+		rb2.setFont(new Font("Arial", Font.PLAIN, 17));
 		rb2.setBackground(Color.WHITE);
 		b.add(rb1);
 	    b.add(rb2);
@@ -558,7 +553,7 @@ public class DodavanjeStudenta extends JDialog {
 		p11.setLayout(gbp11);
 	
 		prosOcena = new JLabel("Prosečna ocena*");
-		prosOcena.setFont(new Font("Arial", Font.PLAIN, 16));
+		prosOcena.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc21 = new GridBagConstraints();
 		gc21.insets = new Insets(0,0,0,35);	
 		gc21.gridx = 0;
@@ -566,7 +561,7 @@ public class DodavanjeStudenta extends JDialog {
 		p11.add(prosOcena,gc21);
 		
 		tf9 = new JTextField(10);
-		tf9.setFont(new Font("Futura", Font.PLAIN, 16));
+		tf9.setFont(new Font("Futura", Font.PLAIN, 17));
 		gc22 = new GridBagConstraints();
 		gc22.fill = GridBagConstraints.HORIZONTAL;
 		gc22.gridx = 1;
@@ -576,52 +571,29 @@ public class DodavanjeStudenta extends JDialog {
 		p12 = new JPanel();
 		p12.setBackground(Color.WHITE);
 		gcp12 =  new GridBagConstraints();
-		gcp12.fill = GridBagConstraints.BOTH;
-		gcp12.insets = new Insets(10,55,10,100);
+		gcp12.insets = new Insets(20,55,10,100);
+		gcp12.anchor = GridBagConstraints.SOUTHEAST;
 		gcp12.gridx = 0;
 		gcp12.gridy = 13;
 		getContentPane().add(p12,gcp12);
-		gbp12 = new GridBagLayout();
-		gbp12.columnWidths = new int[]{0,0};
-		gbp12.rowHeights = new int[]{0};
-		gbp12.columnWeights = new double[]{0.0, 1.0};
-		gbp12.rowWeights = new double[]{0.0};
-		p12.setLayout(gbp12);
-		
-		spisak = new JLabel("Spisak predmeta koje student sluša*");
-		spisak.setFont(new Font("Arial", Font.PLAIN, 16));
-		gc23 = new GridBagConstraints();
-		gc23.insets = new Insets(0,0,0,35);	
-		gc23.gridx = 0;
-		gc23.gridy = 0;
-		p12.add(spisak,gc23);
-		
-		p13 = new JPanel();
-		p13.setBackground(Color.WHITE);
-		gcp13 =  new GridBagConstraints();
-		gcp13.insets = new Insets(10,55,10,100);
-		gcp13.anchor = GridBagConstraints.SOUTHEAST;
-		gcp13.gridx = 0;
-		gcp13.gridy = 14;
-		getContentPane().add(p13,gcp13);
 		
 	    b1 = new JButton("Odustanak");
 	    b1.setFont(new Font("Arial", Font.PLAIN, 17));
 	    b1.setBackground(Color.WHITE);
-	    p13.add(b1);
+	    p12.add(b1);
 	    
 	    pb1 = new JPanel();
 	    pb1.setBackground(Color.WHITE);
-	    p13.add(pb1);
+	    p12.add(pb1);
 	    
 	    pb2 = new JPanel();
 	    pb2.setBackground(Color.WHITE);
-	    p13.add(pb2);
+	    p12.add(pb2);
 	    
 	    b2 = new JButton("Potvrda");
 	    b2.setFont(new Font("Arial", Font.PLAIN, 17));
 	    b2.setBackground(Color.WHITE);
-	    p13.add(b2);
+	    p12.add(b2);
 		
 	    b1.addMouseListener(new MouseListener()
 	    {
@@ -691,27 +663,27 @@ public class DodavanjeStudenta extends JDialog {
 	    	
 	    } );
 		
-	    p14 = new JPanel();
-		p14.setBackground(Color.LIGHT_GRAY);
-		gcp14 =  new GridBagConstraints();
-		gcp14.fill = GridBagConstraints.BOTH;
-		gcp14.insets = new Insets(10,0,0,0);
-		gcp14.gridx = 0;
-		gcp14.gridy = 15;
-		getContentPane().add(p14,gcp14);
-		gbp13 = new GridBagLayout();
-		gbp13.columnWidths = new int[]{0};
-		gbp13.rowHeights = new int[]{0};
-		gbp13.columnWeights = new double[]{1.0};
-		gbp13.rowWeights = new double[]{0.0};
-		p14.setLayout(gbp13);
+	    p13 = new JPanel();
+		p13.setBackground(Color.LIGHT_GRAY);
+		gcp13 =  new GridBagConstraints();
+		gcp13.fill = GridBagConstraints.BOTH;
+		gcp13.insets = new Insets(10,0,0,0);
+		gcp13.gridx = 0;
+		gcp13.gridy = 14;
+		getContentPane().add(p13,gcp13);
+		gbp12 = new GridBagLayout();
+		gbp12.columnWidths = new int[]{0};
+		gbp12.rowHeights = new int[]{0};
+		gbp12.columnWeights = new double[]{1.0};
+		gbp12.rowWeights = new double[]{0.0};
+		p13.setLayout(gbp12);
 		
 		l = new JLabel(" ");
 		l.setFont(new Font("Arial", Font.PLAIN, 27));
-		gc24 = new GridBagConstraints();	
-		gc24.gridx = 0;
-		gc24.gridy = 0;
-		p14.add(l,gc24);
+		gc23 = new GridBagConstraints();	
+		gc23.gridx = 0;
+		gc23.gridy = 0;
+		p13.add(l,gc23);
 	    
 	}
 }
