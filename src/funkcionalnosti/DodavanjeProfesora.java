@@ -573,10 +573,10 @@ public class DodavanjeProfesora extends JDialog {
 					if(!"".equals(tf2.getText()))
 						if(!"".equals(tf3.getText()))
 							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && brojLicneKarte == Integer.parseInt(tf8.getText()))
+								if(!"".equals(tf5.getText()))
 									if(!"".equals(tf6.getText()))
 										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()))
+											if(!"".equals(tf8.getText()) && brojLicneKarte == Integer.parseInt(tf8.getText()))
 														dispose();
 			}
 
