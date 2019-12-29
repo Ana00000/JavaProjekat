@@ -11,7 +11,7 @@ public class Student {
 	private String emailAdresa;
 	private String brojIndeksa;
 	private String datumUpisa;
-	private String trenGodStudija;
+	private TrenutnaGodina trenGodStudija;
 	private Status status;
 	private double prosOcena;
 	private ArrayList<Predmet>spisakPredmeta;
@@ -21,7 +21,7 @@ public class Student {
 	}
 
 	public Student(String ime, String prezime, String datumRodjenja, String adresaStanovanja, int kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String datumUpisa, String trenGodStudija, Status status,
+			String emailAdresa, String brojIndeksa, String datumUpisa, TrenutnaGodina trenGodStudija, Status status,
 			double prosOcena, ArrayList<Predmet> spisakPredmeta) {
 		super();
 		this.ime = ime;
@@ -102,11 +102,11 @@ public class Student {
 		this.datumUpisa = datumUpisa;
 	}
 	
-	public String getTrenGodStudija() {
+	public TrenutnaGodina getTrenGodStudija() {
 		return trenGodStudija;
 	}
 	
-	public void setTrenGodStudija(String trenGodStudija) {
+	public void setTrenGodStudija(TrenutnaGodina trenGodStudija) {
 		this.trenGodStudija = trenGodStudija;
 	}
 	
