@@ -2,8 +2,6 @@ package modelsistema;
 
 import java.util.ArrayList;
 
-enum Status{B,S}
-
 public class Student {
 	private String ime;
 	private String prezime;
@@ -13,18 +11,18 @@ public class Student {
 	private String emailAdresa;
 	private String brojIndeksa;
 	private String datumUpisa;
-	private int trenGodStudija;
+	private String trenGodStudija;
 	private Status status;
 	private double prosOcena;
-	private ArrayList<String>spisakPredmeta;
+	private ArrayList<Predmet>spisakPredmeta;
 	
 	public Student() {
 		super();
 	}
 
 	public Student(String ime, String prezime, String datumRodjenja, String adresaStanovanja, int kontaktTelefon,
-			String emailAdresa, String brojIndeksa, String datumUpisa, int trenGodStudija, Status status,
-			double prosOcena, ArrayList<String> spisakPredmeta) {
+			String emailAdresa, String brojIndeksa, String datumUpisa, String trenGodStudija, Status status,
+			double prosOcena, ArrayList<Predmet> spisakPredmeta) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -104,11 +102,11 @@ public class Student {
 		this.datumUpisa = datumUpisa;
 	}
 	
-	public int getTrenGodStudija() {
+	public String getTrenGodStudija() {
 		return trenGodStudija;
 	}
 	
-	public void setTrenGodStudija(int trenGodStudija) {
+	public void setTrenGodStudija(String trenGodStudija) {
 		this.trenGodStudija = trenGodStudija;
 	}
 	
@@ -128,11 +126,11 @@ public class Student {
 		this.prosOcena = prosOcena;
 	}
 	
-	public ArrayList<String> getSpisakPredmeta() {
+	public ArrayList<Predmet> getSpisakPredmeta() {
 		return spisakPredmeta;
 	}
 	
-	public void setSpisakPredmeta(ArrayList<String> spisakPredmeta) {
+	public void setSpisakPredmeta(ArrayList<Predmet> spisakPredmeta) {
 		this.spisakPredmeta = spisakPredmeta;
 	}
 	
