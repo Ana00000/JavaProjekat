@@ -41,11 +41,11 @@ public class StatusBar extends JPanel{
 		name.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		time = new JLabel();
-		DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
+		final DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
 		time.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		date = new JLabel();
-		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+		final DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 		date.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		gc1.gridx = 0;

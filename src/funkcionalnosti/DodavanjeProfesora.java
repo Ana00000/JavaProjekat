@@ -267,7 +267,7 @@ public class DodavanjeProfesora extends JDialog {
 		gbp3.rowWeights = new double[]{0.0};
 		p3.setLayout(gbp3);
 		
-		datum = new JLabel("Datum rođenja*");
+		datum = new JLabel("Datum rođenja(dd.MM.yyyy.)*");
 		datum.setFont(new Font("Arial", Font.PLAIN, 24));
 		gc5 = new GridBagConstraints();
 		gc5.insets = new Insets(0,0,0,35);	
