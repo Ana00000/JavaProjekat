@@ -289,7 +289,7 @@ public class IzmenaStudenta extends JDialog {
 		gbp3.rowWeights = new double[]{0.0};
 		p3.setLayout(gbp3);
 		
-		datum = new JLabel("Datum rođenja*");
+		datum = new JLabel("Datum rođenja(dd.MM.yyyy.)*");
 		datum.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc5 = new GridBagConstraints();
 		gc5.insets = new Insets(0,0,0,35);	
@@ -449,7 +449,7 @@ public class IzmenaStudenta extends JDialog {
 		gbp8.rowWeights = new double[]{0.0};
 		p8.setLayout(gbp8);
 		
-		datumUpisa = new JLabel("Datum upisa*");
+		datumUpisa = new JLabel("Datum upisa(dd.MM.yyyy.)*");
 		datumUpisa.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc15 = new GridBagConstraints();
 		gc15.insets = new Insets(0,0,0,35);	
