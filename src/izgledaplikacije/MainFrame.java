@@ -1,10 +1,12 @@
 package izgledaplikacije;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+
+
+
 
 import javax.swing.JFrame;
+
 
 import listeners.MyWindowListener;
 
@@ -17,10 +19,10 @@ public class MainFrame extends JFrame {
 
 	public MainFrame() {
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		int screenHeight = screenSize.height;
-		int screenWidth = screenSize.width;
+		//Toolkit kit = Toolkit.getDefaultToolkit();
+		//Dimension screenSize = kit.getScreenSize();
+		int screenHeight = 768;
+		int screenWidth = 1366;
 		int width=screenWidth-screenWidth*1/4;
 		int height=screenHeight-screenHeight*1/4;
 		setSize(width,height);
@@ -42,5 +44,7 @@ public class MainFrame extends JFrame {
 		st.setVisible(true);
 		
 		add(st,BorderLayout.SOUTH);
+		
+		
 	}
 }
