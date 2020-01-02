@@ -3,12 +3,7 @@ package modelsistema;
 import java.sql.Date;
 import java.util.ArrayList;
 
-enum Zvanje {
-	DR, MR;
-} 
-enum Titula {
-	REDOVAN, VANREDNI, DOCENT, ASISTENT;
-}
+
 public class Profesor {
 
 	private String ime;

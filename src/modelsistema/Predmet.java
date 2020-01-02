@@ -1,9 +1,8 @@
 package modelsistema;
 
 import java.util.ArrayList;
-enum Semestar {
-	PRVI, DRUGI, TRECI, CETVRTI, PETI, SESTI, SEDMI, OSMI;
-} 
+
+
 
 public class Predmet {
 	private String sifra;
