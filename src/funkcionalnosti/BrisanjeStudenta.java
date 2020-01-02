@@ -14,7 +14,6 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -66,7 +65,7 @@ public class BrisanjeStudenta extends JDialog{
 	ImageIcon image3;
 	ImageIcon image4;
 	
-	public BrisanjeStudenta(JFrame frame) {
+	public BrisanjeStudenta() {
 		try {
 			Toolkit kit = Toolkit.getDefaultToolkit();
 			Dimension screenSize = kit.getScreenSize();
@@ -75,7 +74,7 @@ public class BrisanjeStudenta extends JDialog{
 			setSize(screenWidth , screenHeight);
 			setResizable(true);
 			setModal(true);
-			setLocationRelativeTo(frame);
+			setLocationRelativeTo(null);
 			getContentPane().setBackground(Color.WHITE);
 			this.setUndecorated(true);
 		} catch (HeadlessException e) {

@@ -1,7 +1,6 @@
 package funkcionalnosti;
 
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -128,7 +127,7 @@ public class DodavanjeProfesora extends JDialog {
 	JButton b1;
 	JButton b2;
 
-	public DodavanjeProfesora(JFrame frame){
+	public DodavanjeProfesora(){
 		try {
 			Toolkit kit = Toolkit.getDefaultToolkit();
 			Dimension screenSize = kit.getScreenSize();
@@ -137,7 +136,7 @@ public class DodavanjeProfesora extends JDialog {
 			setSize(screenWidth , screenHeight);
 			setResizable(false);
 			setModal(true);
-			setLocationRelativeTo(frame);
+			setLocationRelativeTo(null);
 			this.setUndecorated(true);
 			getContentPane().setBackground(Color.WHITE);
 		} catch (HeadlessException e1) {

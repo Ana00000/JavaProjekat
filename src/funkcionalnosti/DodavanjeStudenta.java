@@ -1,7 +1,6 @@
 package funkcionalnosti;
 
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -142,7 +141,7 @@ public class DodavanjeStudenta extends JDialog {
 	JButton b1;
 	JButton b2;
 	
-	public DodavanjeStudenta(JFrame frame){
+	public DodavanjeStudenta(){
 		try {
 			Toolkit kit = Toolkit.getDefaultToolkit();
 			Dimension screenSize = kit.getScreenSize();
@@ -151,7 +150,7 @@ public class DodavanjeStudenta extends JDialog {
 			setSize(screenWidth , screenHeight);
 			setResizable(false);
 			setModal(true);
-			setLocationRelativeTo(frame);
+			setLocationRelativeTo(null);
 			this.setUndecorated(true);
 			getContentPane().setBackground(Color.WHITE);
 		} catch (HeadlessException e1) {
