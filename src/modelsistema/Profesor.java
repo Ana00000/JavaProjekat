@@ -3,6 +3,12 @@ package modelsistema;
 import java.sql.Date;
 import java.util.ArrayList;
 
+enum Zvanje {
+	DR, MR;
+} 
+enum Titula {
+	REDOVAN, VANREDNI, DOCENT, ASISTENT;
+}
 public class Profesor {
 
 	private String ime;
@@ -13,15 +19,15 @@ public class Profesor {
 	private String email;
 	private String adresaKancelarije;
 	private int brojLicneKarte;
-	private String  Titula;
-	private String Zvanje;
+	private Titula  Titula;
+	private Zvanje Zvanje;
 	private ArrayList<Predmet> spisakPredmetaNaKojimaPredaje;
 
 	public Profesor() {
 		super();
 	}
 	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, String titula,String zvanje, ArrayList<Predmet> spisak) {
+			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje, ArrayList<Predmet> spisak) {
 		super();
 		this.ime=ime;
 		this.prezime=prezime;
@@ -83,16 +89,16 @@ public class Profesor {
 	public void setBrojLicneKarte(int brojLicneKarte) {
 		this.brojLicneKarte = brojLicneKarte;
 	}
-	public String getTitula() {
+	public Titula getTitula() {
 		return Titula;
 	}
-	public void setTitula(String titula) {
+	public void setTitula(Titula titula) {
 		Titula = titula;
 	}
-	public String getZvanje() {
+	public Zvanje getZvanje() {
 		return Zvanje;
 	}
-	public void setZvanje(String zvanje) {
+	public void setZvanje(Zvanje zvanje) {
 		Zvanje = zvanje;
 	}
 	public ArrayList<Predmet> getSpisakPredmetaNaKojimaPredaje() {
