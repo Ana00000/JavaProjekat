@@ -1,19 +1,22 @@
 package modelsistema;
 
 import java.util.ArrayList;
+enum Semestar {
+	PRVI, DRUGI, TRECI, CETVRTI, PETI, SESTI, SEDMI, OSMI;
+} 
 
 public class Predmet {
-	private int sifra;
+	private String sifra;
 	private String naziv;
-	private int semestar;
-	private int godinaStudijaUKojojSePredmetIzvodi;
+	private Semestar semestar;
+	private TrenutnaGodina godinaStudijaUKojojSePredmetIzvodi;
 	private Profesor profesor;
 	private ArrayList<Student> spisakStudenataKojiSlusajuPredmet;
 	
     public Predmet() {
     	super();
     }
-    public Predmet(int sifra,String naziv,int semestar, int godina,Profesor prof, ArrayList<Student> sps) {
+    public Predmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof, ArrayList<Student> sps) {
     	this.sifra=sifra;
     	this.naziv=naziv;
     	this.semestar=semestar;
@@ -21,10 +24,10 @@ public class Predmet {
     	this.profesor=prof;
     	this.spisakStudenataKojiSlusajuPredmet=sps;
     }
-	public int getSifra() {
+	public String getSifra() {
 		return sifra;
 	}
-	public void setSifra(int sifra) {
+	public void setSifra(String sifra) {
 		this.sifra = sifra;
 	}
 	public String getNaziv() {
@@ -33,17 +36,17 @@ public class Predmet {
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-	public int getSemestar() {
+	public Semestar getSemestar() {
 		return semestar;
 	}
-	public void setSemestar(int semestar) {
+	public void setSemestar(Semestar semestar) {
 		this.semestar = semestar;
 	}
-	public int getGodinaStudijaUKojojSePredmetIzvodi() {
+	public TrenutnaGodina getGodinaStudijaUKojojSePredmetIzvodi() {
 		return godinaStudijaUKojojSePredmetIzvodi;
 	}
 	public void setGodinaStudijaUKojojSePredmetIzvodi(
-			int godinaStudijaUKojojSePredmetIzvodi) {
+			TrenutnaGodina godinaStudijaUKojojSePredmetIzvodi) {
 		this.godinaStudijaUKojojSePredmetIzvodi = godinaStudijaUKojojSePredmetIzvodi;
 	}
 	public Profesor getProfesor() {
