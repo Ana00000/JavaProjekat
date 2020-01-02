@@ -1,6 +1,7 @@
 package izgledaplikacije;
 
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ public Toolbar() {
 		btnAdd.setToolTipText("Add");
 		ImageIcon image1 = new ImageIcon(getClass().getResource("/slike/icons8-add-user-male-24.png"));
 		btnAdd.setIcon(image1);
-		
+		btnAdd.setMnemonic(KeyEvent.VK_A);
 		add(btnAdd);
 		
 		
@@ -34,6 +35,7 @@ public Toolbar() {
 		btnInsert.setToolTipText("Insert");
 		ImageIcon image5 = new ImageIcon(getClass().getResource("/slike/icons8-edit-24.png"));
 		btnInsert.setIcon(image5);
+		btnInsert.setMnemonic(KeyEvent.VK_I);
 		add(btnInsert);
 		
 		
@@ -41,6 +43,7 @@ public Toolbar() {
 		btnDelete.setToolTipText("Delete");
 		ImageIcon image2 = new ImageIcon(getClass().getResource("/slike/icons8-trash-24.png"));
 		btnDelete.setIcon(image2);
+		btnDelete.setMnemonic(KeyEvent.VK_D);
 		add(btnDelete);
 
 		JPanel jpan=new JPanel();
@@ -58,7 +61,7 @@ public Toolbar() {
 		btnSearch.setToolTipText("Search");
 		ImageIcon image9 = new ImageIcon(getClass().getResource("/slike/icons8-search-24.png"));
 		btnSearch.setIcon(image9);
-	
+		btnSearch.setMnemonic(KeyEvent.VK_S);
 		add(btnSearch);
 		
 		
