@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import modelsistema.Titula;
+import modelsistema.Zvanje;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -119,10 +122,8 @@ public class DodavanjeProfesora extends JDialog {
 	JTextField tf7;
 	JTextField tf8;
 	
-	@SuppressWarnings("rawtypes")
-	JComboBox cb1;
-	@SuppressWarnings("rawtypes")
-	JComboBox cb2;
+	JComboBox<Titula> cb1;
+	JComboBox<Zvanje> cb2;
 
 	JButton b1;
 	JButton b2;
@@ -150,7 +151,6 @@ public class DodavanjeProfesora extends JDialog {
 		}
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void jbInit() throws Exception{
 		
         gb1 = new GridBagLayout();
@@ -462,8 +462,7 @@ public class DodavanjeProfesora extends JDialog {
 		gc17.gridy = 0;
 		p9.add(titula,gc17);
 		
-		String [] izabrana_titula = {"asistent","docent","vanredni profesor","redovni profesor"};
-		cb1 = new JComboBox(izabrana_titula);
+		cb1 = new JComboBox<Titula>(Titula.values());
 		cb1.setFont(new Font("Arial", Font.PLAIN, 24));
 		cb1.setBackground(Color.WHITE);
 		cb1.setForeground(Color.BLACK);
@@ -496,8 +495,7 @@ public class DodavanjeProfesora extends JDialog {
 		gc19.gridy = 0;
 		p10.add(zvanje,gc19);
 		
-		String [] izabrano_zvanje = {"dr","mr"};
-		cb2 = new JComboBox(izabrano_zvanje);
+		cb2 = new JComboBox<Zvanje>(Zvanje.values());
 		cb2.setFont(new Font("Arial", Font.PLAIN, 24));
 		cb2.setBackground(Color.WHITE);
 		cb2.setForeground(Color.BLACK);
