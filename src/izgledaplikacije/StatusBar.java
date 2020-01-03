@@ -50,36 +50,20 @@ public class StatusBar extends JPanel{
 		
 		gc1.gridx = 0;
 		gc1.gridy = 0;
-		gc1.weightx = 100;
-		gc1.weighty = 100;
-		gc1.gridwidth = 1;
-		gc1.gridheight = 2;
+		gc1.weightx = 30;
 		gc1.anchor = GridBagConstraints.WEST;
-		gc1.ipadx = 10;
 		gc1.ipady = 5;
-		gc1.insets.left = 5;
+		gc1.insets.left = 7;
 		
 		gc2.gridx = 1;
 		gc2.gridy = 0;
-		gc2.weightx = 100;
-		gc2.weighty = 100;
-		gc2.gridwidth = 1;
-		gc2.gridheight = 2;
 		gc2.anchor = GridBagConstraints.EAST;
-		gc2.ipadx = 10;
-		gc2.ipady = 5;
-		gc2.insets.left = 1050;
 		
 		gc3.gridx = 2;
 		gc3.gridy = 0;
-		gc3.weightx = 100;
-		gc3.weighty = 100;
-		gc3.gridwidth = 1;
-		gc3.gridheight = 2;
+		gc3.weightx = 1;
 		gc3.anchor = GridBagConstraints.EAST;
-		gc3.ipadx = 10;
-		gc3.ipady = 5;
-		gc3.insets.right = 5;
+		gc3.insets.right = 7;
 		
 		this.add(name, gc1);
 		this.add(time, gc2);
