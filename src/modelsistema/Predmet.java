@@ -23,6 +23,14 @@ public class Predmet {
     	this.profesor=prof;
     	this.spisakStudenataKojiSlusajuPredmet=sps;
     }
+    public Predmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof) {
+    	this.sifra=sifra;
+    	this.naziv=naziv;
+    	this.semestar=semestar;
+    	this.godinaStudijaUKojojSePredmetIzvodi=godina;
+    	this.profesor=prof;
+  
+    }
 	public String getSifra() {
 		return sifra;
 	}
