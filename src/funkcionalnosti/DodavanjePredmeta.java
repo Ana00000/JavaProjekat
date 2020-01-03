@@ -2,6 +2,7 @@ package funkcionalnosti;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -9,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import controllers.PredmetiController;
+import modelsistema.BazaPredmeta;
+import modelsistema.Predmet;
 import modelsistema.Semestar;
 import modelsistema.TrenutnaGodina;
 
@@ -443,18 +447,23 @@ public class DodavanjePredmeta extends JDialog {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
-				Double prosek = Double.parseDouble(tf9.getText());
-				if(!"".equals(tf1.getText()))
-					if(!"".equals(tf2.getText()))
-						if(!"".equals(tf3.getText()))
-							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
-									if(!"".equals(tf6.getText()))
-										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()))
-												if(!"".equals(tf9.getText()) && prosek == Double.parseDouble(tf9.getText()))
-														dispose();
+				String TreGod=cb1.getSelectedItem().toString();
+				TrenutnaGodina god=TrenutnaGodina.valueOf(TreGod);
+				
+				String semestar=cb2.getSelectedItem().toString();
+				Semestar sm=Semestar.valueOf(semestar);
+				
+				for(Predmet p:BazaPredmeta.getInstance().getPredmeti()) {
+					
+					if(tf2.getText().equals(p.getSifra())) {
+						JOptionPane.showMessageDialog(null,"Vec postoji predmet sa sifrom "+tf2.getText(), "Greska",JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					}
+				PredmetiController.getInstance().dodajPredmet(tf2.getText(),tf1.getText(),sm,god);
+				
+				dispose();
+				
 			}
 
 			@Override
