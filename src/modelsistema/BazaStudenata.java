@@ -1,16 +1,26 @@
 package modelsistema;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import controllers.StudentiController;
 import modelsistema.Status;
 import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
 
-
-
-public class BazaStudenata {
+public class BazaStudenata implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private static BazaStudenata instance=null;
 
 	public static BazaStudenata getInstance() {
@@ -44,7 +54,7 @@ public class BazaStudenata {
 		return studenti;
 	}
 
-	public void setIgraci(List<Student> studenti) {
+	public void setStudenata(List<Student> studenti) {
 		this.studenti=studenti;
 	}
 	
@@ -89,12 +99,18 @@ public class BazaStudenata {
 		}
 
 	}
+	
+	public void dodajStudenta(Student student) {
+		this.studenti.add(student);
+	}
 
 	public void dodajStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
+		
 		this.studenti.add(new Student(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,emailAdresa,brojIndeksa,datumUpisa,trenGodStudija,status,prosOcena));
+		
 	}
-
+	
 	public void izbrisiStudenta(String index) {
 		for(Student s : studenti) {
 			if(s.getBrojIndeksa()==index) {
@@ -120,6 +136,65 @@ public class BazaStudenata {
 				s.setStatus(status);
 				s.setProsOcena(prosOcena);
 			}
-		}	}
+		}
+	}
 
+	public void dodajStudentaNaPredmet(Predmet predmet,String brojIndeksa) {
+		int exists = 0;
+		for(Student s:BazaStudenata.getInstance().getStudenti()) {
+			if(s.getBrojIndeksa() == brojIndeksa) {
+				exists = 1;
+				predmet.getSpisakStudenataKojiSlusajuPredmet().add(s);
+			}
+		}
+		if(exists == 0) {
+			JOptionPane.showMessageDialog(null, "Ne postoji student sa datim brojem indeksa", "GRESKA", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	public void ukloniStudentaSaPredmeta(Predmet predmet,String brojIndeksa) {
+		int exists = 0;
+		for(Student s:BazaStudenata.getInstance().getStudenti()) {
+			if(s.getBrojIndeksa() == brojIndeksa) {
+				exists = 1;
+				predmet.getSpisakStudenataKojiSlusajuPredmet().remove(s);
+			}
+		}
+		if(exists == 0) {
+			JOptionPane.showMessageDialog(null, "Ne postoji student sa datim brojem indeksa", "GRESKA", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	public void serijalizacijaStudenata() {
+		try {
+			FileOutputStream fStudenata = new FileOutputStream("studenti.ser");
+			ObjectOutputStream studentOut = new ObjectOutputStream(fStudenata);
+			studentOut.writeObject(BazaStudenata.getInstance().getStudenti());
+			
+			studentOut.close();
+			fStudenata.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deserijalizacijaStudenata() {
+		try {
+			System.out.println("\n\n");
+			FileInputStream fStudenata = new FileInputStream("studenti.ser");
+			ObjectInputStream studentIn = new ObjectInputStream(fStudenata);
+			@SuppressWarnings("unchecked")
+			ArrayList<Student> studenti = (ArrayList<Student>) studentIn.readObject();
+			BazaStudenata.getInstance().setStudenata(studenti);
+		    StudentiController.getInstance().promenaPosleDeserijalizacije();
+			
+			studentIn.close();
+			fStudenata.close();
+		}catch (IOException e) {
+			
+			 e.printStackTrace();
+		}catch (ClassNotFoundException cnf) {
+		  	 
+			cnf.printStackTrace();
+		}
+	}
 }
