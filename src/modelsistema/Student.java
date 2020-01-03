@@ -23,6 +23,23 @@ public class Student {
 
 	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,
+			double prosOcena) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.datumRodjenja = datumRodjenja;
+		this.adresaStanovanja = adresaStanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		this.emailAdresa = emailAdresa;
+		this.brojIndeksa = brojIndeksa;
+		this.datumUpisa = datumUpisa;
+		this.trenGodStudija = trenGodStudija;
+		this.status = status;
+		this.prosOcena = prosOcena;
+	}
+	
+	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,
 			double prosOcena, ArrayList<Predmet> spisakPredmeta) {
 		super();
 		this.ime = ime;
