@@ -21,8 +21,8 @@ public class PredmetiController {
 
 	private PredmetiController() {}
 	
-	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof) {
-		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,prof);
+	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina) {
+		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,new Profesor());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
