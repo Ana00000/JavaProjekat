@@ -1,13 +1,11 @@
 package funkcionalnosti;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
-import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -67,10 +65,8 @@ public class BrisanjeStudenta extends JDialog{
 	
 	public BrisanjeStudenta() {
 		try {
-			Toolkit kit = Toolkit.getDefaultToolkit();
-			Dimension screenSize = kit.getScreenSize();
-			int screenHeight = screenSize.height*1/4;
-			int screenWidth = screenSize.width*2/5;
+			int screenHeight = 768*1/4;
+			int screenWidth = 1366*2/5;
 			setSize(screenWidth , screenHeight);
 			setResizable(true);
 			setModal(true);
@@ -92,7 +88,7 @@ public class BrisanjeStudenta extends JDialog{
 		
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
-        gb1.rowWeights = new double[] {0.0,0.0,0.0};
+        gb1.rowWeights = new double[] {1.0,0.0,1.0};
         gb1.columnWidths = new int[] {10};
         gb1.columnWeights = new double[] {1.0};
 		getContentPane().setLayout(gb1);
@@ -113,14 +109,14 @@ public class BrisanjeStudenta extends JDialog{
 		p0.setLayout(gbp0);
 		
 		l0 = new JLabel(" ");
-		l0.setFont(new Font("Arial", Font.PLAIN, 40));
+		l0.setFont(new Font("Arial", Font.PLAIN, 21));
 	    gc1 =  new GridBagConstraints();
 		gc1.gridx = 0;
 		gc1.gridy = 0;
 	    p0.add(l0,gc1);
 		
 		title = new JLabel("Brisanje studenta");
-		title.setFont(new Font("Arial", Font.PLAIN, 25));
+		title.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc2 = new GridBagConstraints();
 		gc2.anchor = GridBagConstraints.WEST;
 		gc2.gridx = 1;
@@ -248,7 +244,7 @@ public class BrisanjeStudenta extends JDialog{
 		p1.setBackground(Color.WHITE);
 		gcp1 =  new GridBagConstraints();
 		gcp1.fill = GridBagConstraints.BOTH;
-		gcp1.insets = new Insets(10,55,10,100);
+		gcp1.insets = new Insets(0,15,10,5);
 		gcp1.gridx = 0;
 		gcp1.gridy = 1;
 		getContentPane().add(p1,gcp1);
@@ -259,17 +255,17 @@ public class BrisanjeStudenta extends JDialog{
 		gbp1.rowWeights = new double[]{0.0};
 		p1.setLayout(gbp1);
 		
-		image4 = new ImageIcon(getClass().getResource("/slike/icons8-trash-can-60.png"));
+		image4 = new ImageIcon(getClass().getResource("/slike/icons8-trash-30.png"));
 		bin = new JLabel(image4);
-		bin.setFont(new Font("Arial", Font.PLAIN, 25));
 		gc6 = new GridBagConstraints();
+		gc6.fill = GridBagConstraints.HORIZONTAL;
 		gc6.insets = new Insets(0,0,0,20);
 		gc6.gridx = 0;
 		gc6.gridy = 0;
 		p1.add(bin, gc6);
 		
 		pitanje = new JLabel("Da li ste sigurni da želite da obrišete studenta?");
-		pitanje.setFont(new Font("Arial", Font.PLAIN, 25));
+		pitanje.setFont(new Font("Arial", Font.PLAIN, 17));
 		gc7 = new GridBagConstraints();
 		gc7.fill = GridBagConstraints.HORIZONTAL;
 		gc7.gridx = 1;
@@ -279,14 +275,14 @@ public class BrisanjeStudenta extends JDialog{
 		p2 = new JPanel();
 		p2.setBackground(Color.WHITE);
 		gcp2 =  new GridBagConstraints();
-		gcp2.insets = new Insets(10,55,10,100);
+		gcp2.insets = new Insets(10,55,10,32);
 		gcp2.anchor = GridBagConstraints.SOUTHEAST;
 		gcp2.gridx = 0;
 		gcp2.gridy = 2;
 		getContentPane().add(p2,gcp2);
 		
 	    b1 = new JButton("Odustanak");
-	    b1.setFont(new Font("Arial", Font.PLAIN, 27));
+	    b1.setFont(new Font("Arial", Font.PLAIN, 17));
 	    b1.setBackground(Color.WHITE);
 	    p2.add(b1);
 	    
@@ -299,7 +295,7 @@ public class BrisanjeStudenta extends JDialog{
 	    p2.add(pb2);
 	    
 	    b2 = new JButton("Potvrda");
-	    b2.setFont(new Font("Arial", Font.PLAIN, 27));
+	    b2.setFont(new Font("Arial", Font.PLAIN, 17));
 	    b2.setBackground(Color.WHITE);
 	    p2.add(b2);
 		
@@ -377,7 +373,7 @@ public class BrisanjeStudenta extends JDialog{
 		p3.setLayout(gbp2);
 		
 		l = new JLabel(" ");
-		l.setFont(new Font("Arial", Font.PLAIN, 40));
+		l.setFont(new Font("Arial", Font.PLAIN, 21));
 		gc8 = new GridBagConstraints();	
 		gc8.gridx = 0;
 		gc8.gridy = 0;

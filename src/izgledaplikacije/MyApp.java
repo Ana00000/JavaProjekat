@@ -1,7 +1,5 @@
 package izgledaplikacije;
 
-
-
 public class MyApp {
 	/**
 	 * @param args
