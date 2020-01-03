@@ -1,5 +1,7 @@
 package controllers;
 
+import izgledaplikacije.AbstractTableModelPredmeti;
+import izgledaplikacije.PredmetiJTable;
 import modelsistema.BazaPredmeta;
 import modelsistema.BazaProfesora;
 import modelsistema.Predmet;
@@ -21,27 +23,37 @@ public class PredmetiController {
 	
 	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof) {
 		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,prof);
-		
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}
 	
 	public void izbrisiPredmet(Predmet p) {
 		BazaPredmeta.getInstance().izbrisiPredmet(p);
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}
 	
 	public void IzmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof){
 		BazaPredmeta.getInstance().izmeniPredmet(sifra,naziv,semestar,godina,prof);
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}
 	
 	public void dodavanjeProfesoraNaPredmet(Predmet predmet,String brojLicne) {
 		BazaPredmeta.getInstance().dodajProfesoraNaPredmet(predmet,brojLicne);
 		System.out.println(BazaProfesora.getInstance());
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}
 	
 	public void uklanjanjeProfesoraSaPredmeta(Predmet predmet) {
 		BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(predmet);
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}
 	/*
 	public void promenaPosleDeserijalizacije() {
-		
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		model.fireTableDataChanged();
 	}*/
 }
