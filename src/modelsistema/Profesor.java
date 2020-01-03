@@ -36,6 +36,21 @@ public class Profesor {
 		this.Zvanje=zvanje;
 		this.spisakPredmetaNaKojimaPredaje=spisak;
 	}
+	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
+			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje) {
+		super();
+		this.ime=ime;
+		this.prezime=prezime;
+		this.datumRodjenja=datumRodjenja;
+		this.adresaStanovanja=adresaStanovanja;
+		this.kontaktTelefon=kontaktTelefon;
+		this.email=email;
+		this.adresaKancelarije=adresaKancelarije;
+		this.brojLicneKarte=brojLicneKarte;
+		this.Titula=titula;
+		this.Zvanje=zvanje;
+		
+	}
 	public String getIme() {
 		return ime;
 	}
