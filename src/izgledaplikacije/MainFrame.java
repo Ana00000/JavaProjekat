@@ -5,8 +5,17 @@ import java.awt.BorderLayout;
 
 
 
+
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
+
+import javax.swing.JPanel;
 
 import listeners.MyWindowListener;
 
@@ -45,6 +54,29 @@ public class MainFrame extends JFrame {
 		
 		add(st,BorderLayout.SOUTH);
 		
+		JPanel panelTop = new JPanel();
+		JButton btnStudenti = new JButton("Studenti");
+		JButton btnProfesori = new JButton("Profesori");
+		JButton btnPredmeti = new JButton("Predmeti");
+		JPanel panel=new JPanel();
+		
+		panel.setPreferredSize(new Dimension(610,10));
+		btnStudenti.setBackground(Color.WHITE);
+		btnProfesori.setBackground(Color.WHITE);
+		btnPredmeti.setBackground(Color.WHITE);
+		btnStudenti.setFont(new Font("TAHOMA", Font.BOLD, 18));
+		btnProfesori.setFont(new Font("TAHOMA", Font.BOLD, 18));
+		btnPredmeti.setFont(new Font("TAHOMA", Font.BOLD, 18));
+		panel.setBackground(Color.WHITE);
+		panelTop.setBackground(Color.WHITE);
+		
+		panelTop.add(btnStudenti);
+		panelTop.add(btnProfesori);
+		panelTop.add(btnPredmeti);
+		panelTop.add(panel);
+		
+		
+		this.add(panelTop);
 		
 	}
 }
