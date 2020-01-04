@@ -66,6 +66,7 @@ public class ToolBarStudent extends JToolBar{
 		btnSearch.setIcon(image9);
 		btnSearch.setMnemonic(KeyEvent.VK_S);
 		panel1.add(btnSearch);
+		
 	}
 	
 }

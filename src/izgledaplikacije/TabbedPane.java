@@ -1,6 +1,5 @@
 package izgledaplikacije;
 
-import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class TabbedPane extends JTabbedPane {
@@ -11,8 +10,8 @@ public class TabbedPane extends JTabbedPane {
 	private static final long serialVersionUID = 1L;
 	
 	public TabbedPane() {
-		JPanel panel = new JPanel();
-		this.addTab("Studenti", panel);
+		StudentiTab studenti = new StudentiTab();
+		this.addTab("Studenti", studenti);
 		
 		ProfesoriTab profesori=new ProfesoriTab();
 		this.addTab("Profesori",profesori);

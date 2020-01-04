@@ -16,7 +16,7 @@ public class AbstractTableModelStudenti extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return BazaStudenata.getInstance().getColumnCount() + 1;
+		return BazaStudenata.getInstance().getColumnCount() ;
 	}
 
 	@Override

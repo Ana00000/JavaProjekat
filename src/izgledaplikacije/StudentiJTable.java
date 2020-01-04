@@ -26,7 +26,6 @@ public class StudentiJTable extends JTable {
 	
 	public StudentiJTable() {
 		this.setModel(new AbstractTableModelStudenti());
-		new ButtonColumnStudenti(this,11);
 		sorter = new TableRowSorter<>((AbstractTableModelStudenti) getModel());
 		this.setRowSorter(sorter);
 	}

@@ -11,6 +11,7 @@ import javax.swing.event.ChangeListener;
 
 import modelsistema.BazaPredmeta;
 import modelsistema.BazaProfesora;
+import modelsistema.BazaStudenata;
 
 
 public class MainFrame extends JFrame {
@@ -100,6 +101,7 @@ public class MainFrame extends JFrame {
 					// TODO Auto-generated method stub
 					BazaPredmeta.getInstance().serijalizacijaPredmeta();
 					BazaProfesora.getInstance().serijalizacijaProfesora();
+					BazaStudenata.getInstance().serijalizacijaStudenata();
 				}
 
 				@Override
@@ -125,6 +127,7 @@ public class MainFrame extends JFrame {
 					// TODO Auto-generated method stub
 					BazaPredmeta.getInstance().deserijalizacijaPredmeta();
 					BazaProfesora.getInstance().deserijalizacijaProfesora();
+					BazaStudenata.getInstance().deserijalizacijaStudenata();
 				}
 				
 			}); 	

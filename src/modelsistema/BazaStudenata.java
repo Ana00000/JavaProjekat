@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +36,8 @@ public class BazaStudenata implements Serializable{
 
 	private BazaStudenata() {
 		
+		initStudente();
+		
 		this.kolone=new ArrayList<String>();
 		this.kolone.add("Ime");
 		this.kolone.add("Prezime");
@@ -50,6 +53,18 @@ public class BazaStudenata implements Serializable{
 
 	}
 
+	public void initStudente() {
+		this.studenti = new ArrayList<Student>();
+		studenti.add(new Student("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",0652023333,"petar01@gmail.com","ra55/2017",
+				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,8.53));
+		studenti.add(new Student("Lazar","Lazarević",Calendar.getInstance().getTime(),"Radnička 35",0656363545,"lazlaz@gmail.com","ra85/2017",
+				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,9.93));
+		studenti.add(new Student("Gojko","Gojković",Calendar.getInstance().getTime(),"Radnička 53",0652210121,"gojko0.0@gmail.com","ra155/2017",
+				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,8.93));
+		
+		
+	}
+	
 	public List<Student> getStudenti() {
 		return studenti;
 	}
