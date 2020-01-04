@@ -8,25 +8,23 @@ import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import controllers.StudentiController;
 import modelsistema.BazaStudenata;
 import modelsistema.Predmet;
 import modelsistema.Student;
 
-public class DodavanjeStudentaNaPredmet extends JDialog{
+public class UklanjanjeStudentaSaPredmeta extends JDialog{
 	
 	private static final long serialVersionUID = -4993387552790893124L; 
 	
 	GridBagLayout gb1;
-	
-	JTextField tf1;
 	
 	JPanel p0;
 	JPanel p1;
@@ -44,7 +42,6 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	GridBagConstraints gc2;
 	GridBagConstraints gc3;
 	GridBagConstraints gc4;
-	GridBagConstraints gc5;
 	
 	GridBagLayout gbp0;
 	GridBagLayout gbp1;
@@ -52,16 +49,18 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	
 	JLabel l0;
 	JLabel title;
-	JLabel indeksS;
 	JLabel l;
+	
+	@SuppressWarnings("rawtypes")
+	JComboBox indeksiStudenata;
 	
 	JButton b1;
 	JButton b2;
 	
-	public DodavanjeStudentaNaPredmet(Predmet predmet,String brojIndeksa) {
+	public UklanjanjeStudentaSaPredmeta(Predmet predmet,String brojIndeksa) {
 		
 		try {
-			int screenHeight = 768*1/5;
+			int screenHeight = 768*2/5;
 			int screenWidth = 1366*9/20;
 			setSize(screenWidth , screenHeight);
 			setResizable(true);
@@ -84,6 +83,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void jbInit(Predmet p,String brojI) throws Exception{
 
 		gb1 = new GridBagLayout();
@@ -115,7 +115,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		gc1.gridy = 0;
 	    p0.add(l0,gc1);
 		
-		title = new JLabel("Predmet - dodavanje studenta");
+		title = new JLabel("Spisak studenata");
 		title.setFont(new Font("Arial", Font.PLAIN, 13));
 		gc2 = new GridBagConstraints();
 		gc2.anchor = GridBagConstraints.WEST;
@@ -138,21 +138,14 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		gbp1.rowWeights = new double[]{0.0};
 		p1.setLayout(gbp1);
 		
-		indeksS = new JLabel("Indeks studenta*");
-		indeksS.setFont(new Font("Arial", Font.PLAIN, 13));
+		ArrayList<Student> spisak = p.getSpisakStudenataKojiSlusajuPredmet();
+		indeksiStudenata = new JComboBox(spisak.toArray());
 		gc3 = new GridBagConstraints();
 		gc3.insets = new Insets(10,0,15,15);
+		gc3.anchor = GridBagConstraints.CENTER;
 		gc3.gridx = 0;
 		gc3.gridy = 0;
-		p1.add(indeksS, gc3);
-		
-		tf1 = new JTextField(18);
-		tf1.setFont(new Font("Futura", Font.PLAIN, 13));
-		gc4 = new GridBagConstraints();
-		gc4.fill = GridBagConstraints.HORIZONTAL;
-		gc4.gridx = 1;
-		gc4.gridy = 0;
-		p1.add(tf1, gc4);
+		p1.add(indeksiStudenata, gc3);
 		
 		p2 = new JPanel();
 		p2.setBackground(Color.WHITE);
@@ -163,7 +156,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		gcp2.gridy = 2;
 		getContentPane().add(p2,gcp2);
 		
-	    b1 = new JButton("Odustanak");
+	    b1 = new JButton("Obrisi");
 	    b1.setFont(new Font("Arial", Font.PLAIN, 13));
 	    b1.setBackground(Color.WHITE);
 	    p2.add(b1);
@@ -176,7 +169,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	    pb2.setBackground(Color.WHITE);
 	    p2.add(pb2);
 	    
-	    b2 = new JButton("Potvrda");
+	    b2 = new JButton("Nazad");
 	    b2.setFont(new Font("Arial", Font.PLAIN, 13));
 	    b2.setBackground(Color.WHITE);
 	    p2.add(b2);
@@ -186,6 +179,14 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				for(Student s: BazaStudenata.getInstance().getStudenti()) {
+					if(s.getBrojIndeksa() == brojI) {
+						p.getSpisakStudenataKojiSlusajuPredmet().remove(s);
+						StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(p, brojI);
+					}
+				}
+				
 				dispose();
 			}
 
@@ -215,14 +216,6 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				for(Student s: BazaStudenata.getInstance().getStudenti()) {
-					if(s.getBrojIndeksa() == brojI) {
-						p.getSpisakStudenataKojiSlusajuPredmet().add(s);
-						StudentiController.getInstance().dodavanjeStudentaNaPredmet(p, brojI);
-					}
-				}
-				
 				dispose();
 			}
 
@@ -264,10 +257,10 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		
 		l = new JLabel(" ");
 		l.setFont(new Font("Arial", Font.PLAIN, 17));
-		gc5 = new GridBagConstraints();	
-		gc5.gridx = 0;
-		gc5.gridy = 0;
-		p3.add(l,gc5);
+		gc4 = new GridBagConstraints();	
+		gc4.gridx = 0;
+		gc4.gridy = 0;
+		p3.add(l,gc4);
 		
 	}
 }
