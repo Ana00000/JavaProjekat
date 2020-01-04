@@ -38,4 +38,12 @@ public class ProfesoriController {
 		model.fireTableDataChanged();
 	}
 
+	public void izmenaProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
+			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje) {
+		
+		BazaProfesora.getInstance().izmeniProfesora(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon, email,
+				adresaKancelarije, brojLicneKarte, titula, zvanje);
+		AbstractTableModelProfesori model = (AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
+		model.fireTableDataChanged();
+	}
 }

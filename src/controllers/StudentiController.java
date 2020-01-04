@@ -3,6 +3,7 @@ package controllers;
 import modelsistema.BazaStudenata;
 import modelsistema.Predmet;
 import modelsistema.Status;
+import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
 
 import java.util.Date;
@@ -33,9 +34,9 @@ public class StudentiController {
 		
 	}
 	
-    public void izbrisiStudenta(String index) {
+    public void izbrisiStudenta(Student s) {
     	
-    	BazaStudenata.getInstance().izbrisiStudenta(index);
+    	BazaStudenata.getInstance().izbrisiStudenta(s);
     	AbstractTableModelStudenti model = (AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	

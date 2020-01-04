@@ -3,6 +3,7 @@ package funkcionalnosti;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -10,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import controllers.StudentiController;
+import modelsistema.BazaStudenata;
 import modelsistema.Status;
 import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
@@ -22,6 +25,8 @@ import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class IzmenaStudenta extends JDialog {
 	
@@ -645,6 +650,31 @@ public class IzmenaStudenta extends JDialog {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				String TreGod = cb1.getSelectedItem().toString();
+				TrenutnaGodina god = TrenutnaGodina.valueOf(TreGod);
+				
+				String status = b1.getSelectedIcon().toString();
+				Status st = Status.valueOf(status);
+				
+				for(Student s: BazaStudenata.getInstance().getStudenti()) {
+					
+					if(tf7.getText().equals(s.getBrojIndeksa())) {
+						JOptionPane.showMessageDialog(null,"Već postoji student sa brojem indeksa " +tf7.getText(), "Greška",JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+				}
+				
+				try {
+					StudentiController.getInstance().izmeniStudenta(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), tf4.getText(),
+							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
+							god, st, Double.parseDouble(tf9.getText()));
+				} catch (NumberFormatException e1) {
+					e1.printStackTrace();
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
 				int kontaktTelefon = Integer.parseInt(tf5.getText());
 				Double prosek = Double.parseDouble(tf9.getText());
 				

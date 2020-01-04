@@ -15,6 +15,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controllers.StudentiController;
+import modelsistema.Student;
+
 public class BrisanjeStudenta extends JDialog{
 	
 	private static final long serialVersionUID = -4993387552790893124L; 
@@ -63,7 +66,7 @@ public class BrisanjeStudenta extends JDialog{
 	ImageIcon image3;
 	ImageIcon image4;
 	
-	public BrisanjeStudenta() {
+	public BrisanjeStudenta(Student student) {
 		try {
 			int screenHeight = 768*1/4;
 			int screenWidth = 1366*2/5;
@@ -73,18 +76,20 @@ public class BrisanjeStudenta extends JDialog{
 			setLocationRelativeTo(null);
 			getContentPane().setBackground(Color.WHITE);
 			this.setUndecorated(true);
+			Student s = student;
+			try {
+				jbInit(s);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		} catch (HeadlessException e) {
 			e.printStackTrace();
 		}
 		
-		try {
-			jbInit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
-	private void jbInit() throws Exception{
+	private void jbInit(Student s) throws Exception{
 		
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
@@ -333,6 +338,8 @@ public class BrisanjeStudenta extends JDialog{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				StudentiController.getInstance().izbrisiStudenta(s);
+				
 				dispose();
 			}
 

@@ -126,9 +126,9 @@ public class BazaStudenata implements Serializable{
 		
 	}
 	
-	public void izbrisiStudenta(String index) {
+	public void izbrisiStudenta(Student student) {
 		for(Student s : studenti) {
-			if(s.getBrojIndeksa()==index) {
+			if(s == student) {
 				studenti.remove(s);
 				break;
 			}

@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controllers.StudentiController;
 import modelsistema.Predmet;
 
 public class DodavanjeStudentaNaPredmet extends JDialog{
@@ -55,7 +56,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	JButton b1;
 	JButton b2;
 	
-	public DodavanjeStudentaNaPredmet(Predmet predmet) {
+	public DodavanjeStudentaNaPredmet(Predmet predmet,String brojIndeksa) {
 		
 		try {
 			int screenHeight = 768*1/5;
@@ -69,7 +70,8 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 			
 			try {
 				Predmet p = predmet;
-				jbInit(p);
+				String brojI = brojIndeksa;
+				jbInit(p,brojI);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -80,7 +82,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		
 	}
 	
-	private void jbInit(Predmet p) throws Exception{
+	private void jbInit(Predmet p,String brojI) throws Exception{
 
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
@@ -211,6 +213,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				StudentiController.getInstance().dodavanjeStudentaNaPredmet(p, brojI);
 				
 				dispose();
 			}

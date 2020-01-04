@@ -3,11 +3,14 @@ package funkcionalnosti;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import controllers.ProfesoriController;
+import modelsistema.BazaProfesora;
 import modelsistema.Profesor;
 import modelsistema.Titula;
 import modelsistema.Zvanje;
@@ -20,6 +23,9 @@ import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class IzmenaProfesora extends JDialog {
 	
@@ -576,8 +582,34 @@ public class IzmenaProfesora extends JDialog {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
+				
+				String titula = cb1.getSelectedItem().toString();
+				Titula t = Titula.valueOf(titula);
+				
+				String zvanje = cb2.getSelectedItem().toString();
+				Zvanje z = Zvanje.valueOf(zvanje);
+				
 				int brojLicneKarte = Integer.parseInt(tf8.getText());
+				
+				for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
+					
+					if(brojLicneKarte == p.getBrojLicneKarte()) {
+						JOptionPane.showMessageDialog(null,"Već postoji profesor sa brojem lične karte " +tf8.getText(), "Greška",JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+				}
+				
+				try {
+					Date date = (Date) new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText());
+					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), date, tf4.getText(),
+							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z);
+				} catch (NumberFormatException e1) {
+					e1.printStackTrace();
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
+				int kontaktTelefon = Integer.parseInt(tf5.getText());
 				if(!"".equals(tf1.getText()))
 					if(!"".equals(tf2.getText()))
 						if(!"".equals(tf3.getText()))

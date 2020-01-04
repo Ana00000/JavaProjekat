@@ -595,11 +595,12 @@ public class DodavanjeProfesora extends JDialog {
 					e1.printStackTrace();
 				}
 				
+				int kontaktTelefon = Integer.parseInt(tf5.getText());
 				if(!"".equals(tf1.getText()))
 					if(!"".equals(tf2.getText()))
 						if(!"".equals(tf3.getText()))
 							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()))
+								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
 									if(!"".equals(tf6.getText()))
 										if(!"".equals(tf7.getText()))
 											if(!"".equals(tf8.getText()) && brojLicneKarte == Integer.parseInt(tf8.getText()))
