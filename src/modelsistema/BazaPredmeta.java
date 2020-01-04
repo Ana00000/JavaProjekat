@@ -1,15 +1,20 @@
 package modelsistema;
 
 //import java.io.FileInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 //import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+
+import controllers.PredmetiController;
 
 public class BazaPredmeta implements Serializable{
 	/**
@@ -29,6 +34,9 @@ public class BazaPredmeta implements Serializable{
 	private List<String> kolone;
 	
 	private BazaPredmeta() {
+		initPredmete();
+		System.out.println("Konstruktor");
+		
 		this.kolone=new ArrayList<String>();
 		this.kolone.add("Sifra");
 		this.kolone.add("Naziv");
@@ -69,11 +77,27 @@ public class BazaPredmeta implements Serializable{
 		case 3:
 			return  predmet.getGodinaStudijaUKojojSePredmetIzvodi().toString();
 		case 4:
-			return predmet.getProfesor().toString();
+			String profesor;
+			if(predmet.getProfesor()==null){
+				profesor="";
+			}else profesor=predmet.getProfesor().getIme()+ " "+predmet.getProfesor().getPrezime();
+			return profesor;
 		
 		default:
 			return null;
 		}
+	}
+	public void initPredmete() {
+		this.predmeti=new ArrayList<Predmet>();
+	
+		predmeti.add(new Predmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
+		predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
+		predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
+
+
 	}
 	
 	public void dodajPredmet(Predmet predmet) {
@@ -146,15 +170,16 @@ public class BazaPredmeta implements Serializable{
 			e.printStackTrace();
 		}
 	}
-/*
+
 	public void deserijalizacijaPredmeta() {
 		try {
 			System.out.println("\n\n");
 			FileInputStream fPredmeta= new FileInputStream("predmeti.ser");
 			ObjectInputStream predmetiIn = new ObjectInputStream(fPredmeta);
+			@SuppressWarnings("unchecked")
 			ArrayList<Predmet> predmeti = (ArrayList<Predmet>) predmetiIn.readObject();
 			BazaPredmeta.getInstance().setPredmeti(predmeti);
-		PredmetiController.getInstance().promenaPosleDeserijalizacije();
+	     	PredmetiController.getInstance().promenaPosleDeserijalizacije();
 			
 				fPredmeta.close();
 				predmetiIn.close();
@@ -165,5 +190,5 @@ public class BazaPredmeta implements Serializable{
 		  	 
 			cnf.printStackTrace();
 		}
-	}*/
+	}
 }

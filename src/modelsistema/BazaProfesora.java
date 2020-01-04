@@ -1,14 +1,19 @@
 package modelsistema;
 
 //import java.io.FileInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 //import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import controllers.ProfesoriController;
 
 public class BazaProfesora implements Serializable{
 	/**
@@ -29,6 +34,8 @@ public class BazaProfesora implements Serializable{
 	
 	private BazaProfesora() {
 		
+		initProfesore();
+		
 		this.kolone=new ArrayList<String>();
 		this.kolone.add("Ime");
 		this.kolone.add("Prezime");
@@ -41,6 +48,12 @@ public class BazaProfesora implements Serializable{
 		this.kolone.add("Titula");
 		this.kolone.add("Zvanje");
 		
+	}
+	private void initProfesore() {
+		this.profesori=new ArrayList<Profesor>();
+		profesori.add(new Profesor("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR));
+		profesori.add(new Profesor("Minja", "Vidakovic",Calendar.getInstance().getTime(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR));
+		profesori.add(new Profesor("Danilo", "Danic",Calendar.getInstance().getTime(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR));
 	}
 
 	public List<Profesor> getProfesori() {
@@ -138,15 +151,16 @@ public class BazaProfesora implements Serializable{
 		}catch(IOException exp) {
 			exp.printStackTrace();
 		}
-	}/*
+	}
 	public void deserijalizacijaProfesora(){
 		try{
 			System.out.println("\n\n");
 			FileInputStream fOUTProfesor = new FileInputStream("profesori.ser");
 			ObjectInputStream profesorIn= new ObjectInputStream(fOUTProfesor);
+			@SuppressWarnings("unchecked")
 			ArrayList<Profesor> profesori = (ArrayList<Profesor>) profesorIn.readObject();
 			BazaProfesora.getInstance().setProfesori(profesori);
-		//	ProfesoriController.getInstance().promenaPosleDeserijalizacije();
+			ProfesoriController.getInstance().promenaPosleDeserijalizacije();
 			
 			fOUTProfesor.close();
 			profesorIn.close();
@@ -155,5 +169,5 @@ public class BazaProfesora implements Serializable{
 		}catch(ClassNotFoundException c) {
 			c.printStackTrace();
 		}
-	}*/
+	}
 }
