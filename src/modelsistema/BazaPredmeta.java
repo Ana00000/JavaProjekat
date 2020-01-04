@@ -90,9 +90,9 @@ public class BazaPredmeta implements Serializable{
 	public void initPredmete() {
 		this.predmeti=new ArrayList<Predmet>();
 	
-		predmeti.add(new Predmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TREĆA/*TREÆA*/,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR)));
-		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TREĆA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
-		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TREĆA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
+		predmeti.add(new Predmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TREÆA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
 		predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
 		predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
 		predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
