@@ -1,25 +1,20 @@
 package izgledaplikacije;
 
 import java.awt.BorderLayout;
-
-
-
-
-
-
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
+import modelsistema.BazaPredmeta;
+import modelsistema.BazaProfesora;
 
-import javax.swing.JPanel;
-
-import listeners.MyWindowListener;
 
 public class MainFrame extends JFrame {
+
 
 	/**
 	 * 
@@ -36,47 +31,105 @@ public class MainFrame extends JFrame {
 		int height=screenHeight-screenHeight*1/4;
 		setSize(width,height);
 		setTitle("Studentska Sluzba");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
-		addWindowListener(new MyWindowListener());
 		
 		
 		MenuBar menu = new MenuBar();
-		this.setJMenuBar(menu);
-
-		
-		Toolbar toolbar = new Toolbar();
-		add(toolbar, BorderLayout.NORTH);
+		setJMenuBar(menu);
 
 		StatusBar st=new StatusBar();
-		st.setVisible(true);
+	    getContentPane().add(st,BorderLayout.SOUTH);
 		
-		add(st,BorderLayout.SOUTH);
+		final TabbedPane tabbedPane=new TabbedPane();
+		tabbedPane.setFont(new Font("Arial",Font.PLAIN,30));
+		getContentPane().add(tabbedPane,BorderLayout.CENTER);
 		
-		JPanel panelTop = new JPanel();
-		JButton btnStudenti = new JButton("Studenti");
-		JButton btnProfesori = new JButton("Profesori");
-		JButton btnPredmeti = new JButton("Predmeti");
-		JPanel panel=new JPanel();
+		final ToolBarStudent studentToolbar=new ToolBarStudent();
+		add(studentToolbar,BorderLayout.NORTH);
 		
-		panel.setPreferredSize(new Dimension(610,10));
-		btnStudenti.setBackground(Color.WHITE);
-		btnProfesori.setBackground(Color.WHITE);
-		btnPredmeti.setBackground(Color.WHITE);
-		btnStudenti.setFont(new Font("TAHOMA", Font.BOLD, 18));
-		btnProfesori.setFont(new Font("TAHOMA", Font.BOLD, 18));
-		btnPredmeti.setFont(new Font("TAHOMA", Font.BOLD, 18));
-		panel.setBackground(Color.WHITE);
-		panelTop.setBackground(Color.WHITE);
+		final ToolBarProfesor profesorToolbar=new ToolBarProfesor();
+		final ToolBarPredmet predmetToolbar=new ToolBarPredmet();
 		
-		panelTop.add(btnStudenti);
-		panelTop.add(btnProfesori);
-		panelTop.add(btnPredmeti);
-		panelTop.add(panel);
+		tabbedPane.addChangeListener(new ChangeListener(){
+			
+			
 		
-		
-		this.add(panelTop);
-		
+			@SuppressWarnings("deprecation")
+			@Override
+			public void stateChanged(ChangeEvent arg0) {
+				// TODO Auto-generated method stub
+				int i=tabbedPane.getSelectedIndex();
+				if(i==0) {
+					getContentPane().add(studentToolbar,BorderLayout.NORTH);
+					studentToolbar.show();
+					profesorToolbar.hide();
+					predmetToolbar.hide();
+				}else if(i==1) {
+					add(profesorToolbar, BorderLayout.NORTH);
+					studentToolbar.hide();
+					profesorToolbar.show();
+					predmetToolbar.hide();
+				}else {
+					add(predmetToolbar, BorderLayout.NORTH);
+					studentToolbar.hide();
+					profesorToolbar.hide();
+					predmetToolbar.show();
+				}
+			}
+			
+			
+		});
+			this.addWindowListener(new WindowListener(){
+
+				@Override
+				public void windowActivated(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void windowClosed(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void windowClosing(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					BazaPredmeta.getInstance().serijalizacijaPredmeta();
+					BazaProfesora.getInstance().serijalizacijaProfesora();
+				}
+
+				@Override
+				public void windowDeactivated(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void windowDeiconified(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void windowIconified(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void windowOpened(WindowEvent arg0) {
+					// TODO Auto-generated method stub
+					BazaPredmeta.getInstance().deserijalizacijaPredmeta();
+					BazaProfesora.getInstance().deserijalizacijaProfesora();
+				}
+				
+			}); 	
+			
 	}
+	
+	
 }
