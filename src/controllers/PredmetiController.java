@@ -51,9 +51,9 @@ public class PredmetiController {
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
-	/*
+	
 	public void promenaPosleDeserijalizacije() {
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
-	}*/
+	}
 }

@@ -32,10 +32,10 @@ public class ProfesoriController {
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
-	/*
+	
 	public void promenaPosleDeserijalizacije() {
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
 		model.fireTableDataChanged();
-	}*/
+	}
 
 }
