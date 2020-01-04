@@ -99,14 +99,14 @@ public class BazaPredmeta implements Serializable{
 			}
 		}
 	}
-	public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof) {
+	public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet predmet) {
 		for(Predmet p:predmeti) {
 			if(p.getSifra()==sifra) {
 				p.setSifra(sifra);
 				p.setNaziv(naziv);
 				p.setSemestar(semestar);
 				p.setGodinaStudijaUKojojSePredmetIzvodi(godina);
-				p.setProfesor(prof);
+		
 			}
 		}
 	}

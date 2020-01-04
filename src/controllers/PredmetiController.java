@@ -33,8 +33,8 @@ public class PredmetiController {
 		model.fireTableDataChanged();
 	}
 	
-	public void IzmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof){
-		BazaPredmeta.getInstance().izmeniPredmet(sifra,naziv,semestar,godina,prof);
+	public void IzmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet pred){
+		BazaPredmeta.getInstance().izmeniPredmet(sifra,naziv,semestar,godina,pred);
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
