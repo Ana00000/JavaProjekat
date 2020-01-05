@@ -160,6 +160,7 @@ public class BazaStudenata implements Serializable{
 			if(s.getBrojIndeksa() == brojIndeksa) {
 				exists = 1;
 				predmet.getSpisakStudenataKojiSlusajuPredmet().add(s);
+				s.getSpisakPredmeta().add(predmet);
 			}
 		}
 		if(exists == 0) {
@@ -172,6 +173,7 @@ public class BazaStudenata implements Serializable{
 			if(s.getBrojIndeksa() == brojIndeksa) {
 				exists = 1;
 				predmet.getSpisakStudenataKojiSlusajuPredmet().remove(s);
+				s.getSpisakPredmeta().remove(predmet);
 			}
 		}
 		if(exists == 0) {

@@ -49,8 +49,7 @@ public class StudentiJTable extends JTable {
 		for(int i = 0; i < parts.length; i++) {
 			String[] splited = parts[i].split(":");
 			if(splited.length > 1) {
-				map.put(splited[0].toLowerCase(), splited[1]);
-				System.out.println("Kljuc: " + splited[0].toLowerCase() + "\nVrednost: " + splited[1]);
+			map.put(splited[0].toLowerCase(), splited[1]);
 			}
 		}
 		

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JTable;
-//import javax.swing.table.TableRowSorter;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 public class ProfesoriJTable extends JTable{

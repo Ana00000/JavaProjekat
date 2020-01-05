@@ -74,7 +74,7 @@ public class ToolBarStudent extends JToolBar{
 		btnSearch.setIcon(image9);
 		btnSearch.setMnemonic(KeyEvent.VK_S);
 		panel1.add(btnSearch);
-		
+	
 		
 		btnAdd.addActionListener(new ActionListener() {
 
@@ -92,7 +92,7 @@ public class ToolBarStudent extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				int row=StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
+				int row=StudentiJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
 				
 				Student student=BazaStudenata.getInstance().getRow(row);
 				
@@ -113,6 +113,7 @@ public class ToolBarStudent extends JToolBar{
 			}
 			
 		});
+		
 	}
 	
 }
