@@ -2,13 +2,21 @@ package izgledaplikacije;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+
+import modelsistema.BazaStudenata;
+import modelsistema.Student;
+import controllers.StudentiController;
+import funkcionalnosti.DodavanjeStudenta;
 
 public class ToolBarStudent extends JToolBar{
 
@@ -67,6 +75,44 @@ public class ToolBarStudent extends JToolBar{
 		btnSearch.setMnemonic(KeyEvent.VK_S);
 		panel1.add(btnSearch);
 		
+		
+		btnAdd.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				DodavanjeStudenta stud=new DodavanjeStudenta();
+				stud.setVisible(true);
+			}
+			
+		});
+		
+		btnDelete.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				int row=StudentiJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+				
+				Student student=BazaStudenata.getInstance().getRow(row);
+				
+				if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete studenta?","Brisanje Studenta",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+					StudentiController.getInstance().izbrisiStudenta(student);
+			}else {
+				return;
+			}
+		}
+		});
+		btnSearch.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				String query=textField.getText();
+				StudentiJTable.getInstance().search(query);
+			}
+			
+		});
 	}
 	
 }
