@@ -56,11 +56,11 @@ public class BazaStudenata implements Serializable{
 	public void initStudente() {
 		this.studenti = new ArrayList<Student>();
 		studenti.add(new Student("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",0652023333,"petar01@gmail.com","ra55/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,8.53));
+				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53));
 		studenti.add(new Student("Lazar","Lazarević",Calendar.getInstance().getTime(),"Radnička 35",0656363545,"lazlaz@gmail.com","ra85/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,9.93));
+				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,9.93));
 		studenti.add(new Student("Gojko","Gojković",Calendar.getInstance().getTime(),"Radnička 53",0652210121,"gojko0.0@gmail.com","ra155/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TREĆA,Status.B,8.93));
+				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.93));
 		
 		
 	}

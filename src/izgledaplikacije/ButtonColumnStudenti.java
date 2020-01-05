@@ -24,7 +24,7 @@ public class ButtonColumnStudenti  extends AbstractCellEditor implements TableCe
 		return null;
 	}
 	
-	public ButtonColumnStudenti(JTable table, int column) {
+	public ButtonColumnStudenti(final JTable table, int column) {
 		
 		this.table = table;
 		this.table.getColumnModel().getColumn(column).setCellRenderer(this);

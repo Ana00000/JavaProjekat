@@ -101,7 +101,7 @@ public class MainFrame extends JFrame {
 					// TODO Auto-generated method stub
 					BazaPredmeta.getInstance().serijalizacijaPredmeta();
 					BazaProfesora.getInstance().serijalizacijaProfesora();
-					BazaStudenata.getInstance().serijalizacijaStudenata();
+					//BazaStudenata.getInstance().serijalizacijaStudenata();
 				}
 
 				@Override
@@ -127,7 +127,7 @@ public class MainFrame extends JFrame {
 					// TODO Auto-generated method stub
 					BazaPredmeta.getInstance().deserijalizacijaPredmeta();
 					BazaProfesora.getInstance().deserijalizacijaProfesora();
-					BazaStudenata.getInstance().deserijalizacijaStudenata();
+					//BazaStudenata.getInstance().deserijalizacijaStudenata();
 				}
 				
 			}); 	

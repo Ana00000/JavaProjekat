@@ -84,7 +84,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void jbInit(Predmet p,String brojI) throws Exception{
+	private void jbInit(final Predmet p,final String brojI) throws Exception{
 
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
