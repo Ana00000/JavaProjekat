@@ -22,7 +22,6 @@ import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -586,9 +585,8 @@ public class DodavanjeProfesora extends JDialog {
 				}
 				
 				try {
-					Date date = (Date) new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText());
-					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), date, tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z);
+					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), 
+							tf4.getText(),Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z);
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {

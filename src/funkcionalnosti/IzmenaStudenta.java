@@ -654,8 +654,7 @@ public class IzmenaStudenta extends JDialog {
 				String TreGod = cb1.getSelectedItem().toString();
 				TrenutnaGodina god = TrenutnaGodina.valueOf(TreGod);
 				
-				String status = b1.getSelectedIcon().toString();
-				Status st = Status.valueOf(status);
+				Status st = s.getStatus();
 				
 				for(Student s: BazaStudenata.getInstance().getStudenti()) {
 					
@@ -713,7 +712,7 @@ public class IzmenaStudenta extends JDialog {
 			}
 	    	
 	    } );
-		
+	   
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);
 		gcp13 =  new GridBagConstraints();

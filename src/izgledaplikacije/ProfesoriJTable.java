@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.swing.JTable;
 //import javax.swing.table.TableRowSorter;
 import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 public class ProfesoriJTable extends JTable{
 
 	/**
@@ -23,12 +24,12 @@ public class ProfesoriJTable extends JTable{
 		}
 		return instance;
 	}
-//	private TableRowSorter<AbstractTableModelProfesori> sorter;
+	private TableRowSorter<AbstractTableModelProfesori> sorter;
 	
 	private ProfesoriJTable() {
 		this.setModel(new AbstractTableModelProfesori());
-		//sorter=new TableRowSorter<>((AbstractTableModelProfesori) getModel());
-		//this.setRowSorter(sorter);
+		sorter=new TableRowSorter<>((AbstractTableModelProfesori) getModel());
+		this.setRowSorter(sorter);
 	}
 	public void search(String query) {
 		String[] parts=query.split(";");
@@ -63,7 +64,7 @@ public class ProfesoriJTable extends JTable{
 			rf.add(RowFilter.regexFilter(".*" + map.get("adresa kancelarije") + ".*", 7));
 			rf.add(RowFilter.regexFilter(".*" + map.get("titula") + ".*", 8));
 			rf.add(RowFilter.regexFilter(".*" + map.get("zvanje") + ".*", 9));
-		//	sorter.setRowFilter(RowFilter.andFilter(rf));
+			sorter.setRowFilter(RowFilter.andFilter(rf));
 
 		
 		}

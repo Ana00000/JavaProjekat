@@ -22,11 +22,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 
 public class DodavanjeStudenta extends JDialog {
 	
@@ -145,6 +145,8 @@ public class DodavanjeStudenta extends JDialog {
 	
 	JButton b1;
 	JButton b2;
+	
+	KeyListener key;
 	
 	public DodavanjeStudenta(){
 		try {
@@ -634,8 +636,13 @@ public class DodavanjeStudenta extends JDialog {
 				String TreGod = cb1.getSelectedItem().toString();
 				TrenutnaGodina god = TrenutnaGodina.valueOf(TreGod);
 				
-				String status = b1.getSelectedIcon().toString();
-				Status st = Status.valueOf(status);
+				Status status;
+				
+				if(rb1.isSelected())
+				{
+					status = Status.B;
+				}else
+					status = Status.S;
 				
 				for(Student s: BazaStudenata.getInstance().getStudenti()) {
 					
@@ -648,7 +655,7 @@ public class DodavanjeStudenta extends JDialog {
 				try {
 					StudentiController.getInstance().dodajStudenta(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), tf4.getText(),
 							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
-							god, st, Double.parseDouble(tf9.getText()));
+							god, status, Double.parseDouble(tf9.getText()));
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {
@@ -689,7 +696,7 @@ public class DodavanjeStudenta extends JDialog {
 			}
 	    	
 	    } );
-		
+	    
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);
 		gcp13 =  new GridBagConstraints();
