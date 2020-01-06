@@ -17,7 +17,7 @@ public class AbstractTableModelPredmeti extends AbstractTableModel {
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
-		return BazaPredmeta.getInstance().getPredmeti().size();
+		return BazaPredmeta.getInstance().getColumnCount()+1;//+ KOLONA STUDENTI
 	}
 
 	@Override

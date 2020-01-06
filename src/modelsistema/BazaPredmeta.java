@@ -1,6 +1,6 @@
 package modelsistema;
 
-//import java.io.FileInputStream;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class BazaPredmeta implements Serializable{
 	
 	private BazaPredmeta() {
 		initPredmete();
-		System.out.println("Konstruktor");
+		//System.out.println("Konstruktor");
 		
 		this.kolone=new ArrayList<String>();
 		this.kolone.add("Sifra");
@@ -90,12 +90,12 @@ public class BazaPredmeta implements Serializable{
 	public void initPredmete() {
 		this.predmeti=new ArrayList<Predmet>();
 	
-		predmeti.add(new Predmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR)));
-		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
-		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
-		predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
-		predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR)));
-		predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR)));
+		predmeti.add(new Predmet("RA4","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<Student>()));
+		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<Student>()));
+		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<Student>()));
+		predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<Student>()));
+		predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<Student>()));
+		predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<Student>()));
 
 
 	}
@@ -104,9 +104,10 @@ public class BazaPredmeta implements Serializable{
 		this.predmeti.add(predmet);
 	}
 	
-	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof) {
-		this.predmeti.add(new Predmet(sifra,naziv,semestar,godina,prof));
+	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof,ArrayList<Student> SpisakStudenti) {
+		this.predmeti.add(new Predmet(sifra,naziv,semestar,godina,prof,SpisakStudenti));	
 	}
+	
 	
 	public void izbrisiPredmet(Predmet p) {
 		p.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(p);
@@ -124,26 +125,25 @@ public class BazaPredmeta implements Serializable{
 		}
 	}
 	public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet predmet) {
-		for(Predmet p:predmeti) {
-			if(p.getSifra()==sifra) {
-				p.setSifra(sifra);
-				p.setNaziv(naziv);
-				p.setSemestar(semestar);
-				p.setGodinaStudijaUKojojSePredmetIzvodi(godina);
 		
-			}
-		}
+				predmet.setSifra(sifra);
+				predmet.setNaziv(naziv);
+				predmet.setSemestar(semestar);
+				predmet.setGodinaStudijaUKojojSePredmetIzvodi(godina);
+		
+			
+		
 	}
-	public void dodajProfesoraNaPredmet(Predmet predmet,String brojLicne) {
+	public void dodajProfesoraNaPredmet(Predmet predmet,int brojLicne) {
 		int exists=0;
 		for(Profesor p:BazaProfesora.getInstance().getProfesori()) {
-			if(p.getBrojLicneKarte()==Integer.parseInt(brojLicne)) {
+			if(p.getBrojLicneKarte()==brojLicne) {
 				exists=1;
 				if(predmet.getProfesor().getBrojLicneKarte() !=p.getBrojLicneKarte()) {
-					predmet.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(predmet);//AKO NE ODGOVARA BR LICNE POMERAMO TRENUTNOG PROFESORA 
-					predmet.setProfesor(p);//POSTAVLJAMO NOVOG
-					p.getSpisakPredmetaNaKojimaPredaje().add(predmet);
-				}else {
+					//predmet.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(predmet);//UKLONIMO PREDMET KOD STAROG PROFESORA
+					predmet.setProfesor(p);//POSTAVLJAMO NOVOG PROFESORA NA PREDMET
+					p.getSpisakPredmetaNaKojimaPredaje().add(predmet);//DODAMO PREDMET U LISTU KOD NOVOG PROFESORA 
+				}else {//AKO SU ISTE LICNE ZNACI DA JE VEC PROFESOR NA TOM PREDMETU
 					JOptionPane.showMessageDialog (null , "Profesor vec predaje na predmetu" , "GRESKA" , JOptionPane.ERROR_MESSAGE);
 				}
 			}
@@ -153,8 +153,8 @@ public class BazaPredmeta implements Serializable{
 		}
 	}
 	public void uklanjanjeProfesoraSaPredmeta(Predmet predmet) {
-		predmet.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(predmet);
-		predmet.setProfesor(new Profesor());
+		predmet.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(predmet);//UKLONIMO PREDMET KOD PROFESORA
+		predmet.setProfesor(new Profesor());//POSTAVIMO NOVOG PROFESORA
 		System.out.println(BazaProfesora.getInstance());
 	}
 	

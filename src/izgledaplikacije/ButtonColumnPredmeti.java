@@ -36,6 +36,8 @@ public class ButtonColumnPredmeti extends AbstractCellEditor implements TableCel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
+				//MOZE NESTO DA SE ODRADI 
+				//ZA STUDENTA, UBACIVANJE STUDENTA NA PREDMET
 				JOptionPane.showMessageDialog(table, "Selektovan je predmet u redu: " + table.getSelectedRow());
 			}
 		});

@@ -17,6 +17,7 @@ import modelsistema.BazaProfesora;
 import modelsistema.Profesor;
 import controllers.ProfesoriController;
 import funkcionalnosti.DodavanjeProfesora;
+import funkcionalnosti.IzmenaProfesora;
 
 public class ToolBarProfesor extends JToolBar{
 
@@ -98,10 +99,26 @@ public class ToolBarProfesor extends JToolBar{
 				
 				if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete profesora?","Brisanje Profesora",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
 					ProfesoriController.getInstance().izbrisiProfesora(profesor.getBrojLicneKarte());
+					//ProfesoriController.getInstance().izbrisiProfesoraP(profesor);
 			}else {
 				return;
 			}
 		}
+		});
+		btnInsert.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				int row=ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+				Profesor profesor=BazaProfesora.getInstance().getRow(row);
+				
+				
+			    IzmenaProfesora izmena=new IzmenaProfesora(profesor);
+				izmena.setVisible(true);
+			}
+			
+			
 		});
 		btnSearch.addActionListener(new ActionListener(){
 

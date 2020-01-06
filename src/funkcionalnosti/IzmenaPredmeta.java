@@ -135,12 +135,7 @@ public class IzmenaPredmeta extends JDialog{
 	JTextField tf1;
 	JTextField tf2;
 	JTextField tf3;
-	JTextField tf4;
-	JTextField tf5;
-	JTextField tf6;
-	JTextField tf7;
-	JTextField tf8;
-	JTextField tf9;
+	
 	
 	JComboBox<TrenutnaGodina> cb1;
 	JComboBox<Semestar> cb2;
@@ -506,7 +501,7 @@ public class IzmenaPredmeta extends JDialog{
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				if(tf2.getText().trim().length()>0&& tf1.getText().trim().length()>0) {
+				if(tf2.getText().trim().length()>0&& tf1.getText().trim().length()>0 && tf3.getText().trim().length()>0) {
 					b2.setEnabled(true);
 				}else b2.setEnabled(false);
 			}

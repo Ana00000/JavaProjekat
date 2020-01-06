@@ -18,6 +18,7 @@ import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
 import funkcionalnosti.DodavanjePredmeta;
 import funkcionalnosti.DodavanjeProfesoraNaPredmet;
+//import funkcionalnosti.DodavanjeStudentaNaPredmet;
 import funkcionalnosti.IzmenaPredmeta;
 
 public class ToolBarPredmet extends JToolBar{
@@ -64,15 +65,16 @@ public class ToolBarPredmet extends JToolBar{
 		addProfesorBtn.setIcon(image6);
 		panel.add(addProfesorBtn);
 		
+		JButton addStudentBtn = new JButton("");
+		addStudentBtn.setIcon(image1);
+		addStudentBtn.setToolTipText("Add student on subject");
+		panel.add(addStudentBtn);
+		
 		JButton deleteProfesorBtn=new JButton("");
 		deleteProfesorBtn.setToolTipText("Delete profesor from subject");
 		deleteProfesorBtn.setIcon(image2);
 		panel.add(deleteProfesorBtn);
-		
-		JButton addStudentBtn=new JButton("");
-		addStudentBtn.setToolTipText("Add student on subject");
-		addStudentBtn.setIcon(image1);
-		panel.add(addStudentBtn);
+	
 	
 		
 		JPanel panel1=new JPanel();
@@ -106,9 +108,9 @@ public class ToolBarPredmet extends JToolBar{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub 
 				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-				System.out.println("Selected row: "+row);
+				System.out.println("Selected row: "+row); //CONVERT ROW DAJE INDEKS REDA KO
 				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
 				if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete predmet?","Brisanje Predmeta",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
@@ -137,14 +139,33 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				//int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-			//	Predmet predmet=BazaPredmeta.getInstance().getRow(row);
+				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				@SuppressWarnings("unused")
+				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
 				DodavanjeProfesoraNaPredmet dpnp=new DodavanjeProfesoraNaPredmet();
 				dpnp.setVisible(true);
 			}
 			
 		});
+		addStudentBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				
+				@SuppressWarnings("unused")
+				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
+				
+				//NEMAM POJMA KAKO DA DODJEM DO BROJA INDEKSA
+				//DodavanjeStudentaNaPredmet dsnp=new DodavanjeStudentaNaPredmet(predmet,predmet.getSpisakStudenataKojiSlusajuPredmet().getBrojIndeksa());
+				//dsnp.setVisible(true);
+			}
+			
+			
+		});
+		
 		deleteProfesorBtn.addActionListener(new ActionListener() {
 
 			@Override

@@ -172,7 +172,7 @@ public class IzmenaStudenta extends JDialog {
 	  
 	}
 	
-	private void jbInit(Student s) throws Exception{
+	private void jbInit(final Student s) throws Exception{
 		
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};

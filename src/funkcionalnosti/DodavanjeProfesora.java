@@ -8,8 +8,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+
+
+
+
 import controllers.ProfesoriController;
 import modelsistema.BazaProfesora;
+import modelsistema.Predmet;
 import modelsistema.Profesor;
 import modelsistema.Titula;
 import modelsistema.Zvanje;
@@ -24,6 +29,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class DodavanjeProfesora extends JDialog {
 	
@@ -586,7 +592,7 @@ public class DodavanjeProfesora extends JDialog {
 				
 				try {
 					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), 
-							tf4.getText(),Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z);
+							tf4.getText(),Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>());
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {

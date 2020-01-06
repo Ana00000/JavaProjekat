@@ -34,14 +34,15 @@ public class ProfesoriJTable extends JTable{
 		String[] parts=query.split(";");
 		Map<String,String> map=new HashMap<>();
 		
-		map.put("br.licne", "");
+		
 		map.put("ime", "");
 		map.put("prezime", "");
-		map.put("datum roðenja", "");
+		map.put("datum rodjenja", "");
 		map.put("adresa stanovanja", "");
 		map.put("telefon", "");
 		map.put("email", "");
 		map.put("adresa kancelarije", "");
+		map.put("broj licne", "");
 		map.put("titula", "");
 		map.put("zvanje", "");
 		
@@ -53,14 +54,14 @@ public class ProfesoriJTable extends JTable{
 	}
 		}
 			List<RowFilter<Object,Object>> rf = new ArrayList<RowFilter<Object,Object>>();
-			rf.add(RowFilter.regexFilter(".*" + map.get("br.licne") + ".*",  0)); 
-			rf.add(RowFilter.regexFilter(".*" + map.get("ime") + ".*", 1));
-			rf.add(RowFilter.regexFilter(".*" + map.get("prezime") + ".*", 2));
-			rf.add(RowFilter.regexFilter(".*" + map.get("datum roðenja") + ".*", 3));
-			rf.add(RowFilter.regexFilter(".*" + map.get("adresa stanovanja") + ".*", 4));
-			rf.add(RowFilter.regexFilter(".*" + map.get("telefon") + ".*", 5));
-			rf.add(RowFilter.regexFilter(".*" + map.get("email") + ".*", 6));
-			rf.add(RowFilter.regexFilter(".*" + map.get("adresa kancelarije") + ".*", 7));
+			rf.add(RowFilter.regexFilter(".*" + map.get("ime") + ".*",  0)); 
+			rf.add(RowFilter.regexFilter(".*" + map.get("prezime") + ".*", 1));
+			rf.add(RowFilter.regexFilter(".*" + map.get("datum rodjenja") + ".*", 2));
+			rf.add(RowFilter.regexFilter(".*" + map.get("adresa stanovanja") + ".*", 3));
+			rf.add(RowFilter.regexFilter(".*" + map.get("telefon") + ".*", 4));
+			rf.add(RowFilter.regexFilter(".*" + map.get("email") + ".*", 5));
+			rf.add(RowFilter.regexFilter(".*" + map.get("adresa kancelarije") + ".*", 6));
+			rf.add(RowFilter.regexFilter(".*" + map.get("broj licne") + ".*", 7));
 			rf.add(RowFilter.regexFilter(".*" + map.get("titula") + ".*", 8));
 			rf.add(RowFilter.regexFilter(".*" + map.get("zvanje") + ".*", 9));
 			sorter.setRowFilter(RowFilter.andFilter(rf));

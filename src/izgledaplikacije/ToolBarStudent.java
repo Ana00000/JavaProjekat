@@ -17,6 +17,7 @@ import modelsistema.BazaStudenata;
 import modelsistema.Student;
 import controllers.StudentiController;
 import funkcionalnosti.DodavanjeStudenta;
+import funkcionalnosti.IzmenaStudenta;
 
 public class ToolBarStudent extends JToolBar{
 
@@ -92,7 +93,7 @@ public class ToolBarStudent extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				int row=StudentiJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+				int row=StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
 				
 				Student student=BazaStudenata.getInstance().getRow(row);
 				
@@ -102,6 +103,21 @@ public class ToolBarStudent extends JToolBar{
 				return;
 			}
 		}
+		});
+		btnInsert.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				int row=StudentiJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+				Student student=BazaStudenata.getInstance().getRow(row);
+				
+			    IzmenaStudenta izmena=new IzmenaStudenta(student);
+				izmena.setVisible(true);
+			}
+			
+			
 		});
 		btnSearch.addActionListener(new ActionListener(){
 

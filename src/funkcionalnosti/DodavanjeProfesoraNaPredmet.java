@@ -14,8 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -193,7 +193,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 	    b2.setFont(new Font("Arial", Font.PLAIN, 13));
 	    b2.setBackground(Color.WHITE);
 	    p2.add(b2);
-		
+		/*
 	    b1.addMouseListener(new MouseListener()
 	    {
 
@@ -251,7 +251,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 				b2.setBackground(Color.WHITE);
 			}
 	    	
-	    } );
+	    } );*/
 		
 	    KeyListener myKeyListener = new KeyListener() {
 
@@ -265,8 +265,8 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
 				if(tf1.getText().trim().length()>0){
-					b2.setEnabled(true);
-				}else 
+					b2.setEnabled(true); //POTREBNO JE PUPUNITI SVA POLJA
+				}else  
 					b2.setEnabled(false);
 			}
 
@@ -287,7 +287,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
 				
-				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(predmet,tf1.getText());
+				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(predmet,Integer.parseInt(tf1.getText()));
 				dispose();
 			}
 	    	

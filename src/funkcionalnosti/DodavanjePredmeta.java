@@ -24,6 +24,8 @@ import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -130,12 +132,7 @@ public class DodavanjePredmeta extends JDialog {
 	JTextField tf1;
 	JTextField tf2;
 	JTextField tf3;
-	JTextField tf4;
-	JTextField tf5;
-	JTextField tf6;
-	JTextField tf7;
-	JTextField tf8;
-	JTextField tf9;
+	
 	
 	JComboBox<TrenutnaGodina> cb1;
 	JComboBox<Semestar> cb2;
@@ -270,7 +267,7 @@ public class DodavanjePredmeta extends JDialog {
 		gc4.gridx = 1;
 		gc4.gridy = 0;
 		p2.add(tf2,gc4);
-		
+		/*
 		p3 = new JPanel();
 		p3.setBackground(Color.WHITE);
 		gcp3 =  new GridBagConstraints();
@@ -300,7 +297,7 @@ public class DodavanjePredmeta extends JDialog {
 		gc6.fill = GridBagConstraints.HORIZONTAL;
 		gc6.gridx = 1;
 		gc6.gridy = 0;
-		p3.add(tf3,gc6);
+		p3.add(tf3,gc6);*/
 		
 		p4 = new JPanel();
 		p4.setBackground(Color.WHITE);
@@ -462,7 +459,7 @@ public class DodavanjePredmeta extends JDialog {
 					}
 				PredmetiController.getInstance().dodajPredmet(tf2.getText(),tf1.getText(),sm,god);
 				
-				dispose();
+				dispose();//JFRAME GOES AWAY WHEN WE CLICK THE BUTTON
 				
 			}
 
@@ -487,6 +484,34 @@ public class DodavanjePredmeta extends JDialog {
 	    	
 	    } );
 		
+	    KeyListener myKeyListener= new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub //AKO JE SVE POPUNJENO
+				if(tf2.getText().trim().length()>0 && tf1.getText().trim().length()>0) {
+					b2.setEnabled(true);
+					
+				}else {
+					b2.setEnabled(false);//DISABLE BUTTON
+			}
+			}
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+	    	
+	    };
+	    tf2.addKeyListener(myKeyListener);
+	    tf1.addKeyListener(myKeyListener);
+	    
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);
 		gcp13 =  new GridBagConstraints();

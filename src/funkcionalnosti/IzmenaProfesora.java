@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import controllers.ProfesoriController;
 import modelsistema.BazaProfesora;
+import modelsistema.Predmet;
 import modelsistema.Profesor;
 import modelsistema.Titula;
 import modelsistema.Zvanje;
@@ -26,6 +27,7 @@ import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class IzmenaProfesora extends JDialog {
 	
@@ -602,7 +604,7 @@ public class IzmenaProfesora extends JDialog {
 				try {
 					Date date = (Date) new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText());
 					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), date, tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z);
+							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>());
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {
