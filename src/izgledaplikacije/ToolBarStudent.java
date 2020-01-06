@@ -110,7 +110,7 @@ public class ToolBarStudent extends JToolBar{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				
-				int row=StudentiJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+				int row=StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
 				Student student=BazaStudenata.getInstance().getRow(row);
 				
 			    IzmenaStudenta izmena=new IzmenaStudenta(student);
