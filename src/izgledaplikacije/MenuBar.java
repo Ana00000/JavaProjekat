@@ -6,10 +6,19 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.KeyEvent;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.KeyStroke;
+
+import controllers.PredmetiController;
+import controllers.StudentiController;
+import modelsistema.Semestar;
+import modelsistema.Status;
+import modelsistema.TrenutnaGodina;
+
 import java.awt.Font;
 
 public class MenuBar extends JMenuBar implements ActionListener{
@@ -90,6 +99,67 @@ public class MenuBar extends JMenuBar implements ActionListener{
 		help.add(miAbout);
 		
 		this.setBackground(Color.WHITE);
+		
+		miNew.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				StudentiController.getInstance().dodajStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
+						0652023333,"petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
+				
+				PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
+				
+//				ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
+//						0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR);
+			}
+		});
+		
+		miClose.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+			
+		});
+		
+		miEdit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
+		miDelete.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
+		miHelp.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
+		miAbout.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
 	}
 	
 	public void actionPerformed(ActionEvent e) {

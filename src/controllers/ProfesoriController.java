@@ -1,6 +1,6 @@
 package controllers;
 
-import java.sqlDate;
+import java.sql.Date;
 
 import izgledaplikacije.AbstractTableModelProfesori;
 import izgledaplikacije.ProfesoriJTable;
