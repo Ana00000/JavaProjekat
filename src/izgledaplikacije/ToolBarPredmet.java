@@ -14,10 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import controllers.PredmetiController;
+import controllers.StudentiController;
 import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
 import funkcionalnosti.DodavanjePredmeta;
 import funkcionalnosti.DodavanjeProfesoraNaPredmet;
+import funkcionalnosti.DodavanjeStudentaNaPredmet;
 //import funkcionalnosti.DodavanjeStudentaNaPredmet;
 import funkcionalnosti.IzmenaPredmeta;
 
@@ -157,10 +159,9 @@ public class ToolBarPredmet extends JToolBar{
 				
 				@SuppressWarnings("unused")
 				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
-				
-				//NEMAM POJMA KAKO DA DODJEM DO BROJA INDEKSA
-				//DodavanjeStudentaNaPredmet dsnp=new DodavanjeStudentaNaPredmet(predmet,predmet.getSpisakStudenataKojiSlusajuPredmet().getBrojIndeksa());
-				//dsnp.setVisible(true);
+			
+				DodavanjeStudentaNaPredmet dsnp=new DodavanjeStudentaNaPredmet();
+				dsnp.setVisible(true);
 			}
 			
 			

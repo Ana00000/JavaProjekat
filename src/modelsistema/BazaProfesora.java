@@ -111,6 +111,10 @@ public class BazaProfesora implements Serializable{
 		
 	}
 	
+	public void dodajProfesora(Profesor p) {
+		this.profesori.add(p);
+	}
+	
 	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
 			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti) {
 		this.profesori.add(new Profesor(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,brojLicneKarte,titula,zvanje,predmeti));

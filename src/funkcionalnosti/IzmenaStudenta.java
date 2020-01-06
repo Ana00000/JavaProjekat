@@ -23,6 +23,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
@@ -712,7 +714,7 @@ public class IzmenaStudenta extends JDialog {
 			}
 	    	
 	    } );
-	   
+	    
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);
 		gcp13 =  new GridBagConstraints();

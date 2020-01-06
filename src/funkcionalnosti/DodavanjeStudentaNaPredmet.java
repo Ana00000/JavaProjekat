@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -16,9 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controllers.StudentiController;
-import modelsistema.BazaStudenata;
+import izgledaplikacije.PredmetiJTable;
+import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
-import modelsistema.Student;
 
 public class DodavanjeStudentaNaPredmet extends JDialog{
 	
@@ -58,7 +59,9 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	JButton b1;
 	JButton b2;
 	
-	public DodavanjeStudentaNaPredmet(Predmet predmet,String brojIndeksa) {
+	KeyListener myKeyListener;
+	
+	public DodavanjeStudentaNaPredmet() {
 		
 		try {
 			int screenHeight = 768*1/5;
@@ -71,9 +74,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 			this.setUndecorated(true);
 			
 			try {
-				Predmet p = predmet;
-				String brojI = brojIndeksa;
-				jbInit(p,brojI);
+				jbInit();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -84,7 +85,7 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 		
 	}
 	
-	private void jbInit(final Predmet p,final String brojI) throws Exception{
+	private void jbInit() throws Exception{
 
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
@@ -180,7 +181,9 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 	    b2.setFont(new Font("Arial", Font.PLAIN, 13));
 	    b2.setBackground(Color.WHITE);
 	    p2.add(b2);
-		
+	
+	    tf1.addKeyListener(myKeyListener);
+	    
 	    b1.addMouseListener(new MouseListener()
 	    {
 
@@ -215,14 +218,10 @@ public class DodavanjeStudentaNaPredmet extends JDialog{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
 				
-				for(Student s: BazaStudenata.getInstance().getStudenti()) {
-					if(s.getBrojIndeksa() == brojI) {
-						p.getSpisakStudenataKojiSlusajuPredmet().add(s);
-						StudentiController.getInstance().dodavanjeStudentaNaPredmet(p, brojI);
-					}
-				}
-				
+				StudentiController.getInstance().dodavanjeStudentaNaPredmet(predmet, tf1.getText());
 				dispose();
 			}
 
