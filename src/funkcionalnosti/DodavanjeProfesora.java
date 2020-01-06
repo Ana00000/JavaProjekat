@@ -8,10 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-
-
-
-
 import controllers.ProfesoriController;
 import modelsistema.BazaProfesora;
 import modelsistema.Predmet;
@@ -25,6 +21,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
@@ -137,6 +135,8 @@ public class DodavanjeProfesora extends JDialog {
 	JButton b1;
 	JButton b2;
 
+	KeyListener myKeyListener;
+	
 	public DodavanjeProfesora(){
 		try {
 			int screenHeight = 768*2/3;
@@ -599,16 +599,7 @@ public class DodavanjeProfesora extends JDialog {
 					e1.printStackTrace();
 				}
 				
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
-				if(!"".equals(tf1.getText()))
-					if(!"".equals(tf2.getText()))
-						if(!"".equals(tf3.getText()))
-							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
-									if(!"".equals(tf6.getText()))
-										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()) && brojLicneKarte == Integer.parseInt(tf8.getText()))
-														dispose();
+				dispose();
 			}
 
 			@Override
@@ -631,6 +622,41 @@ public class DodavanjeProfesora extends JDialog {
 			}
 	    	
 	    } );
+	    
+	    myKeyListener = new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(tf1.getText().trim().length()>0 && tf2.getText().trim().length()>0 && tf3.getText().trim().length()>0
+					&& tf4.getText().trim().length()>0 && tf5.getText().trim().length()>0 && tf6.getText().trim().length()>0
+					&& tf7.getText().trim().length()>0 && tf8.getText().trim().length()>0) {
+					b2.setEnabled(true);
+					
+				}else {
+					b2.setEnabled(false);
+				}
+			}
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				
+			}
+	    	
+	    };
+	    
+	    tf1.addKeyListener(myKeyListener);
+	    tf2.addKeyListener(myKeyListener);
+	    tf3.addKeyListener(myKeyListener);
+	    tf4.addKeyListener(myKeyListener);
+	    tf5.addKeyListener(myKeyListener);
+	    tf6.addKeyListener(myKeyListener);
+	    tf7.addKeyListener(myKeyListener);
+	    tf8.addKeyListener(myKeyListener);
 	    
 	    p12 = new JPanel();
 		p12.setBackground(Color.LIGHT_GRAY);

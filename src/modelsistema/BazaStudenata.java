@@ -6,13 +6,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-//import javax.swing.JOptionPane;
-
 
 import javax.swing.JOptionPane;
 
@@ -58,12 +56,24 @@ public class BazaStudenata implements Serializable{
 
 	public void initStudente() {
 		this.studenti = new ArrayList<Student>();
-		studenti.add(new Student("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",0652023333,"petar01@gmail.com","ra55/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53));
-		studenti.add(new Student("Lazar","Lazarević",Calendar.getInstance().getTime(),"Radnička 35",0656363545,"lazlaz@gmail.com","ra85/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,9.93));
-		studenti.add(new Student("Gojko","Gojković",Calendar.getInstance().getTime(),"Radnička 53",0652210121,"gojko0.0@gmail.com","ra155/2017",
-				Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.93));
+		
+		try {
+			SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy.");
+			Date date1 = format.parse("11.11.1998.");
+			Date date2 = format.parse("24.05.1998.");
+			Date date3 = format.parse("02.09.1998.");
+			Date date4 = format.parse("11.11.2017.");
+			Date date5 = format.parse("01.10.2017.");
+			Date date6 = format.parse("01.10.2017.");
+			studenti.add(new Student("Petar","Petrović",date1,"Radnička 12","0652023333","petar01@gmail.com","ra55/2017",
+						date2,TrenutnaGodina.TRECA,Status.B,8.53));
+			studenti.add(new Student("Lazar","Lazarević",date3,"Radnička 35","0656363545","lazlaz@gmail.com","ra85/2017",
+						date4,TrenutnaGodina.TRECA,Status.B,9.93));
+			studenti.add(new Student("Gojko","Gojković",date5,"Radnička 53","+381652033523","gojko0.0@gmail.com","ra155/2017",
+						date6,TrenutnaGodina.TRECA,Status.B,8.93));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -99,7 +109,7 @@ public class BazaStudenata implements Serializable{
 		case 3:
 			return  student.getAdresaStanovanja();
 		case 4:
-			return Long.toString(student.getKontaktTelefon());
+			return student.getKontaktTelefon();
 		case 5:
 			return student.getEmailAdresa();
 		case 6:
@@ -122,7 +132,7 @@ public class BazaStudenata implements Serializable{
 		this.studenti.add(student);
 	}
 
-	public void dodajStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public void dodajStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
 		
 		this.studenti.add(new Student(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,emailAdresa,brojIndeksa,datumUpisa,trenGodStudija,status,prosOcena));
@@ -138,7 +148,7 @@ public class BazaStudenata implements Serializable{
 		}
 	}
 
-	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
 		for (Student s:studenti) {
 			if(s.getBrojIndeksa()==brojIndeksa) {

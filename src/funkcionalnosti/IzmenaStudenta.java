@@ -3,7 +3,6 @@ package funkcionalnosti;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -12,7 +11,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import controllers.StudentiController;
-import modelsistema.BazaStudenata;
 import modelsistema.Status;
 import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
@@ -132,13 +130,13 @@ public class IzmenaStudenta extends JDialog {
 	
 	JTextField tf1;
 	JTextField tf2;
-	JFormattedTextField tf3;
+	JTextField tf3;
 	JTextField tf4;
 	JTextField tf5;
 	JTextField tf6;
 	JTextField tf7;
-	JFormattedTextField tf8;
-	JFormattedTextField tf9;
+	JTextField tf8;
+	JTextField tf9;
 	
 	JComboBox<TrenutnaGodina> cb1;
 	
@@ -149,6 +147,8 @@ public class IzmenaStudenta extends JDialog {
 	
 	JButton b1;
 	JButton b2;
+	
+	KeyListener myKeyListener;
 	
 	public IzmenaStudenta(Student student){
 		try {
@@ -299,8 +299,8 @@ public class IzmenaStudenta extends JDialog {
 		gc5.gridy = 0;
 		p3.add(datum,gc5);
 		
-		tf3 = new JFormattedTextField(11);
-		tf3.setValue(s.getDatumRodjenja());
+		tf3 = new JFormattedTextField(s.getDatumRodjenja());
+		tf3.setColumns(11);
 		tf3.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc6 = new GridBagConstraints();
 		gc6.fill = GridBagConstraints.HORIZONTAL;
@@ -459,8 +459,8 @@ public class IzmenaStudenta extends JDialog {
 		gc15.gridy = 0;
 		p8.add(datumUpisa,gc15);
 		
-		tf8 = new JFormattedTextField(11);
-		tf8.setValue(s.getDatumUpisa());
+		tf8 = new JFormattedTextField(s.getDatumUpisa());
+		tf8.setColumns(11);
 		tf8.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc16 = new GridBagConstraints();
 		gc16.fill = GridBagConstraints.HORIZONTAL;
@@ -582,8 +582,8 @@ public class IzmenaStudenta extends JDialog {
 		gc21.gridy = 0;
 		p11.add(prosOcena,gc21);
 		
-		tf9 = new JFormattedTextField(11);
-		tf9.setValue(s.getProsOcena());
+		tf9 = new JFormattedTextField(s.getProsOcena());
+		tf9.setColumns(11);
 		tf9.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc22 = new GridBagConstraints();
 		gc22.fill = GridBagConstraints.HORIZONTAL;
@@ -658,17 +658,9 @@ public class IzmenaStudenta extends JDialog {
 				
 				Status st = s.getStatus();
 				
-				for(Student s: BazaStudenata.getInstance().getStudenti()) {
-					
-					if(tf7.getText().equals(s.getBrojIndeksa())) {
-						JOptionPane.showMessageDialog(null,"Već postoji student sa brojem indeksa " +tf7.getText(), "Greška",JOptionPane.ERROR_MESSAGE);
-						return;
-					}
-				}
-				
 				try {
 					StudentiController.getInstance().izmeniStudenta(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
+							tf5.getText(), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
 							god, st, Double.parseDouble(tf9.getText()));
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
@@ -676,22 +668,7 @@ public class IzmenaStudenta extends JDialog {
 					e1.printStackTrace();
 				}
 				
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
-				Double prosek = Double.parseDouble(tf9.getText());
-				
-				if(!"".equals(tf1.getText()))
-					if(!"".equals(tf2.getText()))
-						if(!"".equals(tf3.getText()))
-							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
-									if(!"".equals(tf6.getText()))
-										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()))
-												if(!"".equals(tf9.getText()) && prosek == Double.parseDouble(tf9.getText()))
-												{
-													
-													dispose();
-												}
+				dispose();
 			}
 
 			@Override
@@ -714,6 +691,43 @@ public class IzmenaStudenta extends JDialog {
 			}
 	    	
 	    } );
+	    
+	    myKeyListener = new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub //AKO JE SVE POPUNJENO
+				if(tf1.getText().trim().length()>0 && tf2.getText().trim().length()>0 && tf3.getText().trim().length()>0
+					&& tf4.getText().trim().length()>0 && tf5.getText().trim().length()>0 && tf6.getText().trim().length()>0
+					&& tf7.getText().trim().length()>0 && tf8.getText().trim().length()>0 && tf9.getText().trim().length()>0) {
+					b2.setEnabled(true);
+					
+				}else {
+					b2.setEnabled(false);
+				}
+			}
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				
+			}
+	    	
+	    };
+	    
+	    tf1.addKeyListener(myKeyListener);
+	    tf2.addKeyListener(myKeyListener);
+	    tf3.addKeyListener(myKeyListener);
+	    tf4.addKeyListener(myKeyListener);
+	    tf5.addKeyListener(myKeyListener);
+	    tf6.addKeyListener(myKeyListener);
+	    tf7.addKeyListener(myKeyListener);
+	    tf8.addKeyListener(myKeyListener);
+	    tf9.addKeyListener(myKeyListener);
 	    
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);

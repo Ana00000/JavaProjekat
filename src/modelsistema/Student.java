@@ -13,7 +13,7 @@ public class Student implements Serializable{
 	private String prezime;
 	private Date datumRodjenja;
 	private String adresaStanovanja;
-	private int kontaktTelefon;
+	private String kontaktTelefon;
 	private String emailAdresa;
 	private String brojIndeksa;
 	private Date datumUpisa;
@@ -26,7 +26,7 @@ public class Student implements Serializable{
 		super();
 	}
 
-	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,
 			double prosOcena) {
 		super();
@@ -43,7 +43,7 @@ public class Student implements Serializable{
 		this.prosOcena = prosOcena;
 	}
 	
-	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public Student(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,
 			double prosOcena, ArrayList<Predmet> spisakPredmeta) {
 		super();
@@ -93,11 +93,11 @@ public class Student implements Serializable{
 		this.adresaStanovanja = adresaStanovanja;
 	}
 	
-	public int getKontaktTelefon() {
+	public String getKontaktTelefon() {
 		return kontaktTelefon;
 	}
 	
-	public void setKontaktTelefon(int kontaktTelefon) {
+	public void setKontaktTelefon(String kontaktTelefon) {
 		this.kontaktTelefon = kontaktTelefon;
 	}
 	

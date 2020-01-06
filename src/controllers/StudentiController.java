@@ -24,7 +24,7 @@ public class StudentiController {
 	
 	private StudentiController() {}
 	
-	public void dodajStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public void dodajStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
 		
 		BazaStudenata.getInstance().dodajStudenta(ime, prezime,datumRodjenja, adresaStanovanja, kontaktTelefon,
@@ -42,7 +42,7 @@ public class StudentiController {
 	
     }
 	
-	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon,
+	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
 			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
 		
 		BazaStudenata.getInstance().izmeniStudenta(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon,

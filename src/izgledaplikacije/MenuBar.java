@@ -7,7 +7,6 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.KeyEvent;
 import java.util.Calendar;
-import java.util.Date;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,7 +105,7 @@ public class MenuBar extends JMenuBar implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				
 				StudentiController.getInstance().dodajStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
-						0652023333,"petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
+						"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
 				
 				PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
 				

@@ -3,14 +3,12 @@ package funkcionalnosti;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import controllers.ProfesoriController;
-import modelsistema.BazaProfesora;
 import modelsistema.Predmet;
 import modelsistema.Profesor;
 import modelsistema.Titula;
@@ -22,9 +20,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -122,9 +122,7 @@ public class IzmenaProfesora extends JDialog {
 	
 	JTextField tf1;
 	JTextField tf2;
-	
-	JFormattedTextField tf3;
-	
+	JTextField tf3;
 	JTextField tf4;
 	JTextField tf5;
 	JTextField tf6;
@@ -137,6 +135,8 @@ public class IzmenaProfesora extends JDialog {
 	JButton b1;
 	JButton b2;
 
+	KeyListener myKeyListener;
+	
 	public IzmenaProfesora(Profesor profesor){
 		try {
 			int screenHeight = 768*2/3;
@@ -287,8 +287,8 @@ public class IzmenaProfesora extends JDialog {
 		gc5.gridy = 0;
 		p3.add(datum,gc5);
 		
-		tf3 = new JFormattedTextField(11);
-		tf3.setValue(p.getDatumRodjenja());
+		tf3 = new JFormattedTextField(p.getDatumRodjenja());
+		tf3.setColumns(11);
 		tf3.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc6 = new GridBagConstraints();
 		gc6.fill = GridBagConstraints.HORIZONTAL;
@@ -591,16 +591,6 @@ public class IzmenaProfesora extends JDialog {
 				String zvanje = cb2.getSelectedItem().toString();
 				Zvanje z = Zvanje.valueOf(zvanje);
 				
-				int brojLicneKarte = Integer.parseInt(tf8.getText());
-				
-				for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
-					
-					if(brojLicneKarte == p.getBrojLicneKarte()) {
-						JOptionPane.showMessageDialog(null,"Već postoji profesor sa brojem lične karte " +tf8.getText(), "Greška",JOptionPane.ERROR_MESSAGE);
-						return;
-					}
-				}
-				
 				try {
 					Date date = (Date) new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText());
 					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), date, tf4.getText(),
@@ -611,16 +601,7 @@ public class IzmenaProfesora extends JDialog {
 					e1.printStackTrace();
 				}
 				
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
-				if(!"".equals(tf1.getText()))
-					if(!"".equals(tf2.getText()))
-						if(!"".equals(tf3.getText()))
-							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
-									if(!"".equals(tf6.getText()))
-										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()) && brojLicneKarte == Integer.parseInt(tf8.getText()))
-														dispose();
+				dispose();
 			}
 
 			@Override
@@ -643,6 +624,41 @@ public class IzmenaProfesora extends JDialog {
 			}
 	    	
 	    } );
+	    
+	    myKeyListener = new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(tf1.getText().trim().length()>0 && tf2.getText().trim().length()>0 && tf3.getText().trim().length()>0
+					&& tf4.getText().trim().length()>0 && tf5.getText().trim().length()>0 && tf6.getText().trim().length()>0
+					&& tf7.getText().trim().length()>0 && tf8.getText().trim().length()>0) {
+					b2.setEnabled(true);
+					
+				}else {
+					b2.setEnabled(false);
+				}
+			}
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				
+			}
+	    	
+	    };
+	    
+	    tf1.addKeyListener(myKeyListener);
+	    tf2.addKeyListener(myKeyListener);
+	    tf3.addKeyListener(myKeyListener);
+	    tf4.addKeyListener(myKeyListener);
+	    tf5.addKeyListener(myKeyListener);
+	    tf6.addKeyListener(myKeyListener);
+	    tf7.addKeyListener(myKeyListener);
+	    tf8.addKeyListener(myKeyListener);
 	    
 	    p12 = new JPanel();
 		p12.setBackground(Color.LIGHT_GRAY);

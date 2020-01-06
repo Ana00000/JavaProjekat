@@ -22,6 +22,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -146,7 +147,7 @@ public class DodavanjeStudenta extends JDialog {
 	JButton b1;
 	JButton b2;
 	
-	KeyListener key;
+	KeyListener myKeyListener;
 	
 	public DodavanjeStudenta(){
 		try {
@@ -654,7 +655,7 @@ public class DodavanjeStudenta extends JDialog {
 				
 				try {
 					StudentiController.getInstance().dodajStudenta(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
+							tf5.getText(), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
 							god, status, Double.parseDouble(tf9.getText()));
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
@@ -662,18 +663,7 @@ public class DodavanjeStudenta extends JDialog {
 					e1.printStackTrace();
 				}
 				
-				int kontaktTelefon = Integer.parseInt(tf5.getText());
-				Double prosek = Double.parseDouble(tf9.getText());
-				if(!"".equals(tf1.getText()))
-					if(!"".equals(tf2.getText()))
-						if(!"".equals(tf3.getText()))
-							if(!"".equals(tf4.getText()))
-								if(!"".equals(tf5.getText()) && kontaktTelefon == Integer.parseInt(tf5.getText()))
-									if(!"".equals(tf6.getText()))
-										if(!"".equals(tf7.getText()))
-											if(!"".equals(tf8.getText()))
-												if(!"".equals(tf9.getText()) && prosek == Double.parseDouble(tf9.getText()))
-														dispose();
+				dispose();
 			}
 
 			@Override
@@ -696,6 +686,43 @@ public class DodavanjeStudenta extends JDialog {
 			}
 	    	
 	    } );
+	    
+	   myKeyListener = new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub //AKO JE SVE POPUNJENO
+				if(tf1.getText().trim().length()>0 && tf2.getText().trim().length()>0 && tf3.getText().trim().length()>0
+					&& tf4.getText().trim().length()>0 && tf5.getText().trim().length()>0 && tf6.getText().trim().length()>0
+					&& tf7.getText().trim().length()>0 && tf8.getText().trim().length()>0 && tf9.getText().trim().length()>0) {
+					b2.setEnabled(true);
+					
+				}else {
+					b2.setEnabled(false);
+				}
+			}
+			
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				
+			}
+	    	
+	    };
+	    
+	    tf1.addKeyListener(myKeyListener);
+	    tf2.addKeyListener(myKeyListener);
+	    tf3.addKeyListener(myKeyListener);
+	    tf4.addKeyListener(myKeyListener);
+	    tf5.addKeyListener(myKeyListener);
+	    tf6.addKeyListener(myKeyListener);
+	    tf7.addKeyListener(myKeyListener);
+	    tf8.addKeyListener(myKeyListener);
+	    tf9.addKeyListener(myKeyListener);
 	    
 	    p13 = new JPanel();
 		p13.setBackground(Color.LIGHT_GRAY);
