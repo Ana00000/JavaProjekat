@@ -114,13 +114,15 @@ public class MenuBar extends JMenuBar implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				StudentiController.getInstance().dodajStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
-						"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
-				
-				PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
-				
-				ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
-						0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>());
+				if(Global.getVar() == 0) {
+					StudentiController.getInstance().dodajStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
+							"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
+				}else if(Global.getVar() == 1) {
+					ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
+							0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>());
+				}else {
+					PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
+				}
 			}
 		});
 		
@@ -137,10 +139,8 @@ public class MenuBar extends JMenuBar implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				final TabbedPane tabbedPane = new TabbedPane();
-				int i = tabbedPane.getSelectedIndex();
 				
-				if(i==0) {
+				if(Global.getVar() == 0) {
 					
 					int row1 = StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
 					Student student = BazaStudenata.getInstance().getRow(row1);
@@ -148,7 +148,7 @@ public class MenuBar extends JMenuBar implements ActionListener{
 					StudentiController.getInstance().izmeniStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
 							"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53,student);
 					
-				}else if(i==1) {
+				}else if(Global.getVar() == 1) {
 					
 					int row2 = ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
 					Profesor profesor = BazaProfesora.getInstance().getRow(row2);
@@ -172,6 +172,27 @@ public class MenuBar extends JMenuBar implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if(Global.getVar() == 0) {
+					
+					int row1 = StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
+					Student student = BazaStudenata.getInstance().getRow(row1);
+					
+					StudentiController.getInstance().izbrisiStudenta(student);
+					
+				}else if(Global.getVar() == 1) {
+					
+					int row2 = ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+					Profesor profesor = BazaProfesora.getInstance().getRow(row2);
+					
+					ProfesoriController.getInstance().izbrisiProfesoraP(profesor);
+				}else {
+					
+					int row3 = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+					Predmet predmet = BazaPredmeta.getInstance().getRow(row3);
+					
+					PredmetiController.getInstance().izbrisiPredmet(predmet);
+				}
 				
 			}
 			

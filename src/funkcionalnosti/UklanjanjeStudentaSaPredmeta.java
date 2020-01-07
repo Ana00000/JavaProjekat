@@ -94,7 +94,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		p0.setBackground(Color.LIGHT_GRAY);
 		gcp0 =  new GridBagConstraints();
 		gcp0.fill = GridBagConstraints.BOTH;
-		gcp0.insets = new Insets(0,0,7,0);
+		gcp0.insets = new Insets(0,0,13,0);
 		gcp0.gridx = 0;
 		gcp0.gridy = 0;
 		getContentPane().add(p0,gcp0);
@@ -106,7 +106,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		p0.setLayout(gbp0);
 		
 		l0 = new JLabel(" ");
-		l0.setFont(new Font("Arial", Font.PLAIN, 17));
+		l0.setFont(new Font("Arial", Font.PLAIN, 13));
 	    gc1 =  new GridBagConstraints();
 		gc1.gridx = 0;
 		gc1.gridy = 0;
@@ -124,7 +124,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		p1.setBackground(Color.WHITE);
 		gcp1 =  new GridBagConstraints();
 		gcp1.fill = GridBagConstraints.BOTH;
-		gcp1.insets = new Insets(50,30,75,30);
+		gcp1.insets = new Insets(50,100,75,100);
 		gcp1.gridx = 0;
 		gcp1.gridy = 1;
 		getContentPane().add(p1,gcp1);
@@ -139,7 +139,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		indeksiStudenata = new JComboBox<String>();
 		indeksiStudenata.setModel(new DefaultComboBoxModel<String>(spisak.toArray(new String[0])));
 		gc3 = new GridBagConstraints();
-		gc3.fill = GridBagConstraints.HORIZONTAL;
+		gc3.fill = GridBagConstraints.CENTER;
 		gc3.gridx = 0;
 		gc3.gridy = 0;
 		p1.add(indeksiStudenata, gc3);
@@ -177,12 +177,10 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(p);
-				
 				String indeks = indeksiStudenata.getSelectedItem().toString();
 				p.getSpisakStudenataKojiSlusajuPredmet().remove(indeks);
-					
-				dispose();
+				
+				StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(p);
 			}
 
 			@Override
@@ -239,7 +237,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		p3.setBackground(Color.LIGHT_GRAY);
 		gcp3 =  new GridBagConstraints();
 		gcp3.fill = GridBagConstraints.BOTH;
-		gcp3.insets = new Insets(7,0,0,0);
+		gcp3.insets = new Insets(13,0,0,0);
 		gcp3.gridx = 0;
 		gcp3.gridy = 3;
 		getContentPane().add(p3,gcp3);

@@ -60,7 +60,6 @@ public class StudentiController {
 	}
 	
 	public void uklanjanjeStudentaSaPredmeta(Predmet predmet) {
-		BazaStudenata.getInstance().ukloniStudentaSaPredmeta(predmet);
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}

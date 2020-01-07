@@ -10,7 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import controllers.StudentiController;
+import funkcionalnosti.UklanjanjeStudentaSaPredmeta;
 import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
 
@@ -41,8 +41,9 @@ public class ButtonColumnPredmeti extends AbstractCellEditor implements TableCel
 				fireEditingStopped();
 				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
-				
-				StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(predmet);
+			
+				UklanjanjeStudentaSaPredmeta sp = new UklanjanjeStudentaSaPredmeta(predmet);
+				sp.setVisible(true);
 				
 			}
 		});

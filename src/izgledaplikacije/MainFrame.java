@@ -21,7 +21,7 @@ public class MainFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	public MainFrame() {
 
 		//Toolkit kit = Toolkit.getDefaultToolkit();
@@ -39,7 +39,7 @@ public class MainFrame extends JFrame {
 		
 		MenuBar menu = new MenuBar();
 		setJMenuBar(menu);
-
+		
 		StatusBar st=new StatusBar();
 	    getContentPane().add(st,BorderLayout.SOUTH);
 		
@@ -62,6 +62,8 @@ public class MainFrame extends JFrame {
 			public void stateChanged(ChangeEvent arg0) {
 				// TODO Auto-generated method stub
 				int i=tabbedPane.getSelectedIndex();
+				
+				Global.setVar(i);
 				if(i==0) {
 					getContentPane().add(studentToolbar,BorderLayout.NORTH);
 					studentToolbar.show();
@@ -115,7 +117,7 @@ public class MainFrame extends JFrame {
 					// TODO Auto-generated method stub
 					
 				}
-
+ 
 				@Override
 				public void windowIconified(WindowEvent arg0) {
 					// TODO Auto-generated method stub
