@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import controllers.StudentiController;
+import funkcionalnosti.UklanjanjeStudentaSaPredmeta;
 import modelsistema.Status;
 import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
@@ -173,7 +174,7 @@ public class BazaStudenata implements Serializable{
 		for(Student s:BazaStudenata.getInstance().getStudenti()) {
 			if(s.getBrojIndeksa() == brojIndeksa) {
 				exists = 1;
-				predmet.getSpisakStudenataKojiSlusajuPredmet().add(s);
+				predmet.getSpisakStudenataKojiSlusajuPredmet().add(brojIndeksa);
 				s.getSpisakPredmeta().add(predmet);
 			}
 		}
@@ -181,18 +182,9 @@ public class BazaStudenata implements Serializable{
 			JOptionPane.showMessageDialog(null, "Ne postoji student sa datim brojem indeksa", "GRESKA", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	public void ukloniStudentaSaPredmeta(Predmet predmet,String brojIndeksa) {
-		int exists = 0;
-		for(Student s:BazaStudenata.getInstance().getStudenti()) {
-			if(s.getBrojIndeksa() == brojIndeksa) {
-				exists = 1;
-				predmet.getSpisakStudenataKojiSlusajuPredmet().remove(s);
-				s.getSpisakPredmeta().remove(predmet);
-			}
-		}
-		if(exists == 0) {
-			JOptionPane.showMessageDialog(null, "Ne postoji student sa datim brojem indeksa", "GRESKA", JOptionPane.ERROR_MESSAGE);
-		}
+	public void ukloniStudentaSaPredmeta(Predmet predmet) {
+		UklanjanjeStudentaSaPredmeta sp = new UklanjanjeStudentaSaPredmeta(predmet);
+		sp.setVisible(true);
 	}
 	
 	public void serijalizacijaStudenata() {

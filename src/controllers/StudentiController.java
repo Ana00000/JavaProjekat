@@ -8,7 +8,9 @@ import modelsistema.TrenutnaGodina;
 
 import java.util.Date;
 
+import izgledaplikacije.AbstractTableModelPredmeti;
 import izgledaplikacije.AbstractTableModelStudenti;
+import izgledaplikacije.PredmetiJTable;
 import izgledaplikacije.StudentiJTable;
 
 public class StudentiController {
@@ -53,14 +55,13 @@ public class StudentiController {
 	
 	public void dodavanjeStudentaNaPredmet(Predmet predmet,String brojIndeksa) {
 		BazaStudenata.getInstance().dodajStudentaNaPredmet(predmet,brojIndeksa);
-		System.out.println(BazaStudenata.getInstance());
-		AbstractTableModelStudenti model=(AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
 	
-	public void uklanjanjeStudentaSaPredmeta(Predmet predmet,String brojIndeksa) {
-		BazaStudenata.getInstance().ukloniStudentaSaPredmeta(predmet, brojIndeksa);
-		AbstractTableModelStudenti model=(AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
+	public void uklanjanjeStudentaSaPredmeta(Predmet predmet) {
+		BazaStudenata.getInstance().ukloniStudentaSaPredmeta(predmet);
+		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
 	

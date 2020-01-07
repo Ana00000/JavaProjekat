@@ -10,7 +10,6 @@ import modelsistema.BazaProfesora;
 import modelsistema.Predmet;
 import modelsistema.Profesor;
 import modelsistema.Semestar;
-import modelsistema.Student;
 import modelsistema.TrenutnaGodina;
 
 public class PredmetiController {
@@ -26,7 +25,7 @@ public class PredmetiController {
 	private PredmetiController() {}
 	
 	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina) {
-		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,new Profesor(), new ArrayList<Student>());
+		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,new Profesor(), new ArrayList<String>());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}

@@ -1,4 +1,4 @@
-package izgledaplikacije;
+ package izgledaplikacije;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -6,10 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
+import controllers.StudentiController;
+import modelsistema.BazaPredmeta;
+import modelsistema.Predmet;
 
 public class ButtonColumnPredmeti extends AbstractCellEditor implements TableCellRenderer,TableCellEditor {
 
@@ -36,9 +39,11 @@ public class ButtonColumnPredmeti extends AbstractCellEditor implements TableCel
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				fireEditingStopped();
-				//MOZE NESTO DA SE ODRADI 
-				//ZA STUDENTA, UBACIVANJE STUDENTA NA PREDMET
-				JOptionPane.showMessageDialog(table, "Selektovan je predmet u redu: " + table.getSelectedRow());
+				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
+				
+				StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(predmet);
+				
 			}
 		});
 	}

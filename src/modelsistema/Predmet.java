@@ -18,12 +18,12 @@ public class Predmet implements Serializable {
 	private Semestar semestar;
 	private TrenutnaGodina godinaStudijaUKojojSePredmetIzvodi;
 	private Profesor profesor;
-	private ArrayList<Student> spisakStudenataKojiSlusajuPredmet;
+	private ArrayList<String> spisakStudenataKojiSlusajuPredmet;
 	
     public Predmet() {
     	super();
     }
-    public Predmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof, ArrayList<Student> sps) {
+    public Predmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Profesor prof, ArrayList<String> sps) {
     	this.sifra=sifra;
     	this.naziv=naziv;
     	this.semestar=semestar;
@@ -70,11 +70,11 @@ public class Predmet implements Serializable {
 	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
 	}
-	public ArrayList<Student> getSpisakStudenataKojiSlusajuPredmet() {
+	public ArrayList<String> getSpisakStudenataKojiSlusajuPredmet() {
 		return spisakStudenataKojiSlusajuPredmet;
 	}
 	public void setSpisakStudenataKojiSlusajuPredmet(
-			ArrayList<Student> spisakStudenataKojiSlusajuPredmet) {
+			ArrayList<String> spisakStudenataKojiSlusajuPredmet) {
 		this.spisakStudenataKojiSlusajuPredmet = spisakStudenataKojiSlusajuPredmet;
 	}
     

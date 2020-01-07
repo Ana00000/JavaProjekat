@@ -6,6 +6,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -13,10 +14,19 @@ import java.awt.event.ActionListener;
 import javax.swing.KeyStroke;
 
 import controllers.PredmetiController;
+import controllers.ProfesoriController;
 import controllers.StudentiController;
+import modelsistema.BazaPredmeta;
+import modelsistema.BazaProfesora;
+import modelsistema.BazaStudenata;
+import modelsistema.Predmet;
+import modelsistema.Profesor;
 import modelsistema.Semestar;
 import modelsistema.Status;
+import modelsistema.Student;
+import modelsistema.Titula;
 import modelsistema.TrenutnaGodina;
+import modelsistema.Zvanje;
 
 import java.awt.Font;
 
@@ -109,8 +119,8 @@ public class MenuBar extends JMenuBar implements ActionListener{
 				
 				PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
 				
-//				ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
-//						0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR);
+				ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
+						0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>());
 			}
 		});
 		
@@ -127,7 +137,33 @@ public class MenuBar extends JMenuBar implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				final TabbedPane tabbedPane = new TabbedPane();
+				int i = tabbedPane.getSelectedIndex();
 				
+				if(i==0) {
+					
+					int row1 = StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
+					Student student = BazaStudenata.getInstance().getRow(row1);
+					
+					StudentiController.getInstance().izmeniStudenta("Petar","Petrović",Calendar.getInstance().getTime(),"Radnička 12",
+							"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53,student);
+					
+				}else if(i==1) {
+					
+					int row2 = ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
+					Profesor profesor = BazaProfesora.getInstance().getRow(row2);
+					
+					ProfesoriController.getInstance().izmenaProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
+							0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>(),profesor);
+					
+				}else {
+					
+					int row3 = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+					Predmet predmet = BazaPredmeta.getInstance().getRow(row3);
+					
+					PredmetiController.getInstance().IzmeniPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA,predmet);
+					
+				}
 			}
 			
 		});

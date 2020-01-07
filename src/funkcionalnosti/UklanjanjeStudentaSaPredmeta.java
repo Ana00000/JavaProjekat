@@ -9,6 +9,8 @@ import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -16,9 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controllers.StudentiController;
-import modelsistema.BazaStudenata;
 import modelsistema.Predmet;
-import modelsistema.Student;
 
 public class UklanjanjeStudentaSaPredmeta extends JDialog{
 	
@@ -51,13 +51,12 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 	JLabel title;
 	JLabel l;
 	
-	@SuppressWarnings("rawtypes")
-	JComboBox indeksiStudenata;
+	JComboBox<String> indeksiStudenata;
 	
 	JButton b1;
 	JButton b2;
 	
-	public UklanjanjeStudentaSaPredmeta(Predmet predmet,String brojIndeksa) {
+	public UklanjanjeStudentaSaPredmeta(Predmet predmet) {
 		
 		try {
 			int screenHeight = 768*2/5;
@@ -71,8 +70,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 			
 			try {
 				Predmet p = predmet;
-				String brojI = brojIndeksa;
-				jbInit(p,brojI);
+				jbInit(p);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -83,8 +81,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void jbInit(final Predmet p,final String brojI) throws Exception{
+	private void jbInit(final Predmet p) throws Exception{
 
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0};
@@ -127,7 +124,7 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		p1.setBackground(Color.WHITE);
 		gcp1 =  new GridBagConstraints();
 		gcp1.fill = GridBagConstraints.BOTH;
-		gcp1.insets = new Insets(7,30,7,30);
+		gcp1.insets = new Insets(50,30,75,30);
 		gcp1.gridx = 0;
 		gcp1.gridy = 1;
 		getContentPane().add(p1,gcp1);
@@ -138,11 +135,11 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 		gbp1.rowWeights = new double[]{0.0};
 		p1.setLayout(gbp1);
 		
-		ArrayList<Student> spisak = p.getSpisakStudenataKojiSlusajuPredmet();
-		indeksiStudenata = new JComboBox(spisak.toArray());
+		ArrayList<String> spisak = p.getSpisakStudenataKojiSlusajuPredmet();
+		indeksiStudenata = new JComboBox<String>();
+		indeksiStudenata.setModel(new DefaultComboBoxModel<String>(spisak.toArray(new String[0])));
 		gc3 = new GridBagConstraints();
-		gc3.insets = new Insets(10,0,15,15);
-		gc3.anchor = GridBagConstraints.CENTER;
+		gc3.fill = GridBagConstraints.HORIZONTAL;
 		gc3.gridx = 0;
 		gc3.gridy = 0;
 		p1.add(indeksiStudenata, gc3);
@@ -180,13 +177,11 @@ public class UklanjanjeStudentaSaPredmeta extends JDialog{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				for(Student s: BazaStudenata.getInstance().getStudenti()) {
-					if(s.getBrojIndeksa() == brojI) {
-						p.getSpisakStudenataKojiSlusajuPredmet().remove(s);
-						StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(p, brojI);
-					}
-				}
+				StudentiController.getInstance().uklanjanjeStudentaSaPredmeta(p);
 				
+				String indeks = indeksiStudenata.getSelectedItem().toString();
+				p.getSpisakStudenataKojiSlusajuPredmet().remove(indeks);
+					
 				dispose();
 			}
 
