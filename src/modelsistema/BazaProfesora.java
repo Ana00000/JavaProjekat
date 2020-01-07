@@ -85,7 +85,7 @@ public class BazaProfesora implements Serializable{
 		case 1:
 			return profesor.getPrezime();
 		case 2: {
-			SimpleDateFormat datumFormatiran=new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat datumFormatiran=new SimpleDateFormat("dd.MM.yyyy");
 			Date datum=profesor.getDatumRodjenja();
 			String datumF=datumFormatiran.format(datum);
 			return datumF;
@@ -143,9 +143,8 @@ public class BazaProfesora implements Serializable{
 		}
 	}
 	public void izmeniProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti){
-		for(Profesor p:profesori) {
-			if(p.getBrojLicneKarte()==brojLicneKarte) {
+			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti,Profesor p){
+	
 				p.setIme(ime);
 				p.setPrezime(prezime);
 				p.setDatumRodjenja(datumRodjenja);
@@ -156,8 +155,8 @@ public class BazaProfesora implements Serializable{
 				p.setBrojLicneKarte(brojLicneKarte);
 				p.setTitula(titula);
 				p.setZvanje(zvanje);
-			}
-		}
+			
+		
 	}
 	public void serijalizacijaProfesora() {
 		try {

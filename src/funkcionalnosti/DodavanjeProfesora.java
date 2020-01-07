@@ -25,6 +25,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -137,6 +138,8 @@ public class DodavanjeProfesora extends JDialog {
 
 	KeyListener myKeyListener;
 	
+	DateFormat form;
+	
 	public DodavanjeProfesora(){
 		try {
 			int screenHeight = 768*2/3;
@@ -159,6 +162,8 @@ public class DodavanjeProfesora extends JDialog {
 	}
 	
 	private void jbInit() throws Exception{
+		
+		form = new SimpleDateFormat("dd.MM.yyyy.");
 		
         gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -591,7 +596,7 @@ public class DodavanjeProfesora extends JDialog {
 				}
 				
 				try {
-					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), 
+					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), form.parse(tf3.getText()), 
 							tf4.getText(),Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>());
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();

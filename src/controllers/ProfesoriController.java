@@ -49,10 +49,10 @@ public class ProfesoriController {
 	}
 
 	public void izmenaProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti) {
+			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti,Profesor p) {
 		
 		BazaProfesora.getInstance().izmeniProfesora(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon, email,
-				adresaKancelarije, brojLicneKarte, titula, zvanje,predmeti
+				adresaKancelarije, brojLicneKarte, titula, zvanje,predmeti,p
 				);
 		AbstractTableModelProfesori model = (AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
 		model.fireTableDataChanged();

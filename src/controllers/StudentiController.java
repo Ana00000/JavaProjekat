@@ -43,10 +43,10 @@ public class StudentiController {
     }
 	
 	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
+			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena,Student s) {
 		
 		BazaStudenata.getInstance().izmeniStudenta(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon,
-						emailAdresa, brojIndeksa, datumUpisa, trenGodStudija, status, prosOcena);
+						emailAdresa, brojIndeksa, datumUpisa, trenGodStudija, status, prosOcena,s);
 		AbstractTableModelStudenti model = (AbstractTableModelStudenti) StudentiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}

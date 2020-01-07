@@ -25,6 +25,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -150,6 +151,8 @@ public class IzmenaStudenta extends JDialog {
 	
 	KeyListener myKeyListener;
 	
+	DateFormat form;
+	
 	public IzmenaStudenta(Student student){
 		try {
 			int screenHeight = 768*2/3;
@@ -175,6 +178,8 @@ public class IzmenaStudenta extends JDialog {
 	}
 	
 	private void jbInit(final Student s) throws Exception{
+		
+		form = new SimpleDateFormat("dd.MM.yyyy.");
 		
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -299,7 +304,7 @@ public class IzmenaStudenta extends JDialog {
 		gc5.gridy = 0;
 		p3.add(datum,gc5);
 		
-		tf3 = new JFormattedTextField(s.getDatumRodjenja());
+		tf3 = new JFormattedTextField(form.format(s.getDatumRodjenja()));
 		tf3.setColumns(11);
 		tf3.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc6 = new GridBagConstraints();
@@ -459,7 +464,7 @@ public class IzmenaStudenta extends JDialog {
 		gc15.gridy = 0;
 		p8.add(datumUpisa,gc15);
 		
-		tf8 = new JFormattedTextField(s.getDatumUpisa());
+		tf8 = new JFormattedTextField(form.format(s.getDatumUpisa()));
 		tf8.setColumns(11);
 		tf8.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc16 = new GridBagConstraints();
@@ -532,7 +537,7 @@ public class IzmenaStudenta extends JDialog {
 		p10b2.setLayout(gbp10b2);
 		
 		status = s.getStatus();
-		boolean tacnostStatusa;
+		final boolean tacnostStatusa;
 		if(status == Status.B)
 			tacnostStatusa = true;
 		else
@@ -656,12 +661,17 @@ public class IzmenaStudenta extends JDialog {
 				String TreGod = cb1.getSelectedItem().toString();
 				TrenutnaGodina god = TrenutnaGodina.valueOf(TreGod);
 				
-				Status st = s.getStatus();
+				Status st ;
+				
+				if(rb1.isSelected())
+					st = Status.B;
+				else
+					st = Status.S;
 				
 				try {
-					StudentiController.getInstance().izmeniStudenta(tf1.getText(), tf2.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText()), tf4.getText(),
-							tf5.getText(), tf6.getText(), tf7.getText(), new SimpleDateFormat("dd.MM.yyyy").parse(tf8.getText()),
-							god, st, Double.parseDouble(tf9.getText()));
+					StudentiController.getInstance().izmeniStudenta(tf1.getText(), tf2.getText(), form.parse(tf3.getText()), tf4.getText(),
+							tf5.getText(), tf6.getText(), tf7.getText(), form.parse(tf8.getText()),
+							god, st, Double.parseDouble(tf9.getText()),s);
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {
@@ -701,7 +711,7 @@ public class IzmenaStudenta extends JDialog {
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub //AKO JE SVE POPUNJENO
+				
 				if(tf1.getText().trim().length()>0 && tf2.getText().trim().length()>0 && tf3.getText().trim().length()>0
 					&& tf4.getText().trim().length()>0 && tf5.getText().trim().length()>0 && tf6.getText().trim().length()>0
 					&& tf7.getText().trim().length()>0 && tf8.getText().trim().length()>0 && tf9.getText().trim().length()>0) {

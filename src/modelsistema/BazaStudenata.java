@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,9 +35,10 @@ public class BazaStudenata implements Serializable{
 	
 	private List<Student> studenti;
 	private List<String> kolone;
-
+	private DateFormat form;
+	
 	private BazaStudenata() {
-		
+		form = new SimpleDateFormat("dd.MM.yyyy.");
 		initStudente();
 		
 		this.kolone=new ArrayList<String>();
@@ -58,19 +60,13 @@ public class BazaStudenata implements Serializable{
 		this.studenti = new ArrayList<Student>();
 		
 		try {
-			SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy.");
-			Date date1 = format.parse("11.11.1998.");
-			Date date2 = format.parse("24.05.1998.");
-			Date date3 = format.parse("02.09.1998.");
-			Date date4 = format.parse("11.11.2017.");
-			Date date5 = format.parse("01.10.2017.");
-			Date date6 = format.parse("01.10.2017.");
-			studenti.add(new Student("Petar","Petrović",date1,"Radnička 12","0652023333","petar01@gmail.com","ra55/2017",
-						date2,TrenutnaGodina.TRECA,Status.B,8.53));
-			studenti.add(new Student("Lazar","Lazarević",date3,"Radnička 35","0656363545","lazlaz@gmail.com","ra85/2017",
-						date4,TrenutnaGodina.TRECA,Status.B,9.93));
-			studenti.add(new Student("Gojko","Gojković",date5,"Radnička 53","+381652033523","gojko0.0@gmail.com","ra155/2017",
-						date6,TrenutnaGodina.TRECA,Status.B,8.93));
+			
+			studenti.add(new Student("Petar","Petrović", form.parse("19.11.1998."),"Radnička 12","0652023333","petar01@gmail.com","ra55/2017",
+					form.parse("24.05.1998."),TrenutnaGodina.TRECA,Status.B,8.53));
+			studenti.add(new Student("Lazar","Lazarević", form.parse("02.09.1998."),"Radnička 35","0656363545","lazlaz@gmail.com","ra85/2017",
+					form.parse("11.11.2017."),TrenutnaGodina.TRECA,Status.B,9.93));
+			studenti.add(new Student("Gojko","Gojković", form.parse("01.10.2017."),"Radnička 53","+381652033523","gojko0.0@gmail.com","ra155/2017",
+					form.parse("01.10.2017."),TrenutnaGodina.TRECA,Status.B,8.93));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -105,7 +101,10 @@ public class BazaStudenata implements Serializable{
 		case 1:
 			return student.getPrezime();
 		case 2:
-			return student.getDatumRodjenja().toString();
+			SimpleDateFormat datumFormatiran =new SimpleDateFormat("dd.MM.yyyy.");
+			Date datum = student.getDatumRodjenja();
+			String datumF = datumFormatiran.format(datum);
+			return datumF;
 		case 3:
 			return  student.getAdresaStanovanja();
 		case 4:
@@ -115,7 +114,10 @@ public class BazaStudenata implements Serializable{
 		case 6:
 			return student.getBrojIndeksa();
 		case 7:
-			return student.getDatumUpisa().toString();
+			SimpleDateFormat datumFormatiran2 = new SimpleDateFormat("dd.MM.yyyy.");
+			Date datum2 = student.getDatumRodjenja();
+			String datumF2 = datumFormatiran2.format(datum2);
+			return datumF2;
 		case 8:
 			return student.getTrenGodStudija().toString();
 		case 9:
@@ -149,9 +151,8 @@ public class BazaStudenata implements Serializable{
 	}
 
 	public void izmeniStudenta(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon,
-			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena) {
-		for (Student s:studenti) {
-			if(s.getBrojIndeksa()==brojIndeksa) {
+			String emailAdresa, String brojIndeksa, Date datumUpisa, TrenutnaGodina trenGodStudija, Status status,double prosOcena,Student s) {
+		
 				s.setIme(ime);
 				s.setPrezime(prezime);
 				s.setDatumRodjenja(datumRodjenja);
@@ -163,8 +164,8 @@ public class BazaStudenata implements Serializable{
 				s.setTrenGodStudija(trenGodStudija);
 				s.setStatus(status);
 				s.setProsOcena(prosOcena);
-			}
-		}
+			
+		
 	}
 
 	public void dodajStudentaNaPredmet(Predmet predmet,String brojIndeksa) {

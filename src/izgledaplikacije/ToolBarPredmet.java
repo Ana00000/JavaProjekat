@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import controllers.PredmetiController;
-import controllers.StudentiController;
 import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
 import funkcionalnosti.DodavanjePredmeta;

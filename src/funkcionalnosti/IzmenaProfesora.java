@@ -24,7 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -137,6 +137,8 @@ public class IzmenaProfesora extends JDialog {
 
 	KeyListener myKeyListener;
 	
+	DateFormat form;
+	
 	public IzmenaProfesora(Profesor profesor){
 		try {
 			int screenHeight = 768*2/3;
@@ -161,7 +163,9 @@ public class IzmenaProfesora extends JDialog {
 	  
 	}
 	
-	private void jbInit(Profesor p) throws Exception{
+	private void jbInit(final Profesor p) throws Exception{
+		
+		form = new SimpleDateFormat("dd.MM.yyyy.");
 		
 		gb1 = new GridBagLayout();
         gb1.rowHeights = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -287,7 +291,7 @@ public class IzmenaProfesora extends JDialog {
 		gc5.gridy = 0;
 		p3.add(datum,gc5);
 		
-		tf3 = new JFormattedTextField(p.getDatumRodjenja());
+		tf3 = new JFormattedTextField(form.format(p.getDatumRodjenja()));
 		tf3.setColumns(11);
 		tf3.setFont(new Font("Futura", Font.PLAIN, 10));
 		gc6 = new GridBagConstraints();
@@ -351,7 +355,7 @@ public class IzmenaProfesora extends JDialog {
 		gc9.gridy = 0;
 		p5.add(telefon,gc9);
 		
-		tf5 = new JTextField(p.getKontaktTelefon());
+		tf5 = new JTextField(Integer.toString(p.getKontaktTelefon()));
 		tf5.setFont(new Font("Futura", Font.PLAIN, 10));
 		tf5.setColumns(11);
 		gc10 = new GridBagConstraints();
@@ -447,7 +451,7 @@ public class IzmenaProfesora extends JDialog {
 		gc15.gridy = 0;
 		p8.add(brojLicne,gc15);
 		
-		tf8 = new JTextField(p.getBrojLicneKarte());
+		tf8 = new JTextField(Integer.toString(p.getBrojLicneKarte()));
 		tf8.setFont(new Font("Futura", Font.PLAIN, 10));
 		tf8.setColumns(11);
 		gc16 = new GridBagConstraints();
@@ -592,9 +596,9 @@ public class IzmenaProfesora extends JDialog {
 				Zvanje z = Zvanje.valueOf(zvanje);
 				
 				try {
-					Date date = (Date) new SimpleDateFormat("dd.MM.yyyy").parse(tf3.getText());
-					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), date, tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>());
+					
+					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), form.parse(tf3.getText()), tf4.getText(),
+							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>(),p);
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {
