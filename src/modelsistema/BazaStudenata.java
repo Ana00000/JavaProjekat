@@ -61,12 +61,66 @@ public class BazaStudenata implements Serializable{
 		
 		try {
 			
-			studenti.add(new Student("Petar","Petrović", form.parse("19.11.1998."),"Radnička 12","0652023333","petar01@gmail.com","ra55/2017",
-					form.parse("24.05.1998."),TrenutnaGodina.TRECA,Status.B,8.53));
-			studenti.add(new Student("Lazar","Lazarević", form.parse("02.09.1998."),"Radnička 35","0656363545","lazlaz@gmail.com","ra85/2017",
-					form.parse("11.11.2017."),TrenutnaGodina.TRECA,Status.B,9.93));
-			studenti.add(new Student("Gojko","Gojković", form.parse("01.10.2017."),"Radnička 53","+381652033523","gojko0.0@gmail.com","ra155/2017",
-					form.parse("01.10.2017."),TrenutnaGodina.TRECA,Status.B,8.93));
+			studenti.add(new Student("Luka", "Jovanović", form.parse("01.01.2000."), "Karađorđeva 83, Novi Sad", "021/333-555",
+					 "luka.jovanovic@mailinator.com", "RA 1/2019", form.parse("01.07.2019."), TrenutnaGodina.PRVA, Status.B, 0));
+			
+			studenti.add(new Student("Sofija", "Petrović", form.parse("16.05.2000."), "Miloša Pocerca 55, Šabac", "015/343-356",
+					 "sofija.petrovic@mailinator.com", "RA 5/2019",	form.parse("11.07.2019."), TrenutnaGodina.PRVA, Status.B, 0));
+			
+			studenti.add(new Student("Stefan", "Nikolić", form.parse("18.03.2000."), "Knez Mihajlova 16, Beograd", "011/9234-857",
+					 "stefan.nikolic@mailinator.com", "RA 3/2019",	form.parse("03.07.2019."), TrenutnaGodina.PRVA, Status.B, 0));
+			
+			studenti.add(new Student("Dunja", "Ilić", form.parse("11.11.2000."), "Petefi Šandora 15, Novi Sad", "021/433-958",
+					 "dunja.ilic@mailinator.com", "RA 2/2019",	form.parse("01.07.2019."), TrenutnaGodina.PRVA, Status.S, 0));
+			
+			studenti.add(new Student("Lazar", "Đorđević", form.parse("03.12.2000."), "Josip Broz Tito 13, Subotica", "024/333-559",
+					 "lazar.djordjevic@mailinator.com", "RA 4/2019", form.parse("06.07.2019."), TrenutnaGodina.PRVA, Status.S, 0));
+			
+			studenti.add(new Student("Sara", "Pavlović", form.parse("03.12.1999."), "Vojvode Mišića 23, Šabac", "015/313-061",
+					 "sara.pavlovic@mailinator.com", "RA 3/2018",	form.parse("01.07.2018."), TrenutnaGodina.DRUGA, Status.B, 0));
+			
+			studenti.add(new Student("Vuk", "Marković", form.parse("03.12.1999."), "Temerinska 133, Novi Sad", "021/351-091",
+					 "vuk.markovic@mailinator.com", "RA 15/2018",	form.parse("11.07.2018."), TrenutnaGodina.DRUGA, Status.B, 0));
+			
+			studenti.add(new Student("Teodora", "Popović", form.parse("03.12.1998."), "Surepova 15, Šabac", "015/324-500",
+					 "teodora.popovic@mailinator.com", "RA 133/2017",	form.parse("03.07.2017."), TrenutnaGodina.DRUGA, Status.S, 0));
+			
+			studenti.add(new Student("Filip", "Stojanović", form.parse("03.12.1998."), "Francuska 113, Beograd", "011/2333-900",
+					 "filip.stojanovic@mailinator.com", "RA 122/2017",	form.parse("02.07.2017."), TrenutnaGodina.DRUGA, Status.S, 0));
+			
+			studenti.add(new Student("Ana", "Živković", form.parse("03.12.1998."), "Kralja Petra 20, Novi Sad", "021/231-114",
+					 "ana.zivkovic@mailinator.com", "RA 201/2017",	form.parse("04.07.2017."), TrenutnaGodina.DRUGA, Status.S, 0));
+			
+			studenti.add(new Student("Viktor", "Janković", form.parse("03.12.1998."), "Gogoljeva 3, Novi Sad", "021/135-463",
+					 "viktor.jankovic@mailinator.com", "RA 1/2017",	form.parse("01.07.2017."), TrenutnaGodina.TRECA, Status.B, 0));
+			
+			studenti.add(new Student("Petra", "Todorović", form.parse("03.12.1998."), "Njegoševa 2, Novi Sad", "021/903-463",
+					 "petra.todorovic@mailinator.com", "RA 5/2017",	form.parse("12.07.2017."), TrenutnaGodina.TRECA, Status.B, 0));
+			
+			studenti.add(new Student("Andrej", "Stanković", form.parse("03.12.1998."), "Radoja Domanovića 5, Novi Sad", "021/731-067",
+					 "andrej.stankovic@mailinator.com", "RA 33/2017",	form.parse("19.07.2017."), TrenutnaGodina.TRECA, Status.B, 0));
+			
+			studenti.add(new Student("Mila", "Ristić", form.parse("03.12.1997."), "Vojvode Stepe 183, Beograd", "011/4333-800",
+					 "mila.ristic@mailinator.com", "RA 152/2016",	form.parse("15.07.2016."), TrenutnaGodina.TRECA, Status.S, 0));
+			
+			studenti.add(new Student("Pavle", "Kostić", form.parse("03.12.1997."), "Crnotravska 13, Beograd", "011/3130-007",
+					 "pavle.kostic@mailinator.com", "RA 104/2016",	form.parse("06.07.2016."), TrenutnaGodina.TRECA, Status.S, 0));
+			
+			studenti.add(new Student("Lena", "Kovačević", form.parse("03.12.1997."), "Bulevar Oslobođenja 143, Novi Sad", "021/5333-801",
+					 "lena.kovacevic@mailinator.com", "RA 1/2016",	form.parse("01.07.2016."), TrenutnaGodina.CETVRTA, Status.B, 0));
+			
+			studenti.add(new Student("Filip", "Živković", form.parse("03.12.1997."), "1300 Kaplara, Šabac", "015/333-500",
+					 "filip.zivkovic@mailinator.com", "RA 5/2016",	form.parse("21.07.2016."), TrenutnaGodina.CETVRTA, Status.B, 0));
+			
+			studenti.add(new Student("Tara", "Dmiitrijević", form.parse("03.12.1996."), "Milovana Glišića, Valjevo", "014/303-007",
+					 "tara.dimitrijevic@mailinator.com", "RA 33/2015",	form.parse("23.07.2015."), TrenutnaGodina.CETVRTA, Status.S, 0));
+			
+			studenti.add(new Student("Vasilije", "Micić", form.parse("03.12.1996."), "Vuka Karadžića, Loznica", "015/101-909",
+					 "vasilije.micic@mailinator.com", "RA 102/2015",	form.parse("04.07.2015."), TrenutnaGodina.CETVRTA, Status.S, 0));
+			
+			studenti.add(new Student("Lenka", "Jović", form.parse("03.12.1997."), "Bulevar Mihajla Pupina, Novi Sad", "021/431-500",
+					 "lenka.jovic@mailinator.com", "RA 244/2016",	form.parse("07.07.2016."), TrenutnaGodina.CETVRTA, Status.S, 0));
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -101,9 +155,8 @@ public class BazaStudenata implements Serializable{
 		case 1:
 			return student.getPrezime();
 		case 2:
-			SimpleDateFormat datumFormatiran =new SimpleDateFormat("dd.MM.yyyy.");
 			Date datum = student.getDatumRodjenja();
-			String datumF = datumFormatiran.format(datum);
+			String datumF = form.format(datum);
 			return datumF;
 		case 3:
 			return  student.getAdresaStanovanja();
@@ -114,12 +167,11 @@ public class BazaStudenata implements Serializable{
 		case 6:
 			return student.getBrojIndeksa();
 		case 7:
-			SimpleDateFormat datumFormatiran2 = new SimpleDateFormat("dd.MM.yyyy.");
-			Date datum2 = student.getDatumRodjenja();
-			String datumF2 = datumFormatiran2.format(datum2);
+			Date datum2 = student.getDatumUpisa();
+			String datumF2 = form.format(datum2);
 			return datumF2;
 		case 8:
-			return student.getTrenGodStudija().toString();
+			return student.getTrenGodStudija().getBroj();
 		case 9:
 			return student.getStatus().toString();
 		case 10:
