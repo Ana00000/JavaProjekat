@@ -202,7 +202,8 @@ public class MenuBar extends JMenuBar implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				Help help = new Help();
+				help.setVisible(true);
 			}
 			
 		});
@@ -211,7 +212,8 @@ public class MenuBar extends JMenuBar implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				About a = new About();
+				a.setVisible(true);
 			}
 			
 		});
@@ -220,8 +222,6 @@ public class MenuBar extends JMenuBar implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		JMenuItem source = (JMenuItem) (e.getSource());
-		String s = "Opcija menija:" + source.getText();
-		System.out.println(s);
 		if (source.getText().equals("Exit"))
 			System.exit(0);
 	}	
