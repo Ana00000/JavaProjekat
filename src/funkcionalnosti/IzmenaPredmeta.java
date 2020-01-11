@@ -344,6 +344,14 @@ public class IzmenaPredmeta extends JDialog{
 		p9.add(trenGodPre,gc17);
 		
 		cb1 = new JComboBox<TrenutnaGodina>(TrenutnaGodina.values());
+		if((p.getGodinaStudijaUKojojSePredmetIzvodi().toString()).equals("PRVA"))
+			cb1.setSelectedIndex(0);
+		else if((p.getGodinaStudijaUKojojSePredmetIzvodi().toString()).equals("DRUGA"))
+			cb1.setSelectedIndex(1);
+		else if((p.getGodinaStudijaUKojojSePredmetIzvodi().toString()).equals("TRECA"))
+			cb1.setSelectedIndex(2);
+		else
+			cb1.setSelectedIndex(3);
 		cb1.setFont(new Font("Arial", Font.PLAIN, 17));
 		cb1.setBackground(Color.WHITE);
 		cb1.setForeground(Color.BLACK);
@@ -377,6 +385,22 @@ public class IzmenaPredmeta extends JDialog{
 		p10b1.add(semestar,gc18);
 		
 		cb2 = new JComboBox<Semestar>(Semestar.values());
+		if((p.getSemestar().toString()).equals("PRVI"))
+			cb2.setSelectedIndex(0);
+		else if((p.getSemestar().toString()).equals("DRUGI"))
+			cb2.setSelectedIndex(1);
+		else if((p.getSemestar().toString()).equals("TRECI"))
+			cb2.setSelectedIndex(2);
+		else if((p.getSemestar().toString()).equals("CETVRTI"))
+			cb2.setSelectedIndex(3);
+		else if ((p.getSemestar().toString()).equals("PETI"))
+			cb2.setSelectedIndex(4);
+		else if ((p.getSemestar().toString()).equals("SESTI"))
+			cb2.setSelectedIndex(5);
+		else if((p.getSemestar().toString()).equals("SEDMI"))
+			cb2.setSelectedIndex(6);
+		else
+			cb2.setSelectedIndex(7);
 		cb2.setFont(new Font("Arial", Font.PLAIN, 17));
 		cb2.setBackground(Color.WHITE);
 		cb2.setForeground(Color.BLACK);

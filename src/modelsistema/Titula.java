@@ -1,7 +1,17 @@
 package modelsistema;
 
 public enum Titula {
-	DR("Dr"),PROF("Prof. dr");
+	DR("Dr"){
+		@Override
+		public String toString() {
+			return "DR";
+		}
+	},PROF("Prof. dr"){
+		@Override
+		public String toString() {
+			return "PROF";
+		}
+	};
 	
 	private String izlazImena;
 	

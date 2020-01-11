@@ -485,6 +485,12 @@ public class IzmenaProfesora extends JDialog {
 		p9.add(titula,gc17);
 		
 		cb1 = new JComboBox<Titula>(Titula.values());
+		if((p.getTitula().toString()).equals("DR"))
+			cb1.setSelectedIndex(0);
+		else 
+			cb1.setSelectedIndex(1);
+	
+		
 		cb1.setFont(new Font("Arial", Font.PLAIN, 10));
 		cb1.setBackground(Color.WHITE);
 		cb1.setForeground(Color.BLACK);
@@ -518,6 +524,12 @@ public class IzmenaProfesora extends JDialog {
 		p10.add(zvanje,gc19);
 		
 		cb2 = new JComboBox<Zvanje>(Zvanje.values());
+		if((p.getZvanje().toString()).equals("VANREDNI"))
+			cb1.setSelectedIndex(0);
+		else if((p.getZvanje().toString()).equals("REDOVAN"))
+			cb2.setSelectedIndex(1);
+		else
+			cb2.setSelectedIndex(2);
 		cb2.setFont(new Font("Arial", Font.PLAIN, 10));
 		cb2.setBackground(Color.WHITE);
 		cb2.setForeground(Color.BLACK);

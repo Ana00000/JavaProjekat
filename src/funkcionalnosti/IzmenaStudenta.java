@@ -497,6 +497,14 @@ public class IzmenaStudenta extends JDialog {
 		p9.add(trenGodStu,gc17);
 		
 		cb1 = new JComboBox<TrenutnaGodina>(TrenutnaGodina.values());
+		if((s.getTrenGodStudija().toString()).equals("PRVA"))
+			cb1.setSelectedIndex(0);
+		else if((s.getTrenGodStudija().toString()).equals("DRUGA"))
+			cb1.setSelectedIndex(1);
+		else if((s.getTrenGodStudija().toString()).equals("TRECA"))
+			cb1.setSelectedIndex(2);
+		else
+			cb1.setSelectedIndex(3);
 		cb1.setFont(new Font("Arial", Font.PLAIN, 10));
 		cb1.setBackground(Color.WHITE);
 		cb1.setForeground(Color.BLACK);

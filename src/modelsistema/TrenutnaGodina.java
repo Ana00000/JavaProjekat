@@ -1,10 +1,30 @@
 package modelsistema;
 
 public enum TrenutnaGodina {
-	PRVA("1"),
-	DRUGA("2"), 
-	TRECA("3"), 
-	CETVRTA("4");
+	PRVA("1"){
+		@Override
+		public String toString() {
+			return "PRVA";
+		}
+	},
+	DRUGA("2"){
+		@Override
+		public String toString() {
+			return "DRUGA";
+		}
+	}, 
+	TRECA("3"){
+		@Override
+		public String toString() {
+			return "TRECA";
+		}
+	}, 
+	CETVRTA("4"){
+		@Override
+		public String toString() {
+			return "CETVRTA";
+		}
+	};
 	
 	private String broj;
 	
