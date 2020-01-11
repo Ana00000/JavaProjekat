@@ -355,7 +355,7 @@ public class IzmenaProfesora extends JDialog {
 		gc9.gridy = 0;
 		p5.add(telefon,gc9);
 		
-		tf5 = new JTextField(Integer.toString(p.getKontaktTelefon()));
+		tf5 = new JTextField(p.getKontaktTelefon());
 		tf5.setFont(new Font("Futura", Font.PLAIN, 10));
 		tf5.setColumns(11);
 		gc10 = new GridBagConstraints();
@@ -451,7 +451,7 @@ public class IzmenaProfesora extends JDialog {
 		gc15.gridy = 0;
 		p8.add(brojLicne,gc15);
 		
-		tf8 = new JTextField(Integer.toString(p.getBrojLicneKarte()));
+		tf8 = new JTextField(p.getBrojLicneKarte());
 		tf8.setFont(new Font("Futura", Font.PLAIN, 10));
 		tf8.setColumns(11);
 		gc16 = new GridBagConstraints();
@@ -598,7 +598,7 @@ public class IzmenaProfesora extends JDialog {
 				try {
 					
 					ProfesoriController.getInstance().izmenaProfesora(tf1.getText(), tf2.getText(), form.parse(tf3.getText()), tf4.getText(),
-							Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>(),p);
+							tf5.getText(), tf6.getText(), tf7.getText(),tf8.getText(),t, z,new ArrayList<Predmet>(),p);
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {

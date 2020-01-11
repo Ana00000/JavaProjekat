@@ -1,5 +1,16 @@
 package modelsistema;
 
 public enum Titula {
-	REDOVAN, VANREDNI, DOCENT, ASISTENT;
+	DR("Dr"),PROF("Prof. dr");
+	
+	private String izlazImena;
+	
+	Titula(String izlazImena) {
+		this.izlazImena=izlazImena;
+	}
+	public String izlazImena() {
+	
+		return izlazImena;
+
+	}
 }

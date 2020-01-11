@@ -119,7 +119,7 @@ public class MenuBar extends JMenuBar implements ActionListener{
 							"0652023333","petar01@gmail.com","ra55/2017",Calendar.getInstance().getTime(),TrenutnaGodina.TRECA,Status.B,8.53);
 				}else if(Global.getVar() == 1) {
 					ProfesoriController.getInstance().dodajProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
-							0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>());
+							"0332445377", "danaDanic4@gmail.com", "Radnicka48","895462", Titula.DR, Zvanje.DOCENT, new ArrayList<Predmet>());
 				}else {
 					PredmetiController.getInstance().dodajPredmet("RA49","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA);
 				}
@@ -154,7 +154,7 @@ public class MenuBar extends JMenuBar implements ActionListener{
 					Profesor profesor = BazaProfesora.getInstance().getRow(row2);
 					
 					ProfesoriController.getInstance().izmenaProfesora("Dana", "Danic",Calendar.getInstance().getTime(), "Miskovac 8",
-							0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>(),profesor);
+							"0332445377", "danaDanic4@gmail.com", "Radnicka48", "895462", Titula.DR, Zvanje.DOCENT, new ArrayList<Predmet>(),profesor);
 					
 				}else {
 					

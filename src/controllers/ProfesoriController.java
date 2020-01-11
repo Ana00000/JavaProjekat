@@ -21,7 +21,7 @@ public class ProfesoriController {
 		return instance;
 	}
 	
-	public void izbrisiProfesora(int brojLicneKarte) {
+	public void izbrisiProfesora(String brojLicneKarte) {
 		BazaProfesora.getInstance().izbrisiProfesora(brojLicneKarte);
 		
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
@@ -35,8 +35,8 @@ public class ProfesoriController {
 		model.fireTableDataChanged();
 	}
 	
-	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti) {
+	public void dodajProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon, String email,
+			String adresaKancelarije, String brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti) {
 		BazaProfesora.getInstance().dodajProfesora(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon, email, adresaKancelarije, brojLicneKarte, titula, zvanje,predmeti);
 		
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
@@ -48,8 +48,8 @@ public class ProfesoriController {
 		model.fireTableDataChanged();
 	}
 
-	public void izmenaProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti,Profesor p) {
+	public void izmenaProfesora(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon, String email,
+			String adresaKancelarije, String brojLicneKarte, Titula titula,Zvanje zvanje,ArrayList<Predmet> predmeti,Profesor p) {
 		
 		BazaProfesora.getInstance().izmeniProfesora(ime, prezime, datumRodjenja, adresaStanovanja, kontaktTelefon, email,
 				adresaKancelarije, brojLicneKarte, titula, zvanje,predmeti,p

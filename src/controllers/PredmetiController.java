@@ -43,7 +43,7 @@ public class PredmetiController {
 		model.fireTableDataChanged();
 	}
 	
-	public void dodavanjeProfesoraNaPredmet(Predmet predmet,int brojLicne) {
+	public void dodavanjeProfesoraNaPredmet(Predmet predmet,String brojLicne) {
 		BazaPredmeta.getInstance().dodajProfesoraNaPredmet(predmet,brojLicne);
 		System.out.println(BazaProfesora.getInstance());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();

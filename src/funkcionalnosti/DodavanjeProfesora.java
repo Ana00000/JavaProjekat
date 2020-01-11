@@ -585,7 +585,7 @@ public class DodavanjeProfesora extends JDialog {
 				String zvanje = cb2.getSelectedItem().toString();
 				Zvanje z = Zvanje.valueOf(zvanje);
 				
-				int brojLicneKarte = Integer.parseInt(tf8.getText());
+				String brojLicneKarte = tf8.getText();
 				
 				for(Profesor p: BazaProfesora.getInstance().getProfesori()) {
 					
@@ -597,7 +597,7 @@ public class DodavanjeProfesora extends JDialog {
 				
 				try {
 					ProfesoriController.getInstance().dodajProfesora(tf1.getText(), tf2.getText(), form.parse(tf3.getText()), 
-							tf4.getText(),Integer.parseInt(tf5.getText()), tf6.getText(), tf7.getText(),Integer.parseInt(tf8.getText()),t, z,new ArrayList<Predmet>());
+							tf4.getText(),tf5.getText(), tf6.getText(), tf7.getText(),tf8.getText(),t, z,new ArrayList<Predmet>());
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				} catch (ParseException e1) {

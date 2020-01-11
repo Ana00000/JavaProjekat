@@ -9,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -90,14 +89,19 @@ public class BazaPredmeta implements Serializable{
 	public void initPredmete() {
 		this.predmeti=new ArrayList<Predmet>();
 	
-		predmeti.add(new Predmet("RA4","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
-		predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
-		predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<String>()));
-		predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
-		predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<String>()));
-		predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
+	//	predmeti.add(new Predmet("RA4","Programski Prevodioci",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Dana", "Danic",new Date(), "Miskovac 8",0332445377, "danaDanic4@gmail.com", "Radnicka48", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
+		//predmeti.add(new Predmet("RA50","OISISI",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
+		//predmeti.add(new Predmet("RA78","BAZE",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<String>()));
+		//predmeti.add(new Predmet("RA789","ANALIZA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
+		//predmeti.add(new Predmet("RA7855","ALGEBRA",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Danilo", "Danic",new Date(), "Ive 8",0332445377, "daniloDanic4@gmail.com", "Radnicka50", 895462, Titula.REDOVAN, Zvanje.MR, new ArrayList<Predmet>()), new ArrayList<String>()));
+		//predmeti.add(new Predmet("RA5","C",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor("Minja", "Vidakovic",new Date(), "Ive Lole Ribara 8",0332445377, "minja4@gmail.com", "Radnicka49", 895462, Titula.REDOVAN, Zvanje.DR, new ArrayList<Predmet>()), new ArrayList<String>()));
 
-
+		predmeti.add(new Predmet("OP301","Osnove Programiranja",Semestar.PRVI,TrenutnaGodina.PRVA,new Profesor(),new ArrayList<String>()));
+		predmeti.add(new Predmet("DM881","Diskretna Matematika",Semestar.TRECI,TrenutnaGodina.DRUGA,new Profesor(),new ArrayList<String>()));
+		predmeti.add(new Predmet("PP007","Paralelno programiranje",Semestar.PETI,TrenutnaGodina.TRECA,new Profesor(),new ArrayList<String>()));
+		predmeti.add(new Predmet("RVP33","Racunarstvo visokih performansi",Semestar.SEDMI,TrenutnaGodina.CETVRTA,new Profesor(),new ArrayList<String>()));
+		predmeti.add(new Predmet("JSD91","Jezici specificni za domen",Semestar.OSMI,TrenutnaGodina.CETVRTA,new Profesor(),new ArrayList<String>()));
+		
 	}
 	
 	public void dodajPredmet(Predmet predmet) {
@@ -134,7 +138,7 @@ public class BazaPredmeta implements Serializable{
 			
 		
 	}
-	public void dodajProfesoraNaPredmet(Predmet predmet,int brojLicne) {
+	public void dodajProfesoraNaPredmet(Predmet predmet,String brojLicne) {
 		int exists=0;
 		for(Profesor p:BazaProfesora.getInstance().getProfesori()) {
 			if(p.getBrojLicneKarte()==brojLicne) {

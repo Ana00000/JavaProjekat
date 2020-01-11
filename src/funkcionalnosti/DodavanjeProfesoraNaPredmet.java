@@ -287,7 +287,7 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
 				
-				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(predmet,Integer.parseInt(tf1.getText()));
+				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(predmet,tf1.getText());
 				dispose();
 			}
 	    	

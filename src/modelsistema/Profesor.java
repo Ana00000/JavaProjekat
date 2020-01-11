@@ -16,10 +16,10 @@ public class Profesor implements Serializable{
 	private String prezime;
 	private Date datumRodjenja;
 	private String adresaStanovanja;
-	private int kontaktTelefon;
+	private String kontaktTelefon;
 	private String email;
 	private String adresaKancelarije;
-	private int brojLicneKarte;
+	private String brojLicneKarte;
 	private Titula  Titula;
 	private Zvanje Zvanje;
 	private ArrayList<Predmet> spisakPredmetaNaKojimaPredaje;
@@ -27,8 +27,8 @@ public class Profesor implements Serializable{
 	public Profesor() {
 		super();
 	}
-	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje, ArrayList<Predmet> spisak) {
+	public Profesor(String ime, String prezime, Date datumRodjenja, String adresaStanovanja, String kontaktTelefon, String email,
+			String adresaKancelarije, String brojLicneKarte, Titula titula,Zvanje zvanje, ArrayList<Predmet> spisak) {
 		super();
 		this.ime=ime;
 		this.prezime=prezime;
@@ -42,8 +42,8 @@ public class Profesor implements Serializable{
 		this.Zvanje=zvanje;
 		this.spisakPredmetaNaKojimaPredaje=spisak;
 	}
-	public Profesor(String ime, String prezime, java.util.Date datumRodjenja, String adresaStanovanja, int kontaktTelefon, String email,
-			String adresaKancelarije, int brojLicneKarte, Titula titula,Zvanje zvanje) {
+	public Profesor(String ime, String prezime, java.util.Date datumRodjenja, String adresaStanovanja, String kontaktTelefon, String email,
+			String adresaKancelarije, String brojLicneKarte, Titula titula,Zvanje zvanje) {
 		super();
 		this.ime=ime;
 		this.prezime=prezime;
@@ -82,10 +82,10 @@ public class Profesor implements Serializable{
 	public void setAdresaStanovanja(String adresaStanovanja) {
 		this.adresaStanovanja = adresaStanovanja;
 	}
-	public int getKontaktTelefon() {
+	public String getKontaktTelefon() {
 		return kontaktTelefon;
 	}
-	public void setKontaktTelefon(int kontaktTelefon) {
+	public void setKontaktTelefon(String kontaktTelefon) {
 		this.kontaktTelefon = kontaktTelefon;
 	}
 	public String getEmail() {
@@ -100,10 +100,10 @@ public class Profesor implements Serializable{
 	public void setAdresaKancelarije(String adresaKancelarije) {
 		this.adresaKancelarije = adresaKancelarije;
 	}
-	public int getBrojLicneKarte() {
+	public String getBrojLicneKarte() {
 		return brojLicneKarte;
 	}
-	public void setBrojLicneKarte(int brojLicneKarte) {
+	public void setBrojLicneKarte(String brojLicneKarte) {
 		this.brojLicneKarte = brojLicneKarte;
 	}
 	public Titula getTitula() {
