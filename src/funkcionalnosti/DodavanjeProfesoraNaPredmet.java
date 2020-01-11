@@ -24,8 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controllers.PredmetiController;
-import modelsistema.BazaPredmeta;
-import modelsistema.Predmet;
 
 
 
@@ -285,9 +283,9 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-				Predmet predmet = BazaPredmeta.getInstance().getRow(row);
+				//Predmet predmet = BazaPredmeta.getInstance().getRow(row);
 				
-				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(predmet,tf1.getText());
+				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(row,tf1.getText());
 				dispose();
 			}
 	    	

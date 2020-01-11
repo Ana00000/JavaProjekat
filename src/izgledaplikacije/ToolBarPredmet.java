@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-
+import javax.swing.JFrame;
 import controllers.PredmetiController;
 import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
@@ -110,6 +110,7 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub 
+				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
 				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				System.out.println("Selected row: "+row); //CONVERT ROW DAJE INDEKS REDA KO
 				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
@@ -119,6 +120,9 @@ public class ToolBarPredmet extends JToolBar{
 			}else {
 				return;
 			}
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da obrišete ", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
 		}
 		});
 		btnInsert.addActionListener(new ActionListener(){
@@ -126,11 +130,14 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
 				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
 			    IzmenaPredmeta izmena=new IzmenaPredmeta(predmet);
-				izmena.setVisible(true);
+				izmena.setVisible(true);}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da izmenite", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 			
 		});
@@ -140,12 +147,15 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {	
 				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				@SuppressWarnings("unused")
 				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
 				DodavanjeProfesoraNaPredmet dpnp=new DodavanjeProfesoraNaPredmet();
-				dpnp.setVisible(true);
+				dpnp.setVisible(true); }else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet u koji želite da upišete profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 			
 		});
@@ -171,11 +181,17 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
-				if(!predmet.getProfesor().getIme().equals("")) {
-					if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete profesora?","",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
-						PredmetiController.getInstance().uklanjanjeProfesoraSaPredmeta(predmet);
+				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
+					int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+					Predmet predmet = BazaPredmeta.getInstance().getRow(row);
+					if(predmet.getProfesor() != null) {
+						if(JOptionPane.showConfirmDialog(null, "Da li ste sigurni da želite da obrišete profesora", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)		
+							PredmetiController.getInstance().uklanjanjeProfesoraSaPredmeta(row);
+					}else {
+						JOptionPane.showMessageDialog(new JFrame(), "Predmet nema profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
+					}
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet iz kojeg želite da obrišete profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			

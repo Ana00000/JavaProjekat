@@ -114,7 +114,14 @@ public class BazaPredmeta implements Serializable{
 	
 	
 	public void izbrisiPredmet(Predmet p) {
-		p.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(p);
+		Profesor prof= p.getProfesor();
+		if(prof != null) {
+			for(Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+				if(profesor.getBrojLicneKarte().equals(prof.getBrojLicneKarte())) {
+					profesor.izbrisiPredmet(p.getSifra());
+				}
+			}
+		}
 		predmeti.remove(p);
 		System.out.println(BazaProfesora.getInstance());
 	}
@@ -130,13 +137,23 @@ public class BazaPredmeta implements Serializable{
 	}
 	public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet predmet) {
 		
-				predmet.setSifra(sifra);
-				predmet.setNaziv(naziv);
-				predmet.setSemestar(semestar);
-				predmet.setGodinaStudijaUKojojSePredmetIzvodi(godina);
-		
+		for(Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+			for(Predmet p : profesor.getSpisakPredmetaNaKojimaPredaje()) {
+				if(p.getSifra().equals(predmet.getSifra())) {
+				p.setSifra(sifra);
+				p.setNaziv(naziv);
+				p.setSemestar(semestar);
+				p.setGodinaStudijaUKojojSePredmetIzvodi(godina);
+				break;
+				}
+			}
 			
+	}
 		
+		predmet.setSifra(sifra);
+		predmet.setNaziv(naziv);
+		predmet.setSemestar(semestar);
+		predmet.setGodinaStudijaUKojojSePredmetIzvodi(godina);
 	}
 	public void dodajProfesoraNaPredmet(Predmet predmet,String brojLicne) {
 		int exists=0;
@@ -156,12 +173,48 @@ public class BazaPredmeta implements Serializable{
 			JOptionPane.showMessageDialog(null, "NE postoji profesor sa datim brojem licne karte", "GRESKA", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	public void dodajProfesoraNaPredmet(int indeks, String brLicneKarte) {
+		int postoji = 0;
+		Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(indeks);
+		for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
+			if(p.getBrojLicneKarte().equals(brLicneKarte)) {
+				postoji = 1;
+				if(predmet.getProfesor() == null) {
+					predmet.setProfesor(p);
+					p.getSpisakPredmetaNaKojimaPredaje().add(predmet);
+					break;
+				}else if(!predmet.getProfesor().getBrojLicneKarte().equals(p.getBrojLicneKarte())){
+					
+					uklanjanjeProfesoraSaPredmeta(indeks);
+					predmet.setProfesor(p);
+					p.getSpisakPredmetaNaKojimaPredaje().add(predmet);	
+					break;
+				}else {
+					JOptionPane.showMessageDialog(null, "Već postoji profesor na tom predmetu sa istim brojem lične karte", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+		if(postoji == 0) {
+			JOptionPane.showMessageDialog(null, "Ne postoji zadati broj lične karte u bazi profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 	public void uklanjanjeProfesoraSaPredmeta(Predmet predmet) {
 		predmet.getProfesor().getSpisakPredmetaNaKojimaPredaje().remove(predmet);//UKLONIMO PREDMET KOD PROFESORA
 		predmet.setProfesor(new Profesor());//POSTAVIMO NOVOG PROFESORA
 		System.out.println(BazaProfesora.getInstance());
 	}
-	
+	public void uklanjanjeProfesoraSaPredmeta(int index) {
+		Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(index);
+		Profesor prof = BazaPredmeta.getInstance().getPredmeti().get(index).getProfesor();
+		for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
+			if(p.getBrojLicneKarte().equals(prof.getBrojLicneKarte())) {
+				p.izbrisiPredmet(predmet.getSifra());
+				break;
+			}
+		}
+		predmet.setProfesor(null);
+		System.out.println(BazaProfesora.getInstance());
+	}
 	public void serijalizacijaPredmeta() {
 		try {
 			FileOutputStream fPredmeta = new FileOutputStream("predmeti.ser");

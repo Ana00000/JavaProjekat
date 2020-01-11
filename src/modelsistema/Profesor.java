@@ -125,5 +125,13 @@ public class Profesor implements Serializable{
 			ArrayList<Predmet> spisakPredmetaNaKojimaPredaje) {
 		this.spisakPredmetaNaKojimaPredaje = spisakPredmetaNaKojimaPredaje;
 	}
+	public void izbrisiPredmet(String sifra) {
+		for(Predmet p : spisakPredmetaNaKojimaPredaje) {
+			if(p.getSifra().equals(sifra)) {
+				spisakPredmetaNaKojimaPredaje.remove(p);
+				break;
+			}
+		}
+	}
 	
 }

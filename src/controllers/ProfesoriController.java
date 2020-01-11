@@ -3,7 +3,9 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Date;
 
+import izgledaplikacije.AbstractTableModelPredmeti;
 import izgledaplikacije.AbstractTableModelProfesori;
+import izgledaplikacije.PredmetiJTable;
 import izgledaplikacije.ProfesoriJTable;
 import modelsistema.BazaProfesora;
 import modelsistema.Predmet;
@@ -22,10 +24,12 @@ public class ProfesoriController {
 	}
 	
 	public void izbrisiProfesora(String brojLicneKarte) {
-		BazaProfesora.getInstance().izbrisiProfesora(brojLicneKarte);
+BazaProfesora.getInstance().izbrisiProfesora(brojLicneKarte);
 		
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
+		AbstractTableModelPredmeti model1=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
+		model1.fireTableDataChanged();
 	}
 	
 	public void izbrisiProfesoraP(Profesor p) {

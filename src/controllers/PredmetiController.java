@@ -31,8 +31,8 @@ public class PredmetiController {
 	}
 	
 	public void izbrisiPredmet(Predmet p) {
-		//BazaPredmeta.getInstance().izbrisiPredmet(p);
-		BazaPredmeta.getInstance().izbrisiPredmet(p.getSifra());
+		BazaPredmeta.getInstance().izbrisiPredmet(p);
+		//BazaPredmeta.getInstance().izbrisiPredmet(p.getSifra());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
@@ -43,15 +43,15 @@ public class PredmetiController {
 		model.fireTableDataChanged();
 	}
 	
-	public void dodavanjeProfesoraNaPredmet(Predmet predmet,String brojLicne) {
-		BazaPredmeta.getInstance().dodajProfesoraNaPredmet(predmet,brojLicne);
+	public void dodavanjeProfesoraNaPredmet(int index,String brojLicne) {
+		BazaPredmeta.getInstance().dodajProfesoraNaPredmet(index,brojLicne);
 		System.out.println(BazaProfesora.getInstance());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
 	
-	public void uklanjanjeProfesoraSaPredmeta(Predmet predmet) {
-		BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(predmet);
+	public void uklanjanjeProfesoraSaPredmeta(int index) {
+		BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(index);
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}

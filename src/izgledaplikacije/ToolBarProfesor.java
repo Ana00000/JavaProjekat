@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-
+import javax.swing.JFrame;
 import modelsistema.BazaProfesora;
 import modelsistema.Profesor;
 import controllers.ProfesoriController;
@@ -93,6 +93,7 @@ public class ToolBarProfesor extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!ProfesoriJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
 				int row=ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
 				
 				Profesor profesor=BazaProfesora.getInstance().getRow(row);
@@ -103,20 +104,28 @@ public class ToolBarProfesor extends JToolBar{
 			}else {
 				return;
 			}
-		}
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati profesora koga želite da izbrišete", "Profesor nije izabran!", JOptionPane.ERROR_MESSAGE);
+				}
+				}
 		});
 		btnInsert.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!ProfesoriJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
 				int row=ProfesoriJTable.getInstance().convertRowIndexToModel(ProfesoriJTable.getInstance().getSelectedRow());
 				Profesor profesor=BazaProfesora.getInstance().getRow(row);
 				
 				
 			    IzmenaProfesora izmena=new IzmenaProfesora(profesor);
 				izmena.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati profesora kog zelite da izmenite ", "Profesor nije izabran!", JOptionPane.ERROR_MESSAGE);
+				}
 			}
+			
 			
 			
 		});

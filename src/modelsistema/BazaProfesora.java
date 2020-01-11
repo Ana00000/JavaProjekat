@@ -139,19 +139,17 @@ public class BazaProfesora implements Serializable{
 	}
 	
 	public void izbrisiProfesora(String br) {
-		for(Profesor p: profesori) {
-			if(p.getBrojLicneKarte()==br) {
-				profesori.remove(p); //UKLANJAMO PROFESORA IZ BAZE PROFESORA
-				
-				for(Predmet predmet : BazaPredmeta.getInstance().getPredmeti()) {//PREDMETI IZ BAZE PREDMETA
-					if(predmet.getProfesor().getBrojLicneKarte()==p.getBrojLicneKarte()) {
-						BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(predmet);//BRISEMO PROFESORA SA PREDMETA
-					}
+		Profesor profesor = nadjiPoBrojuLicneKarte(br);
+		if(profesor.getSpisakPredmetaNaKojimaPredaje().size() > 0) {
+			for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+				if(p.getProfesor().getBrojLicneKarte().equals(br)) {
+					p.setProfesor(null);
 				}
-				break;
 			}
 		}
+		profesori.remove(nadjiPoBrojuLicneKarte(br));
 	}
+	
 	public void izbrisiProfesoraP(Profesor p) {
 		for(Profesor profesor : profesori) {
 			if(profesor==p) {
@@ -204,5 +202,13 @@ public class BazaProfesora implements Serializable{
 		}catch(ClassNotFoundException c) {
 			c.printStackTrace();
 		}
+	}
+	public Profesor nadjiPoBrojuLicneKarte(String brLicne) {
+		for(Profesor p : profesori) {
+			if(p.getBrojLicneKarte().equals(brLicne)) {
+				return p;
+			}
+		}
+		return null;
 	}
 }
