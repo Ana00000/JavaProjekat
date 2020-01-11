@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -93,6 +94,7 @@ public class ToolBarStudent extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!StudentiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {	
 				int row=StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
 				
 				Student student=BazaStudenata.getInstance().getRow(row);
@@ -101,6 +103,8 @@ public class ToolBarStudent extends JToolBar{
 					StudentiController.getInstance().izbrisiStudenta(student);
 			}else {
 				return;
+			} } else {
+				JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati studenta kojeg želite da obrišete ", "Greška!", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		});
@@ -109,14 +113,18 @@ public class ToolBarStudent extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				if(!StudentiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
 				int row=StudentiJTable.getInstance().convertRowIndexToModel(StudentiJTable.getInstance().getSelectedRow());
 				Student student=BazaStudenata.getInstance().getRow(row);
 				
 			    IzmenaStudenta izmena=new IzmenaStudenta(student);
 				izmena.setVisible(true);
-			}
 			
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati studenta kojeg želite da izmenite ", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
+			
+			}
 			
 		});
 		btnSearch.addActionListener(new ActionListener(){

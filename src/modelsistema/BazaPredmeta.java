@@ -177,13 +177,15 @@ public class BazaPredmeta implements Serializable{
 		int postoji = 0;
 		Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(indeks);
 		for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
+			System.out.println("stari broj licne"+ p.getBrojLicneKarte()+ "novi broj licne"+ brLicneKarte);
+			if(p.getBrojLicneKarte().equals(brLicneKarte)) {System.out.println("isti su "); }
 			if(p.getBrojLicneKarte().equals(brLicneKarte)) {
 				postoji = 1;
 				if(predmet.getProfesor() == null) {
 					predmet.setProfesor(p);
 					p.getSpisakPredmetaNaKojimaPredaje().add(predmet);
 					break;
-				}else if(!predmet.getProfesor().getBrojLicneKarte().equals(p.getBrojLicneKarte())){
+					}else if(!predmet.getProfesor().getBrojLicneKarte().equals(p.getBrojLicneKarte())){
 					
 					uklanjanjeProfesoraSaPredmeta(indeks);
 					predmet.setProfesor(p);

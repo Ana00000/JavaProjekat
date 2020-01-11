@@ -18,12 +18,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import modelsistema.BazaPredmeta;
 import modelsistema.Predmet;
 import modelsistema.Semestar;
 import modelsistema.TrenutnaGodina;
@@ -274,7 +272,7 @@ public class IzmenaPredmeta extends JDialog{
 		gc4.gridx = 1;
 		gc4.gridy = 0;
 		p2.add(tf2,gc4);
-		
+		/*
 		p3 = new JPanel();
 		p3.setBackground(Color.WHITE);
 		gcp3 =  new GridBagConstraints();
@@ -304,7 +302,7 @@ public class IzmenaPredmeta extends JDialog{
 		gc6.fill = GridBagConstraints.HORIZONTAL;
 		gc6.gridx = 1;
 		gc6.gridy = 0;
-		p3.add(tf3,gc6);
+		p3.add(tf3,gc6);*/
 		
 		p4 = new JPanel();
 		p4.setBackground(Color.WHITE);
@@ -456,14 +454,14 @@ public class IzmenaPredmeta extends JDialog{
 				
 				String semestar=cb2.getSelectedItem().toString();
 				Semestar sm=Semestar.valueOf(semestar);
-				
+				/*
 				for(Predmet p:BazaPredmeta.getInstance().getPredmeti()) {
 					
 					if(tf2.getText().equals(p.getSifra())) {
 						JOptionPane.showMessageDialog(null,"Vec postoji predmet sa sifrom "+tf2.getText(), "Greska",JOptionPane.ERROR_MESSAGE);
 						return;
 					}
-					}
+					}*/
 				PredmetiController.getInstance().IzmeniPredmet(tf2.getText(),tf1.getText(),sm,god,p);
 				
 				dispose();
@@ -501,7 +499,7 @@ public class IzmenaPredmeta extends JDialog{
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				if(tf2.getText().trim().length()>0&& tf1.getText().trim().length()>0 && tf3.getText().trim().length()>0) {
+				if(tf2.getText().trim().length()>0&& tf1.getText().trim().length()>0) {
 					b2.setEnabled(true);
 				}else b2.setEnabled(false);
 			}

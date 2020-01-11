@@ -164,6 +164,7 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {	
 				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				
 				@SuppressWarnings("unused")
@@ -171,7 +172,10 @@ public class ToolBarPredmet extends JToolBar{
 			
 				DodavanjeStudentaNaPredmet dsnp=new DodavanjeStudentaNaPredmet();
 				dsnp.setVisible(true);
-			}
+				}else {
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati studenta kojeg zelite da dodate na predmet", "Greška!", JOptionPane.ERROR_MESSAGE);
+				}
+				}
 			
 			
 		});
@@ -191,7 +195,7 @@ public class ToolBarPredmet extends JToolBar{
 						JOptionPane.showMessageDialog(new JFrame(), "Predmet nema profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
 					}
 				}else {
-					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet iz kojeg želite da obrišete profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet sa kojeg želite da obrišete profesora", "Greška!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			

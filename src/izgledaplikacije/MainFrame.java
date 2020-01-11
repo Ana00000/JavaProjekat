@@ -127,7 +127,7 @@ public class MainFrame extends JFrame {
 				@Override
 				public void windowOpened(WindowEvent arg0) {
 					// TODO Auto-generated method stub
-					BazaPredmeta.getInstance().deserijalizacijaPredmeta();
+				BazaPredmeta.getInstance().deserijalizacijaPredmeta();
 					BazaProfesora.getInstance().deserijalizacijaProfesora();
 					BazaStudenata.getInstance().deserijalizacijaStudenata();
 				}
