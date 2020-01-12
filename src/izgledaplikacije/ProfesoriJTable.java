@@ -30,34 +30,34 @@ public class ProfesoriJTable extends JTable{
 		sorter=new TableRowSorter<>((AbstractTableModelProfesori) getModel());
 		this.setRowSorter(sorter);
 	}
-	public void search(String query) {
-		String[] parts=query.split(";");
-		Map<String,String> map=new HashMap<>();
+	 public void search(String query) {
+		 String[] parts=query.split(";");
+		 Map<String,String> map=new HashMap<>();
 		
 		
-		map.put("ime", "");
-		map.put("prezime", "");
-		map.put("datum rodjenja", "");
-		map.put("adresa stanovanja", "");
-		map.put("telefon", "");
-		map.put("email", "");
-		map.put("adresa kancelarije", "");
-		map.put("broj licne", "");
-		map.put("titula", "");
-		map.put("zvanje", "");
+		 map.put("ime", "");
+		 map.put("prezime", "");
+		 map.put("datum rodjenja", "");
+		 map.put("adresa stanovanja", "");
+		 map.put("telefon", "");
+		 map.put("email", "");
+		 map.put("adresa kancelarije", "");
+		 map.put("broj licne", "");
+		 map.put("titula", "");
+		 map.put("zvanje", "");
 		
-		for(int i=0;i<parts.length;i++){
+		 for(int i=0;i<parts.length;i++){
 			String[] splited = parts[i].split(":");
 			if(splited.length > 1) {
 			map.put(splited[0].toLowerCase(), splited[1]);
 			System.out.println("Kljuc: " + splited[0].toLowerCase() + "\nVrednost: " + splited[1]);
 	}
 		}
-			List<RowFilter<Object,Object>> rf = new ArrayList<RowFilter<Object,Object>>();
-			rf.add(RowFilter.regexFilter(".*" + map.get("ime") + ".*",  0)); 
-			rf.add(RowFilter.regexFilter(".*" + map.get("prezime") + ".*", 1));
-			rf.add(RowFilter.regexFilter(".*" + map.get("datum rodjenja") + ".*", 2));
-			rf.add(RowFilter.regexFilter(".*" + map.get("adresa stanovanja") + ".*", 3));
+		  	List<RowFilter<Object,Object>> rf = new ArrayList<RowFilter<Object,Object>>();
+		 	rf.add(RowFilter.regexFilter(".*" + map.get("ime") + ".*",  0)); 
+		 	rf.add(RowFilter.regexFilter(".*" + map.get("prezime") + ".*", 1));
+		 	rf.add(RowFilter.regexFilter(".*" + map.get("datum rodjenja") + ".*", 2));
+		 	rf.add(RowFilter.regexFilter(".*" + map.get("adresa stanovanja") + ".*", 3));
 			rf.add(RowFilter.regexFilter(".*" + map.get("telefon") + ".*", 4));
 			rf.add(RowFilter.regexFilter(".*" + map.get("email") + ".*", 5));
 			rf.add(RowFilter.regexFilter(".*" + map.get("adresa kancelarije") + ".*", 6));
