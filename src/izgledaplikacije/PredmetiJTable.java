@@ -33,32 +33,32 @@ public class PredmetiJTable extends JTable{
 		sorter=new TableRowSorter<>((AbstractTableModelPredmeti) getModel());
 		this.setRowSorter(sorter);
 	}
-	public void search(String query) {
-		String[] parts = query.split(";"); //SPLITUJEMO PO ;
-		Map<String,String> map = new HashMap<>();
+	 public void search(String query) {
+		 String[] parts = query.split(";"); //SPLITUJEMO PO ;
+		 Map<String,String> map = new HashMap<>();
 		
-		map.put("sifra", "");
-		map.put("naziv", "");
-		map.put("semestar", "");
-		map.put("godina", "");
-		map.put("profesor", "");
+		 map.put("sifra", "");
+		 map.put("naziv", "");
+		 map.put("semestar", "");
+		 map.put("godina", "");
+		 map.put("profesor", "");
 		
-		for(int i = 0; i < parts.length; i++) {
-			String[] splited = parts[i].split(":");
-			if(splited.length > 1) {
-			map.put(splited[0].toLowerCase(), splited[1]);
+		 for(int i = 0; i < parts.length; i++) {
+			 String[] splited = parts[i].split(":");
+			 if(splited.length > 1) {
+			 map.put(splited[0].toLowerCase(), splited[1]);
 			}
 		}
 		
-		List<RowFilter<Object,Object>> rfs = new ArrayList<RowFilter<Object,Object>>();
+		 List<RowFilter<Object,Object>> rfs = new ArrayList<RowFilter<Object,Object>>();
 		
-		rfs.add(RowFilter.regexFilter(".*" + map.get("sifra") + ".*", 0));
-		rfs.add(RowFilter.regexFilter(".*" + map.get("naziv") + ".*", 1));
-		rfs.add(RowFilter.regexFilter(".*" + map.get("semestar") + ".*", 2));
-		rfs.add(RowFilter.regexFilter(".*" + map.get("godina") + ".*", 3));
-		rfs.add(RowFilter.regexFilter(".*" + map.get("profesor") + ".*", 4));
+		 rfs.add(RowFilter.regexFilter(".*" + map.get("sifra") + ".*", 0));
+		 rfs.add(RowFilter.regexFilter(".*" + map.get("naziv") + ".*", 1));
+		 rfs.add(RowFilter.regexFilter(".*" + map.get("semestar") + ".*", 2));
+		 rfs.add(RowFilter.regexFilter(".*" + map.get("godina") + ".*", 3));
+		 rfs.add(RowFilter.regexFilter(".*" + map.get("profesor") + ".*", 4));
 		
 		
-		sorter.setRowFilter(RowFilter.andFilter(rfs));
+		 sorter.setRowFilter(RowFilter.andFilter(rfs));
 	}
 }

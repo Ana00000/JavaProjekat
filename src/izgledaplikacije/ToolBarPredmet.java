@@ -201,13 +201,13 @@ public class ToolBarPredmet extends JToolBar{
 			
 		});
 	
-		btnSearch.addActionListener(new ActionListener(){
+		 btnSearch.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				String query=textField.getText();
-				PredmetiJTable.getInstance().search(query);
+				 String query=textField.getText();
+				 PredmetiJTable.getInstance().search(query);
 			}
 			
 		});
