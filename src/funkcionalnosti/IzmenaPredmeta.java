@@ -472,12 +472,12 @@ public class IzmenaPredmeta extends JDialog{
 	    {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				String TreGod=cb1.getSelectedItem().toString();
-				TrenutnaGodina god=TrenutnaGodina.valueOf(TreGod);
+			 public void mouseClicked(MouseEvent e) {
+				 String TreGod=cb1.getSelectedItem().toString();
+				 TrenutnaGodina god=TrenutnaGodina.valueOf(TreGod);
 				
-				String semestar=cb2.getSelectedItem().toString();
-				Semestar sm=Semestar.valueOf(semestar);
+				 String semestar=cb2.getSelectedItem().toString();
+				 Semestar sm=Semestar.valueOf(semestar);
 				/*
 				for(Predmet p:BazaPredmeta.getInstance().getPredmeti()) {
 					
@@ -486,9 +486,9 @@ public class IzmenaPredmeta extends JDialog{
 						return;
 					}
 					}*/
-				PredmetiController.getInstance().IzmeniPredmet(tf2.getText(),tf1.getText(),sm,god,p);
+				 PredmetiController.getInstance().IzmeniPredmet(tf2.getText(),tf1.getText(),sm,god,p);
 				
-				dispose();
+				 dispose();
 				
 			}
 

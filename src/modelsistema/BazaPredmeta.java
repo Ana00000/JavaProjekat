@@ -135,25 +135,25 @@ public class BazaPredmeta implements Serializable{
 			}
 		}
 	}
-	public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet predmet) {
+	 public void izmeniPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina,Predmet predmet) {
 		
-		for(Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
-			for(Predmet p : profesor.getSpisakPredmetaNaKojimaPredaje()) {
-				if(p.getSifra().equals(predmet.getSifra())) {
-				p.setSifra(sifra);
-				p.setNaziv(naziv);
-				p.setSemestar(semestar);
-				p.setGodinaStudijaUKojojSePredmetIzvodi(godina);
-				break;
+		 for(Profesor profesor : BazaProfesora.getInstance().getProfesori()) {
+			 for(Predmet p : profesor.getSpisakPredmetaNaKojimaPredaje()) {
+				 if(p.getSifra().equals(predmet.getSifra())) {
+				 p.setSifra(sifra);
+				 p.setNaziv(naziv);
+				 p.setSemestar(semestar);
+				 p.setGodinaStudijaUKojojSePredmetIzvodi(godina);
+				 break;
 				}
 			}
 			
 	}
 		
-		predmet.setSifra(sifra);
-		predmet.setNaziv(naziv);
-		predmet.setSemestar(semestar);
-		predmet.setGodinaStudijaUKojojSePredmetIzvodi(godina);
+		 predmet.setSifra(sifra);
+		 predmet.setNaziv(naziv);
+		 predmet.setSemestar(semestar);
+		 predmet.setGodinaStudijaUKojojSePredmetIzvodi(godina);
 	}
 	public void dodajProfesoraNaPredmet(Predmet predmet,String brojLicne) {
 		int exists=0;

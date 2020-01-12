@@ -130,13 +130,13 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
-				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
+				 if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
+				 int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				 Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
-			    IzmenaPredmeta izmena=new IzmenaPredmeta(predmet);
-				izmena.setVisible(true);}else {
-					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da izmenite", "Greška!", JOptionPane.ERROR_MESSAGE);
+			     IzmenaPredmeta izmena=new IzmenaPredmeta(predmet);
+				 izmena.setVisible(true);}else {
+					 JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da izmenite", "Greška!", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			
