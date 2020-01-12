@@ -180,15 +180,15 @@ public class ToolBarPredmet extends JToolBar{
 			
 		});
 		
-		deleteProfesorBtn.addActionListener(new ActionListener() {
+		 deleteProfesorBtn.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			 public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
-					int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-					Predmet predmet = BazaPredmeta.getInstance().getRow(row);
-					if(predmet.getProfesor() != null) {
+				 if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
+					 int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+					 Predmet predmet = BazaPredmeta.getInstance().getRow(row);
+					 if(predmet.getProfesor() != null) {
 						if(JOptionPane.showConfirmDialog(null, "Da li ste sigurni da želite da obrišete profesora", "", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)		
 							PredmetiController.getInstance().uklanjanjeProfesoraSaPredmeta(row);
 					}else {

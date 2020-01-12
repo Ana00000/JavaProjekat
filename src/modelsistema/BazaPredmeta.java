@@ -205,8 +205,8 @@ public class BazaPredmeta implements Serializable{
 		predmet.setProfesor(new Profesor());//POSTAVIMO NOVOG PROFESORA
 		System.out.println(BazaProfesora.getInstance());
 	}
-	public void uklanjanjeProfesoraSaPredmeta(int index) {
-		Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(index);
+	 public void uklanjanjeProfesoraSaPredmeta(int index) {
+		 Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(index);
 		Profesor prof = BazaPredmeta.getInstance().getPredmeti().get(index).getProfesor();
 		for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
 			if(p.getBrojLicneKarte().equals(prof.getBrojLicneKarte())) {

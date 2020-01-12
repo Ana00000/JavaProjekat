@@ -50,8 +50,8 @@ public class PredmetiController {
 		 model.fireTableDataChanged();
 	}
 	
-	public void uklanjanjeProfesoraSaPredmeta(int index) {
-		BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(index);
+	 public void uklanjanjeProfesoraSaPredmeta(int index) {
+		 BazaPredmeta.getInstance().uklanjanjeProfesoraSaPredmeta(index);
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
 	}
