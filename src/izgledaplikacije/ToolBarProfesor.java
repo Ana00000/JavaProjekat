@@ -88,7 +88,7 @@ public class ToolBarProfesor extends JToolBar{
 			
 		});
 		
-		btnDelete.addActionListener(new ActionListener(){
+		 btnDelete.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

@@ -138,16 +138,16 @@ public class BazaProfesora implements Serializable{
 		this.profesori.add(new Profesor(ime,prezime,datumRodjenja,adresaStanovanja,kontaktTelefon,email,adresaKancelarije,brojLicneKarte,titula,zvanje,predmeti));
 	}
 	
-	public void izbrisiProfesora(String br) {
-		Profesor profesor = nadjiPoBrojuLicneKarte(br);
-		if(profesor.getSpisakPredmetaNaKojimaPredaje().size() > 0) {
-			for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
-				if(p.getProfesor().getBrojLicneKarte().equals(br)) {
-					p.setProfesor(null);
+	 public void izbrisiProfesora(String br) {
+		 Profesor profesor = nadjiPoBrojuLicneKarte(br);
+		 if(profesor.getSpisakPredmetaNaKojimaPredaje().size() > 0) {
+		  	for(Predmet p : BazaPredmeta.getInstance().getPredmeti()) {
+				 if(p.getProfesor().getBrojLicneKarte().equals(br)) {
+					 p.setProfesor(null);
 				}
 			}
 		}
-		profesori.remove(nadjiPoBrojuLicneKarte(br));
+		 profesori.remove(nadjiPoBrojuLicneKarte(br));
 	}
 	
 	public void izbrisiProfesoraP(Profesor p) {

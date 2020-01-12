@@ -23,8 +23,8 @@ public class ProfesoriController {
 		return instance;
 	}
 	
-	public void izbrisiProfesora(String brojLicneKarte) {
-BazaProfesora.getInstance().izbrisiProfesora(brojLicneKarte);
+	 public void izbrisiProfesora(String brojLicneKarte) {
+        BazaProfesora.getInstance().izbrisiProfesora(brojLicneKarte);
 		
 		AbstractTableModelProfesori model=(AbstractTableModelProfesori) ProfesoriJTable.getInstance().getModel();
 		AbstractTableModelPredmeti model1=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
