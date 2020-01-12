@@ -24,10 +24,10 @@ public class PredmetiController {
 
 	private PredmetiController() {}
 	
-	public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina) {
-		BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,new Profesor(), new ArrayList<String>());
-		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
-		model.fireTableDataChanged();
+	 public void dodajPredmet(String sifra,String naziv,Semestar semestar, TrenutnaGodina godina) {
+		 BazaPredmeta.getInstance().dodajPredmet(sifra,naziv,semestar,godina,new Profesor(), new ArrayList<String>());
+		 AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		 model.fireTableDataChanged();
 	}
 	
 	public void izbrisiPredmet(Predmet p) {

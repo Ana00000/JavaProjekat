@@ -100,8 +100,8 @@ public class ToolBarPredmet extends JToolBar{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				DodavanjePredmeta pred=new DodavanjePredmeta();
-				pred.setVisible(true);
+				 DodavanjePredmeta pred=new DodavanjePredmeta();
+				 pred.setVisible(true);
 			}
 			
 		});

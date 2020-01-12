@@ -444,22 +444,22 @@ public class DodavanjePredmeta extends JDialog {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String TreGod=cb1.getSelectedItem().toString();
-				TrenutnaGodina god=TrenutnaGodina.valueOf(TreGod);
+			   	 String TreGod=cb1.getSelectedItem().toString();
+				 TrenutnaGodina god=TrenutnaGodina.valueOf(TreGod);
 				
-				String semestar=cb2.getSelectedItem().toString();
-				Semestar sm=Semestar.valueOf(semestar);
+				 String semestar=cb2.getSelectedItem().toString();
+				 Semestar sm=Semestar.valueOf(semestar);
 				
-				for(Predmet p:BazaPredmeta.getInstance().getPredmeti()) {
+				 for(Predmet p:BazaPredmeta.getInstance().getPredmeti()) {
 					
-					if(tf2.getText().equals(p.getSifra())) {
-						JOptionPane.showMessageDialog(null,"Vec postoji predmet sa sifrom "+tf2.getText(), "Greska",JOptionPane.ERROR_MESSAGE);
-						return;
-					}
-					}
-				PredmetiController.getInstance().dodajPredmet(tf2.getText(),tf1.getText(),sm,god);
+					 if(tf2.getText().equals(p.getSifra())) {
+					 	 JOptionPane.showMessageDialog(null,"Vec postoji predmet sa sifrom "+tf2.getText(), "Greska",JOptionPane.ERROR_MESSAGE);
+						 return;
+					 }
+					 }
+				 PredmetiController.getInstance().dodajPredmet(tf2.getText(),tf1.getText(),sm,god);
 				
-				dispose();//JFRAME GOES AWAY WHEN WE CLICK THE BUTTON
+				 dispose();//JFRAME GOES AWAY WHEN WE CLICK THE BUTTON
 				
 			}
 
