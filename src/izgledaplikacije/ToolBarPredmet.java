@@ -105,23 +105,23 @@ public class ToolBarPredmet extends JToolBar{
 			}
 			
 		});
-		btnDelete.addActionListener(new ActionListener(){
+		 btnDelete.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub 
-				if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
-				int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
-				System.out.println("Selected row: "+row); //CONVERT ROW DAJE INDEKS REDA KO
-				Predmet predmet=BazaPredmeta.getInstance().getRow(row);
+				 if(!PredmetiJTable.getInstance().getSelectionModel().isSelectionEmpty()) {
+				 int row=PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				 System.out.println("Selected row: "+row); //CONVERT ROW DAJE INDEKS REDA KO
+				 Predmet predmet=BazaPredmeta.getInstance().getRow(row);
 				
-				if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete predmet?","Brisanje Predmeta",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
-					PredmetiController.getInstance().izbrisiPredmet(predmet);
+				 if(JOptionPane.showConfirmDialog(null,"Da li ste sigurni da zelite da obrisete predmet?","Brisanje Predmeta",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+					 PredmetiController.getInstance().izbrisiPredmet(predmet);
 			}else {
-				return;
+				 return;
 			}
 				}else {
-					JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da obrišete ", "Greška!", JOptionPane.ERROR_MESSAGE);
+					 JOptionPane.showMessageDialog(new JFrame(), "Potrebno je izabrati predmet koji želite da obrišete ", "Greška!", JOptionPane.ERROR_MESSAGE);
 				}
 		}
 		});

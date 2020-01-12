@@ -30,8 +30,8 @@ public class PredmetiController {
 		 model.fireTableDataChanged();
 	}
 	
-	public void izbrisiPredmet(Predmet p) {
-		BazaPredmeta.getInstance().izbrisiPredmet(p);
+	 public void izbrisiPredmet(Predmet p) {
+		 BazaPredmeta.getInstance().izbrisiPredmet(p);
 		//BazaPredmeta.getInstance().izbrisiPredmet(p.getSifra());
 		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
 		model.fireTableDataChanged();
