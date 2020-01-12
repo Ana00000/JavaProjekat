@@ -43,11 +43,11 @@ public class PredmetiController {
 		 model.fireTableDataChanged();
 	}
 	
-	public void dodavanjeProfesoraNaPredmet(int index,String brojLicne) {
-		BazaPredmeta.getInstance().dodajProfesoraNaPredmet(index,brojLicne);
-		System.out.println(BazaProfesora.getInstance());
-		AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
-		model.fireTableDataChanged();
+	 public void dodavanjeProfesoraNaPredmet(int index,String brojLicne) {
+		 BazaPredmeta.getInstance().dodajProfesoraNaPredmet(index,brojLicne);
+		 System.out.println(BazaProfesora.getInstance());
+		 AbstractTableModelPredmeti model=(AbstractTableModelPredmeti) PredmetiJTable.getInstance().getModel();
+		 model.fireTableDataChanged();
 	}
 	
 	public void uklanjanjeProfesoraSaPredmeta(int index) {

@@ -142,7 +142,7 @@ public class ToolBarPredmet extends JToolBar{
 			
 		});
 		
-		addProfesorBtn.addActionListener(new ActionListener() {
+		 addProfesorBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

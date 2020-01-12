@@ -282,11 +282,11 @@ public class DodavanjeProfesoraNaPredmet extends JDialog{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
+				 int row = PredmetiJTable.getInstance().convertRowIndexToModel(PredmetiJTable.getInstance().getSelectedRow());
 				//Predmet predmet = BazaPredmeta.getInstance().getRow(row);
 				
-				PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(row,tf1.getText());
-				dispose();
+				 PredmetiController.getInstance().dodavanjeProfesoraNaPredmet(row,tf1.getText());
+				 dispose();
 			}
 	    	
 	    });

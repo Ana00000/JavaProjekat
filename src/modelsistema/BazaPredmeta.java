@@ -173,10 +173,10 @@ public class BazaPredmeta implements Serializable{
 			JOptionPane.showMessageDialog(null, "NE postoji profesor sa datim brojem licne karte", "GRESKA", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	public void dodajProfesoraNaPredmet(int indeks, String brLicneKarte) {
-		int postoji = 0;
-		Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(indeks);
-		for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
+	 public void dodajProfesoraNaPredmet(int indeks, String brLicneKarte) {
+		 int postoji = 0;
+		 Predmet predmet = BazaPredmeta.getInstance().getPredmeti().get(indeks);
+		 for(Profesor p : BazaProfesora.getInstance().getProfesori()) {
 			System.out.println("stari broj licne"+ p.getBrojLicneKarte()+ "novi broj licne"+ brLicneKarte);
 			if(p.getBrojLicneKarte().equals(brLicneKarte)) {System.out.println("isti su "); }
 			if(p.getBrojLicneKarte().equals(brLicneKarte)) {
