@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/charsets.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/deploy.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/javaws.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/jce.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/jfr.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/jfxswt.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/jsse.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/management-agent.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/plugin.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/resources.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/rt.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/ant-javafx.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/dt.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/javafx-mx.jar"/>
@@ -19,5 +8,16 @@
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/packager.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/sa-jdi.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jdk1.8.0_191/lib/tools.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/charsets.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/deploy.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/javaws.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/jce.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/jfr.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/jfxswt.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/jsse.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/management-agent.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/plugin.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/resources.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_241/lib/rt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
